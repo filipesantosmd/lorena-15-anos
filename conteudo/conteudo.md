@@ -3,6 +3,13 @@
 Fonte: https://sites.google.com/view/15anosdalorena/página-inicial e /transporte
 Extraído em 2026-11-04.
 
+## Fatos confirmados por Filipe (2026-11-04)
+
+- Data: sábado, 13 de fevereiro de 2027, 19:30
+- Igreja: Bonfim é um bairro de Campinas. O ônibus da igreja atende Jundiaí e
+  Campinas (Bonfim); texto do site e formulário dizem a mesma coisa.
+- Fotos em alta resolução: a Lorena vai mandar ao Filipe.
+
 ## Página inicial
 
 - Título do site: "15 anos da Lorena"
@@ -43,7 +50,6 @@ Extraído em 2026-11-04.
 
 ## Pendências de conteúdo (perguntar à família)
 
-- Ano da festa (13 de fevereiro de 2027?)
 - Dress code
 - Programação da noite (entrada, valsa, 15 velas, festa) e horário de término
 - Corte (damas e cavalheiros), se houver
@@ -51,4 +57,3 @@ Extraído em 2026-11-04.
 - Fotos em alta resolução e uma foto de capa escolhida pela Lorena
 - Texto curto sobre a Lorena (opcional)
 - Prazo para confirmar presença
-- Igreja: o site diz "Bonfim" no texto e "Campinas" no formulário; qual é?

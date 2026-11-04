@@ -1,6 +1,6 @@
 # Os 15 da Lorena
 
-Site da festa de 15 anos da Lorena de Siqueira Santos. 13 de fevereiro, 19h30,
+Site da festa de 15 anos da Lorena de Siqueira Santos. sábado, 13 de fevereiro de 2027, 19h30,
 Casa Quintal, São Paulo.
 
 Site estático (HTML, CSS, um pouco de JS), sem build, publicado pelo GitHub
