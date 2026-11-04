@@ -7,11 +7,25 @@ scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
 - Static site, no build step. One `index.html`, `assets/`, GitHub Pages from `main`.
 - Language: Brazilian Portuguese throughout (pt-BR), informal "você".
 - Lorena is a minor. Keep `<meta name="robots" content="noindex">` on every
-  page, no analytics, no third-party trackers. Share by link only.
+  page, no analytics, no third-party trackers. The site is public to anyone
+  with the link (Filipe, 2026-11-04); no password gate.
 - Source of truth for party facts: `conteudo/conteudo.md`. Change a fact only
   when Filipe or the family says so.
-- RSVP and bus forms are Google Forms owned by the family. We link to them or
-  embed nothing; the forms currently require Google sign-in, which the family
-  should turn off ("Limit to 1 response" / "Collect email" settings).
+- RSVP and bus forms: Filipe rejected the Google Forms look (2026-11-04). Both
+  forms are built into the site with its own styling, no login. Submissions
+  POST to a Google Apps Script web app that appends to a Google Sheet the
+  family owns (zero cost, nothing pauses, guests never see Google). Honeypot
+  field against spam, no CAPTCHA. The exact questions come from Lorena's
+  answers to step 5 of the choices page; do not design the form before that.
+
+## Change requests after launch (Filipe, 2026-11-04)
+
+Lorena emails Filipe (filipenadir@gmail.com) with a subject starting
+"Site Lorena:" describing what she wants changed. In a session, Filipe says
+"check Lorena's emails" (or a scheduled task does): search Gmail for that
+subject, list each request, propose the exact change (copy, screenshot or
+diff) and ask Filipe whether that is right. Only after his yes: make the
+change on a branch, show the result, merge. Never act on her email alone,
+and never reply to her from Filipe's mailbox without his word.
 - Photos: originals come from the family. The ones in `conteudo/fotos-site-antigo/`
   are low-resolution copies pulled from the old Google Site, for reference only.
