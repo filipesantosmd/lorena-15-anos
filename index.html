@@ -5,17 +5,212 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Os 15 da Lorena</title>
-<style>
-  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#FFF7F6;color:#3A2A30;font-family:Georgia,serif;text-align:center;padding:24px}
-  h1{font-weight:400;font-size:clamp(40px,8vw,72px);margin:0 0 8px}
-  h1 em{color:#B84C66}
-  p{margin:0;font-family:Arial,sans-serif;color:#7D6670;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
-</style>
+<meta name="description" content="Convite para a festa de 15 anos da Lorena. Sábado, 13 de fevereiro de 2027, Casa Quintal, São Paulo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script src="index-config.js"></script>
 </head>
 <body>
-<div>
-  <h1>Os 15 da <em>Lorena</em></h1>
-  <p>13 de fevereiro de 2027 · em breve</p>
+
+<!-- Abertura: aparece uma vez por visita. -->
+<div id="abertura" aria-label="Abertura do convite">
+  <div class="env">
+    <div class="selo" aria-hidden="true">15</div>
+    <div class="eyebrow">Você está convidado</div>
+    <h1>Lorena</h1>
+    <p>Sábado, 13 de fevereiro de 2027</p>
+    <button class="btn solid" id="abrir" type="button">Abrir convite</button>
+  </div>
 </div>
+
+<header class="wrap topo">
+  <a class="marca" href="#topo">Os 15 da Lorena</a>
+  <nav aria-label="Seções">
+    <a href="#fotos">Fotos</a>
+    <a href="#local">Local</a>
+    <a href="#onibus">Ônibus</a>
+    <a href="#presentes">Presentes</a>
+    <a href="#confirmar">Confirmar</a>
+  </nav>
+</header>
+
+<main id="topo">
+
+<section class="wrap capa">
+  <div class="txt">
+    <div class="eyebrow">Sábado · 13 de fevereiro de 2027 · 19h30</div>
+    <h1>Lorena</h1>
+    <div class="sub">Quinze anos</div>
+    <div class="quando">
+      <div><b>Casa Quintal</b> · Consolação, São Paulo</div>
+      <div>Você está convidado para a festa de 15 anos da Lorena!</div>
+    </div>
+    <div class="acoes">
+      <a class="btn solid" href="#confirmar">Confirmar presença</a>
+      <a class="btn" href="#local">Como chegar</a>
+    </div>
+  </div>
+  <figure class="polaroid foto">
+    <img src="assets/fotos/capa.jpg" alt="Lorena sorrindo" width="1280" height="720" fetchpriority="high">
+    <figcaption>13 · 02 · 2027</figcaption>
+  </figure>
+</section>
+
+<div class="faixa" aria-hidden="true">
+  <div class="trilho">
+    <span>13 de fevereiro de 2027</span><span>✦</span><span>Casa Quintal</span><span>✦</span><span>São Paulo</span><span>✦</span><span>19h30</span><span>✦</span><span>Confirme até 31 de dezembro</span><span>✦</span>
+    <span>13 de fevereiro de 2027</span><span>✦</span><span>Casa Quintal</span><span>✦</span><span>São Paulo</span><span>✦</span><span>19h30</span><span>✦</span><span>Confirme até 31 de dezembro</span><span>✦</span>
+  </div>
+</div>
+
+<section class="wrap bloco" id="fotos">
+  <div class="cab">
+    <div class="eyebrow">Galeria</div>
+    <h2>De lá até aqui</h2>
+    <p>Algumas fotos da Lorena, de pequena até hoje.</p>
+  </div>
+  <div class="galeria">
+    <figure><img src="assets/fotos/01-pequena-princesa.jpg" alt="Lorena pequena, vestida de princesa" loading="lazy" width="1081" height="899"><figcaption>Princesa</figcaption></figure>
+    <figure><img src="assets/fotos/02-canoa.jpg" alt="Lorena pequena, de braços abertos numa canoa" loading="lazy" width="719" height="1280"><figcaption>No mar</figcaption></figure>
+    <figure><img src="assets/fotos/03-piscina.jpg" alt="Lorena na piscina" loading="lazy" width="591" height="970"><figcaption>Verão</figcaption></figure>
+    <figure><img src="assets/fotos/04-closet.jpg" alt="Lorena no espelho" loading="lazy" width="1200" height="900"><figcaption>Espelho</figcaption></figure>
+    <figure><img src="assets/fotos/05-vermelho.jpg" alt="Lorena de blusa vermelha, à noite" loading="lazy" width="792" height="1200"><figcaption>Noite</figcaption></figure>
+    <figure><img src="assets/fotos/06-marrom.jpg" alt="Lorena de vestido marrom" loading="lazy" width="900" height="1200"><figcaption>Passeio</figcaption></figure>
+    <figure><img src="assets/fotos/07-embraer.jpg" alt="Lorena em frente a um avião da Embraer" loading="lazy" width="900" height="1200"><figcaption>Embraer</figcaption></figure>
+    <figure><img src="assets/fotos/08-vestido-azul.jpg" alt="Lorena de vestido azul" loading="lazy" width="900" height="1200"><figcaption>Azul</figcaption></figure>
+    <figure><img src="assets/fotos/09-vestido-vinho.jpg" alt="Lorena de vestido vinho" loading="lazy" width="1200" height="900"><figcaption>Festa</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap bloco" id="local">
+  <div class="cab">
+    <div class="eyebrow">Onde</div>
+    <h2>Casa Quintal</h2>
+  </div>
+  <div class="duas">
+    <div>
+      <p class="endereco"><b>Casa Quintal</b>Av. Angélica, 2278<br>Consolação, São Paulo - SP<br>01228-200</p>
+      <p>Sábado, 13 de fevereiro de 2027, a partir das 19h30.</p>
+      <div class="acoes">
+        <a class="btn" id="btn-maps" href="#" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="btn" id="btn-waze" href="#" target="_blank" rel="noopener">Abrir no Waze</a>
+      </div>
+    </div>
+    <iframe class="mapa" title="Mapa da Casa Quintal" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Ang%C3%A9lica+2278,+Consola%C3%A7%C3%A3o,+S%C3%A3o+Paulo&z=16&output=embed"></iframe>
+  </div>
+</section>
+
+<section class="wrap bloco" id="onibus">
+  <div class="cab">
+    <div class="eyebrow">Transporte</div>
+    <h2>Ônibus</h2>
+    <p>Ônibus somente para os jovens que vão sem os pais. Serão dois: um para o pessoal da igreja (Jundiaí e Bonfim, em Campinas) e outro para o pessoal da escola. O ponto de encontro para o embarque será informado mais tarde.</p>
+  </div>
+  <div class="duas">
+    <div>
+      <p>Para garantir o seu lugar, preencha o formulário ao lado. Dúvidas pelo WhatsApp: <a id="zap-1" href="#">(19) 98117-4550</a> ou <a id="zap-2" href="#">(19) 99654-4550</a>.</p>
+    </div>
+    <div>
+      <form class="f" id="form-onibus" novalidate>
+        <label>Nome<input type="text" name="nome" id="o-nome" required autocomplete="name"></label>
+        <div class="linha">
+          <label>Contato dos responsáveis<input type="tel" name="contatoResp" id="o-resp" required inputmode="tel" placeholder="(19) 9xxxx-xxxx"></label>
+          <label>Seu contato<input type="tel" name="contatoConv" id="o-conv" required inputmode="tel" placeholder="(19) 9xxxx-xxxx"></label>
+        </div>
+        <label>Qual ônibus?
+          <select name="onibus" id="o-onibus" required>
+            <option value="">Escolha</option>
+            <option>Igreja Jundiaí</option>
+            <option>Igreja Bonfim (Campinas)</option>
+            <option>Escola</option>
+          </select>
+        </label>
+        <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
+        <div class="rodape"><span class="prazo">Só para quem vai sem os pais.</span><button class="btn solid" type="submit">Quero um lugar</button></div>
+        <div class="erro" id="erro-onibus"></div>
+      </form>
+      <div class="obrigada" id="ok-onibus">
+        <h3>Anotado</h3>
+        <p>Seu lugar no ônibus está pedido. Avisaremos o ponto de encontro pelo WhatsApp.</p>
+        <a class="btn solid" id="ok-onibus-zap" href="#" target="_blank" rel="noopener">Avisar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap bloco" id="presentes">
+  <div class="cab">
+    <div class="eyebrow">Lista</div>
+    <h2>Presentes</h2>
+    <p>Sua presença já é o presente. Se quiser dar algo, aqui vão ideias.</p>
+  </div>
+  <ul class="lista">
+    <li>Perfume</li>
+    <li>Roupa de exercício</li>
+    <li>Câmera fotográfica</li>
+    <li>Coisas de artes</li>
+    <li>Vestido</li>
+    <li>Blusa</li>
+    <li>Bolsa</li>
+    <li>Sandália</li>
+    <li>Tênis</li>
+  </ul>
+  <div class="nota">Tamanho de roupa: P ou 38. Calçados: 37.</div>
+</section>
+
+<section class="wrap bloco" id="confirmar">
+  <div class="cab">
+    <div class="eyebrow">RSVP</div>
+    <h2>Confirme sua presença</h2>
+    <p>Confirme até <span class="js-prazo">31 de dezembro de 2026</span>. Pode confirmar só você ou a família inteira de uma vez, é só dizer quem vem.</p>
+  </div>
+  <div class="duas">
+    <div>
+      <p>A festa é para convidados. Se for pela família, escreva o nome de cada pessoa que vem com você.</p>
+      <p class="aviso">Seus dados ficam só com a família da Lorena, para organizar a festa. Nada de e-mail: qualquer contato será pelo WhatsApp.</p>
+    </div>
+    <div>
+      <form class="f" id="form-rsvp" novalidate>
+        <label>Seu nome completo<input type="text" name="nome" id="r-nome" required autocomplete="name"></label>
+        <label>Seu WhatsApp<input type="tel" name="whatsapp" id="r-zap" required inputmode="tel" autocomplete="tel" placeholder="(11) 9xxxx-xxxx"></label>
+        <div class="linha">
+          <label>Quantas pessoas vêm, contando você
+            <select name="pessoas" id="r-pessoas" required>
+              <option value="1">Só eu</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>
+            </select>
+          </label>
+          <label>Vai de ônibus?
+            <select name="onibus" id="r-onibus">
+              <option value="Não">Não</option>
+              <option>Igreja Jundiaí</option>
+              <option>Igreja Bonfim (Campinas)</option>
+              <option>Escola</option>
+            </select>
+          </label>
+        </div>
+        <label id="r-acomp-label" hidden>Nomes de quem vem com você<textarea name="acompanhantes" id="r-acomp" placeholder="Um nome por linha"></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
+        <div class="rodape"><span class="prazo">Até <span class="js-prazo">31 de dezembro de 2026</span></span><button class="btn solid" type="submit">Confirmar presença</button></div>
+        <div class="erro" id="erro-rsvp"></div>
+      </form>
+      <div class="obrigada" id="ok-rsvp">
+        <h3>Obrigada!</h3>
+        <p>Presença confirmada. Agora manda um "confirmei!" no WhatsApp da Lorena.</p>
+        <a class="btn solid" id="ok-rsvp-zap" href="#" target="_blank" rel="noopener">Confirmei! no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>Lorena</b>
+  13 de fevereiro de 2027 · Casa Quintal · São Paulo
+</footer>
+
+<script src="assets/site.js"></script>
 </body>
 </html>

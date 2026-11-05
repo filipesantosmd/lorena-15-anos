@@ -4,7 +4,10 @@ Personal project for Filipe's niece. It is NOT part of Path to Practice or
 filipesantosmd.com: never reuse their header, CSS, analytics, Brevo, Make
 scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
 
-- Static site, no build step. One `index.html`, `assets/`, GitHub Pages from `main`.
+- Static site, no build step. `index.html`, `lista.html`, `index-config.js`,
+  `assets/`, published by GitHub Pages from `main` (workflow in .github/).
+  Live at https://filipesantosmd.github.io/lorena-15-anos/ until the domain
+  is set up. Lorena's choices are recorded in `conteudo/decisoes.md`.
 - Language: Brazilian Portuguese throughout (pt-BR), informal "você".
 - Lorena is a minor. Keep `<meta name="robots" content="noindex">` on every
   page, no analytics, no third-party trackers. The site is public to anyone
@@ -15,8 +18,10 @@ scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
   forms are built into the site with its own styling, no login. Submissions
   POST to a Google Apps Script web app that appends to a Google Sheet the
   family owns (zero cost, nothing pauses, guests never see Google). Honeypot
-  field against spam, no CAPTCHA. The exact questions come from Lorena's
-  answers to step 5 of the choices page; do not design the form before that.
+  field against spam, no CAPTCHA. Questions follow Lorena's answers in
+  `conteudo/decisoes.md`. `lista.html` shows the answers to the family behind
+  a password (the TOKEN script property). Until `formEndpoint` is set in
+  `index-config.js`, submissions open WhatsApp with the text prefilled.
 
 ## Change requests after launch (Filipe, 2026-11-04)
 

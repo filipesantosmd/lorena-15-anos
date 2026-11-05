@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Confirmações · Os 15 da Lorena</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  main.wrap{padding-block:48px}
+  .senha{max-width:420px}
+  .painel{display:none}
+  .tot{display:flex;flex-wrap:wrap;gap:14px;margin:24px 0}
+  .tot div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px;min-width:140px}
+  .tot b{display:block;font-family:var(--display);font-size:40px;line-height:1;margin-bottom:4px}
+  .tot span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  h3{font-size:34px;letter-spacing:.08em;text-transform:uppercase;margin:36px 0 12px}
+  .tabela{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+  table{border-collapse:collapse;width:100%;font-size:15px;min-width:640px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .vazio{color:var(--muted);padding:14px}
+</style>
+<script src="index-config.js"></script>
+</head>
+<body class="aberta">
+<header class="wrap topo"><a class="marca" href="index.html">Os 15 da Lorena</a><nav><a href="index.html">Voltar ao site</a></nav></header>
+<main class="wrap">
+  <div class="cab"><div class="eyebrow">Só para a família</div><h2>Confirmações</h2><p>Quem confirmou presença e quem pediu lugar no ônibus. Os dados ficam na planilha da família, nunca por e-mail.</p></div>
+
+  <form class="f senha" id="f-senha">
+    <label>Senha<input type="password" id="senha" autocomplete="current-password" required></label>
+    <div class="rodape"><span class="prazo"></span><button class="btn solid" type="submit">Entrar</button></div>
+    <div class="erro" id="erro"></div>
+  </form>
+
+  <div class="painel" id="painel">
+    <div class="tot">
+      <div><b id="t-conf">0</b><span>confirmações</span></div>
+      <div><b id="t-pessoas">0</b><span>pessoas</span></div>
+      <div><b id="t-onibus">0</b><span>no ônibus</span></div>
+    </div>
+    <h3>Presença</h3>
+    <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>WhatsApp</th><th>Pessoas</th><th>Acompanhantes</th><th>Ônibus</th></tr></thead><tbody id="tb-rsvp"></tbody></table><div class="vazio" id="v-rsvp" hidden>Ninguém confirmou ainda.</div></div>
+    <h3>Ônibus</h3>
+    <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>Responsáveis</th><th>Convidado</th><th>Ônibus</th></tr></thead><tbody id="tb-bus"></tbody></table><div class="vazio" id="v-bus" hidden>Nenhum pedido ainda.</div></div>
+  </div>
+</main>
+<script>
+(function(){
+  var C=window.CONFIG||{}; var $=function(s){return document.querySelector(s)};
+  var f=$("#f-senha"), erro=$("#erro");
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function quando(s){var d=new Date(s);return isNaN(d)?esc(s):d.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}
+  f.addEventListener("submit",function(e){
+    e.preventDefault(); erro.style.display="none";
+    if(!C.formEndpoint){erro.textContent="O endereço do Apps Script ainda não foi configurado (index-config.js).";erro.style.display="block";return}
+    var b=f.querySelector("button"); b.disabled=true; b.textContent="Abrindo…";
+    fetch(C.formEndpoint+"?lista=1&token="+encodeURIComponent($("#senha").value))
+      .then(function(r){return r.json()})
+      .then(function(j){
+        if(!j||!j.ok) throw new Error(j&&j.error||"erro");
+        f.hidden=true; $("#painel").style.display="block";
+        var rs=j.rsvp||[], bs=j.onibus||[];
+        $("#t-conf").textContent=rs.length;
+        $("#t-pessoas").textContent=rs.reduce(function(a,r){return a+(parseInt(r.pessoas,10)||1)},0);
+        $("#t-onibus").textContent=rs.filter(function(r){return r.onibus&&r.onibus!=="Não"}).length+bs.length;
+        $("#tb-rsvp").innerHTML=rs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.nome)+"</td><td class='n'>"+esc(r.whatsapp)+"</td><td class='n'>"+esc(r.pessoas)+"</td><td>"+esc(r.acompanhantes).replace(/\n/g,"<br>")+"</td><td>"+esc(r.onibus)+"</td></tr>"}).join("");
+        $("#v-rsvp").hidden=rs.length>0;
+        $("#tb-bus").innerHTML=bs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.nome)+"</td><td class='n'>"+esc(r.contatoResp)+"</td><td class='n'>"+esc(r.contatoConv)+"</td><td>"+esc(r.onibus)+"</td></tr>"}).join("");
+        $("#v-bus").hidden=bs.length>0;
+      })
+      .catch(function(err){b.disabled=false;b.textContent="Entrar";erro.textContent=err.message==="senha"?"Senha errada.":"Não foi possível abrir a lista agora.";erro.style.display="block"});
+  });
+})();
+</script>
+</body>
+</html>

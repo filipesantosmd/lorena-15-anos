@@ -6,7 +6,10 @@ Casa Quintal, São Paulo.
 Site estático (HTML, CSS, um pouco de JS), sem build, publicado pelo GitHub
 Pages a partir do branch `main`. Nada aqui é compartilhado com outros projetos.
 
-- `index.html` é a página. Textos editáveis ficam no topo dela, em um bloco só.
-- `assets/` guarda fotos otimizadas e o CSS.
+- `index.html` é a página. `index-config.js` guarda o que muda com frequência
+  (prazo, WhatsApp, endereço do Apps Script, links de mapa).
+- `lista.html` é a página com senha onde a família vê as confirmações.
+- `assets/` guarda fotos otimizadas, o CSS e o JS.
+- `apps-script/` tem o código e as instruções do backend das confirmações.
 - `conteudo/` guarda o inventário do conteúdo e as capturas do site antigo
   (Google Sites), para conferência.
