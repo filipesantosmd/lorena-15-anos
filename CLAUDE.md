@@ -32,5 +32,7 @@ subject, list each request, propose the exact change (copy, screenshot or
 diff) and ask Filipe whether that is right. Only after his yes: make the
 change on a branch, show the result, merge. Never act on her email alone,
 and never reply to her from Filipe's mailbox without his word.
-- Photos: originals come from the family. The ones in `conteudo/fotos-site-antigo/`
-  are low-resolution copies pulled from the old Google Site, for reference only.
+- Photos: `assets/fotos/` holds web-sized copies (max 1400px, JPEG q82). The
+  current ones were captured from the old Google Site at 1280px and are
+  placeholders until the family sends originals. Never commit originals;
+  resize them the same way.
