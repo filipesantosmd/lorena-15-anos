@@ -48,5 +48,5 @@ em 2026-11-06.
 
 - Número de WhatsApp que recebe o "confirmei!" (está (19) 98117-4550 por
   enquanto, o primeiro contato do ônibus).
-- Fotos em alta resolução (as atuais vieram do site antigo, em 1280px).
+- Fotos: já vêm da pasta "15 anos" do Drive da Lorena (2026-11-06); quando ela mudar a pasta, refazer a galeria.
 - Instalar o Apps Script (apps-script/README.md).
