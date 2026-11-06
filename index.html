@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
-<script src="index-config.js?v=20261106c"></script>
+<script src="index-config.js?v=20261106d"></script>
 </head>
 <body>
 
@@ -128,9 +128,14 @@
   </div>
   <div class="duas">
     <div>
-      <p>Se você ainda vai confirmar presença, marque o ônibus lá na confirmação e pronto. Este formulário é para quem já confirmou (ou cuja família já confirmou) e quer o lugar no ônibus. Dúvidas pelo WhatsApp: <a id="zap-1" href="#">(19) 98117-4550</a> ou <a id="zap-2" href="#">(19) 99654-4550</a>.</p>
+      <p>Para pedir o seu lugar, marque o ônibus na <a href="#confirmar">confirmação de presença</a>. É um passo só. Dúvidas pelo WhatsApp: <a id="zap-1" href="#">(19) 98117-4550</a> ou <a id="zap-2" href="#">(19) 99654-4550</a>.</p>
+      <details class="dobra" id="dobra-onibus">
+        <summary>Já confirmei e esqueci de pedir o ônibus</summary>
+        <p>Sem problema. Preencha aqui que a gente anota o seu lugar.</p>
+      </details>
     </div>
-    <div>
+    <div class="so-dobra" id="bloco-onibus" hidden>
+      <div class="aviso" id="aviso-onibus" hidden></div>
       <form class="f" id="form-onibus" novalidate>
         <label>Nome<input type="text" name="nome" id="o-nome" required autocomplete="name"></label>
         <div class="linha">
@@ -147,6 +152,7 @@
         </label>
         <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
         <div class="rodape"><span class="prazo">Só para quem vai sem os pais.</span><button class="btn solid" type="submit">Quero um lugar</button></div>
+        <p class="prazo" style="margin:0">Já pediu antes? Pode enviar de novo que a gente atualiza, sem duplicar.</p>
         <div class="erro" id="erro-onibus"></div>
       </form>
       <div class="obrigada" id="ok-onibus">
@@ -190,6 +196,7 @@
       <p class="aviso">Seus dados ficam só com a família da Lorena, para organizar a festa. Nada de e-mail: qualquer contato será pelo WhatsApp.</p>
     </div>
     <div>
+      <div class="aviso" id="aviso-rsvp" hidden></div>
       <form class="f" id="form-rsvp" novalidate>
         <label>Seu nome completo<input type="text" name="nome" id="r-nome" required autocomplete="name"></label>
         <label>Seu WhatsApp<input type="tel" name="whatsapp" id="r-zap" required inputmode="tel" autocomplete="tel" placeholder="(11) 9xxxx-xxxx"></label>
@@ -215,6 +222,7 @@
         </div>
         <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
         <div class="rodape"><span class="prazo">Até <span class="js-prazo">31 de dezembro de 2026</span></span><button class="btn solid" type="submit">Confirmar presença</button></div>
+        <p class="prazo" style="margin:0">Confirmou e mudou algo? Envie de novo com o mesmo WhatsApp que a gente atualiza, sem duplicar.</p>
         <div class="erro" id="erro-rsvp"></div>
       </form>
       <div class="obrigada" id="ok-rsvp">

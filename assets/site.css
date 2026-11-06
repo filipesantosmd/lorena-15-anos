@@ -86,6 +86,15 @@ section.bloco+section.bloco{border-top:1px solid var(--line)}
 .mapa{border:0;width:100%;aspect-ratio:4/3;border-radius:6px;box-shadow:0 12px 30px rgba(58,42,48,.12);background:var(--blush)}
 .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 
+/* dobra (esqueci o ônibus) */
+.dobra{margin-top:18px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.dobra summary{cursor:pointer;padding:14px 16px;font-weight:500;letter-spacing:.04em;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dobra summary::-webkit-details-marker{display:none}
+.dobra summary::after{content:"+";font-family:var(--display);font-size:24px;color:var(--rose-deep);line-height:1}
+.dobra[open] summary::after{content:"−"}
+.dobra p{margin:0;padding:0 16px 14px;color:var(--muted);font-size:15px}
+.dobra summary:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:8px}
+
 /* presentes */
 .lista{columns:2;column-gap:40px;list-style:none;padding:0;margin:0;font-size:18px}
 .lista li{break-inside:avoid;padding:10px 0;border-bottom:1px solid var(--line)}

@@ -22,8 +22,13 @@ scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
   family owns (zero cost, nothing pauses, guests never see Google). Honeypot
   field against spam, no CAPTCHA. Questions follow Lorena's answers in
   `conteudo/decisoes.md`. `lista.html` shows the answers to the family behind
-  a password (the TOKEN script property). Until `formEndpoint` is set in
-  `index-config.js`, submissions open WhatsApp with the text prefilled.
+  a password (the TOKEN script property). Choosing a bus in the RSVP also
+  books the seat (two POSTs); the standalone bus form is collapsed behind
+  "Já confirmei e esqueci de pedir o ônibus" (Filipe, 2026-11-06). Duplicates:
+  the script upserts by WhatsApp digits, else by normalised name, under a
+  LockService lock; the site remembers submissions in localStorage and says so.
+  Any change to apps-script/Code.gs needs Filipe to paste it and deploy a new
+  version in his Apps Script project (URL stays the same).
 
 ## Change requests after launch (Filipe, 2026-11-04)
 

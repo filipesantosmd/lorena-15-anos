@@ -30,6 +30,14 @@ Abra o site, confirme presença com um nome de teste. A linha aparece na aba
 "Confirmações" da planilha. Abra `lista.html`, digite a senha, a linha aparece.
 Apague a linha de teste na planilha.
 
+## Sem duplicados
+
+O script compara cada envio com as linhas que já existem: mesmo WhatsApp (ou
+mesmo nome, quando não há telefone para comparar) significa a mesma pessoa, e a
+linha existente é substituída. O site também lembra, no aparelho da pessoa, o
+que ela já enviou, avisa e preenche o formulário de novo. Duas pessoas com o
+mesmo nome e telefones diferentes continuam sendo duas linhas.
+
 ## Mudar o código depois
 
 Editou `Code.gs`? Cole de novo no editor, salve e faça
