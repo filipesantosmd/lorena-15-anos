@@ -33,7 +33,7 @@ window.CONFIG = {
 
   // Música do site: começa ao abrir o convite, com botão ♪ para pausar.
   // Só músicas livres podem ser tocadas; a favorita dela vai como link.
-  musica: { src: "assets/musica.mp3", titulo: "Gymnopédie No. 1, Erik Satie", credito: "Kevin MacLeod (incompetech.com), CC BY 4.0", volume: 0.45, spotify: "" },
+  musica: { src: "assets/musica.mp3?v=2", titulo: "Life of Riley, Kevin MacLeod", credito: "incompetech.com, CC BY 4.0", volume: 0.4, spotify: "" },
 
   // Recursos ligáveis.
   mostrarContagem: true, minimoContagem: 10,   // "Já confirmaram N pessoas" a partir de N
