@@ -5,27 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Os 15 da Lorena</title>
-<meta name="description" content="Convite para a festa de 15 anos da Lorena. Sábado, 13 de fevereiro de 2027, Casa Quintal, São Paulo.">
+<meta name="description" content="Sábado, 13 de fevereiro de 2027, 19h30 · Casa Quintal, São Paulo. Abra para confirmar presença.">
+<meta name="theme-color" content="#B84C66">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://15anosdalorena.com.br/">
+<meta property="og:title" content="Os 15 da Lorena">
+<meta property="og:description" content="Sábado, 13 de fevereiro de 2027, 19h30 · Casa Quintal, São Paulo. Abra o convite e confirme até 31 de dezembro.">
+<meta property="og:image" content="https://15anosdalorena.com.br/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css">
-<script src="index-config.js?v=20261106d"></script>
+<link rel="stylesheet" href="assets/site.css?v=20261106e">
+<script src="index-config.js?v=20261106e"></script>
 </head>
-<body>
+<body class="sem-fontes">
 
 <!-- Abertura: aparece uma vez por visita. -->
-<div id="abertura" aria-label="Abertura do convite">
+<div id="abertura" role="dialog" aria-modal="true" aria-label="Abertura do convite">
   <div class="env">
-    <div class="selo" aria-hidden="true">15</div>
-    <div class="eyebrow">Você está convidado</div>
-    <h1>Lorena</h1>
-    <p>Sábado, 13 de fevereiro de 2027</p>
-    <button class="btn solid" id="abrir" type="button">Abrir convite</button>
+    <div class="selo" id="selo" aria-hidden="true">15</div>
+    <div class="eyebrow" id="ab-eyebrow">Você está na lista</div>
+    <h1 id="ab-nome">Lorena</h1>
+    <p id="ab-data">Sábado, 13 de fevereiro de 2027 · 19h30 · São Paulo</p>
+    <div class="conta" id="ab-conta"></div>
+    <button class="btn solid" id="abrir" type="button">Abrir o convite <span aria-hidden="true">✦</span></button>
   </div>
 </div>
 
-<header class="wrap topo">
+<header class="topo"><div class="wrap">
   <a class="marca" href="#topo">Os 15 da Lorena</a>
   <nav aria-label="Seções">
     <a href="#fotos">Fotos</a>
@@ -34,109 +48,105 @@
     <a href="#presentes">Presentes</a>
     <a href="#confirmar">Confirmar</a>
   </nav>
-</header>
+</div></header>
 
 <main id="topo">
 
 <section class="wrap capa">
   <div class="txt">
-    <div class="eyebrow">Sábado · 13 de fevereiro de 2027 · 19h30</div>
-    <h1>Lorena</h1>
-    <div class="sub">Quinze anos</div>
-    <div class="quando">
-      <div><b>Casa Quintal</b> · Consolação, São Paulo</div>
-      <div>Você está convidado para a festa de 15 anos da Lorena!</div>
-    </div>
+    <div class="eyebrow"><span>Sábado · 13 de fevereiro de 2027</span> <span>· 19h30</span></div>
+    <h1 tabindex="-1">Lorena</h1>
+    <div class="sub">Quinze <span class="it">anos</span></div>
+    <p class="quando"><b>A Lorena e a família convidam você</b> para a festa dos seus 15 anos, na Casa Quintal, em São Paulo.</p>
     <div class="acoes">
       <a class="btn solid" href="#confirmar">Confirmar presença</a>
       <a class="btn" href="#local">Como chegar</a>
     </div>
   </div>
-  <figure class="polaroid foto">
-    <img src="assets/fotos/capa.jpg" alt="Lorena na piscina" width="1050" height="1400" fetchpriority="high">
-    <figcaption>13 · 02 · 2027</figcaption>
-  </figure>
+  <div class="foto-col">
+    <div class="pilha">
+      <figure class="polaroid b" id="capa-atras" hidden><img src="" alt="" width="1050" height="1400" loading="lazy"><figcaption id="capa-atras-leg"></figcaption></figure>
+      <figure class="polaroid foto">
+        <img src="assets/fotos/capa.jpg" srcset="assets/fotos/capa-700.jpg 700w, assets/fotos/capa.jpg 1050w" sizes="(max-width:820px) 280px, 440px" alt="Lorena na piscina, sorrindo" width="1050" height="1400" fetchpriority="high">
+        <figcaption>13 · 02 · 2027</figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
 
-<div class="faixa" aria-hidden="true">
-  <div class="trilho">
-    <span>13 de fevereiro de 2027</span><span>✦</span><span>Casa Quintal</span><span>✦</span><span>São Paulo</span><span>✦</span><span>19h30</span><span>✦</span><span>Confirme até 31 de dezembro</span><span>✦</span>
-    <span>13 de fevereiro de 2027</span><span>✦</span><span>Casa Quintal</span><span>✦</span><span>São Paulo</span><span>✦</span><span>19h30</span><span>✦</span><span>Confirme até 31 de dezembro</span><span>✦</span>
+<section class="wrap fatos" aria-label="Resumo">
+  <div><b>Quando</b>Sábado, 13 de fevereiro de 2027<small id="fato-hora">A partir das 19h30</small></div>
+  <div><b>Onde</b>Casa Quintal<small>Av. Angélica, 2278 · Consolação, São Paulo</small></div>
+  <div id="fato-traje" hidden><b>Traje</b><span id="fato-traje-txt"></span><small id="fato-traje-nota"></small></div>
+  <div class="acoes">
+    <a class="btn leve" href="assets/lorena15.ics" download="os-15-da-lorena.ics">Salvar na agenda</a>
+    <a class="btn leve" id="btn-gcal" href="#" target="_blank" rel="noopener">Google Agenda</a>
+    <button class="btn leve" id="btn-share" type="button" hidden>Compartilhar convite</button>
   </div>
-</div>
+</section>
+
+<div class="faixa" aria-hidden="true"><div class="trilho" id="trilho"></div></div>
 
 <section class="wrap bloco" id="fotos">
-  <div class="cab">
+  <div class="cab entra">
     <div class="eyebrow">Galeria</div>
-    <h2>De lá até aqui</h2>
+    <h2>De lá <span class="it">até</span> aqui</h2>
     <p>Fotos da Lorena, de pequena até hoje, escolhidas por ela.</p>
   </div>
-  <div class="galeria">
-    <figure><img src="assets/fotos/01.jpg" alt="Lorena, foto 1 de 27" loading="lazy" width="783" height="1313"></figure>
-    <figure><img src="assets/fotos/02.jpg" alt="Lorena, foto 2 de 27" loading="lazy" width="787" height="1400"></figure>
-    <figure><img src="assets/fotos/03.jpg" alt="Lorena, foto 3 de 27" loading="lazy" width="1123" height="1400"></figure>
-    <figure class="wide"><img src="assets/fotos/04.jpg" alt="Lorena, foto 4 de 27" loading="lazy" width="1081" height="899"></figure>
-    <figure><img src="assets/fotos/05.jpg" alt="Lorena, foto 5 de 27" loading="lazy" width="787" height="1400"></figure>
-    <figure><img src="assets/fotos/06.jpg" alt="Lorena, foto 6 de 27" loading="lazy" width="787" height="1400"></figure>
-    <figure class="wide"><img src="assets/fotos/07.jpg" alt="Lorena, foto 7 de 27" loading="lazy" width="1400" height="1051"></figure>
-    <figure><img src="assets/fotos/08.jpg" alt="Lorena, foto 8 de 27" loading="lazy" width="956" height="1154"></figure>
-    <figure><img src="assets/fotos/09.jpg" alt="Lorena, foto 9 de 27" loading="lazy" width="939" height="1400"></figure>
-    <figure><img src="assets/fotos/10.jpg" alt="Lorena, foto 10 de 27" loading="lazy" width="960" height="1280"></figure>
-    <figure><img src="assets/fotos/11.jpg" alt="Lorena, foto 11 de 27" loading="lazy" width="1050" height="1400"></figure>
-    <figure><img src="assets/fotos/12.jpg" alt="Lorena, foto 12 de 27" loading="lazy" width="1050" height="1400"></figure>
-    <figure class="wide"><img src="assets/fotos/13.jpg" alt="Lorena, foto 13 de 27" loading="lazy" width="1400" height="1050"></figure>
-    <figure class="wide"><img src="assets/fotos/14.jpg" alt="Lorena, foto 14 de 27" loading="lazy" width="1400" height="1050"></figure>
-    <figure><img src="assets/fotos/15.jpg" alt="Lorena, foto 15 de 27" loading="lazy" width="1050" height="1400"></figure>
-    <figure class="wide"><img src="assets/fotos/16.jpg" alt="Lorena, foto 16 de 27" loading="lazy" width="1280" height="960"></figure>
-    <figure class="wide"><img src="assets/fotos/17.jpg" alt="Lorena, foto 17 de 27" loading="lazy" width="1400" height="933"></figure>
-    <figure><img src="assets/fotos/18.jpg" alt="Lorena, foto 18 de 27" loading="lazy" width="1050" height="1400"></figure>
-    <figure><img src="assets/fotos/19.jpg" alt="Lorena, foto 19 de 27" loading="lazy" width="1050" height="1400"></figure>
-    <figure><img src="assets/fotos/20.jpg" alt="Lorena, foto 20 de 27" loading="lazy" width="1050" height="1400"></figure>
-    <figure><img src="assets/fotos/21.jpg" alt="Lorena, foto 21 de 27" loading="lazy" width="828" height="1202"></figure>
-    <figure class="wide"><img src="assets/fotos/22.jpg" alt="Lorena, foto 22 de 27" loading="lazy" width="1400" height="933"></figure>
-    <figure class="wide"><img src="assets/fotos/23.jpg" alt="Lorena, foto 23 de 27" loading="lazy" width="1400" height="933"></figure>
-    <figure class="wide"><img src="assets/fotos/24.jpg" alt="Lorena, foto 24 de 27" loading="lazy" width="1400" height="1050"></figure>
-    <figure class="wide"><img src="assets/fotos/25.jpg" alt="Lorena, foto 25 de 27" loading="lazy" width="1400" height="933"></figure>
-    <figure class="wide"><img src="assets/fotos/26.jpg" alt="Lorena, foto 26 de 27" loading="lazy" width="1400" height="1050"></figure>
-    <figure class="wide"><img src="assets/fotos/27.jpg" alt="Lorena, foto 27 de 27" loading="lazy" width="1400" height="933"></figure>
+  <blockquote class="recado-lorena" id="recado-lorena" hidden><span id="recado-lorena-txt"></span><small>Lorena</small></blockquote>
+  <div class="galeria" id="galeria"></div>
+</section>
+
+<section class="wrap bloco" id="noite" hidden>
+  <div class="cab entra">
+    <div class="eyebrow">Programação</div>
+    <h2>A <span class="it">noite</span></h2>
+    <p>Chegue às 19h30: a entrada da Lorena é um dos primeiros momentos e vale a pena estar lá.</p>
   </div>
+  <ol class="noite" id="programacao"></ol>
 </section>
 
 <section class="wrap bloco" id="local">
-  <div class="cab">
+  <div class="cab entra">
     <div class="eyebrow">Onde</div>
-    <h2>Casa Quintal</h2>
+    <h2>Casa <span class="it">Quintal</span></h2>
   </div>
   <div class="duas">
     <div>
       <p class="endereco"><b>Casa Quintal</b>Av. Angélica, 2278<br>Consolação, São Paulo - SP<br>01228-200</p>
       <p>Sábado, 13 de fevereiro de 2027, a partir das 19h30.</p>
       <div class="acoes">
-        <a class="btn" id="btn-maps" href="#" target="_blank" rel="noopener">Abrir no Google Maps</a>
-        <a class="btn" id="btn-waze" href="#" target="_blank" rel="noopener">Abrir no Waze</a>
+        <a class="btn" id="btn-maps" href="#" target="_blank" rel="noopener">Google Maps</a>
+        <a class="btn" id="btn-waze" href="#" target="_blank" rel="noopener">Waze</a>
+        <a class="btn" id="btn-uber" href="#" target="_blank" rel="noopener">Uber</a>
+        <button class="btn leve" id="btn-copiar" type="button">Copiar endereço</button>
       </div>
+      <div class="vindo" id="vindo" hidden><b>Vindo de fora</b><span id="vindo-txt"></span></div>
     </div>
-    <iframe class="mapa" title="Mapa da Casa Quintal" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Ang%C3%A9lica+2278,+Consola%C3%A7%C3%A3o,+S%C3%A3o+Paulo&z=16&output=embed"></iframe>
+    <a class="mapa" id="mapa-link" href="#" target="_blank" rel="noopener" aria-label="Abrir o mapa da Casa Quintal no Google Maps">
+      <img src="assets/mapa.jpg" alt="Mapa com a Casa Quintal marcada na Av. Angélica, Consolação" width="1200" height="800" loading="lazy">
+    </a>
   </div>
 </section>
 
 <section class="wrap bloco" id="onibus">
-  <div class="cab">
+  <div class="cab entra">
     <div class="eyebrow">Transporte</div>
-    <h2>Ônibus</h2>
-    <p>Ônibus somente para os jovens que vão sem os pais. Serão dois: um para o pessoal da igreja (Jundiaí e Bonfim, em Campinas) e outro para o pessoal da escola. O ponto de encontro para o embarque será informado mais tarde.</p>
+    <h2>Ôni<span class="it">bus</span></h2>
+    <p>O ônibus é para os jovens que vêm sem os pais, para ninguém ficar de fora. São dois: um para o pessoal da igreja (Jundiaí e Bonfim, em Campinas) e outro para o pessoal da escola. O ponto de encontro a gente avisa depois pelo WhatsApp.</p>
   </div>
   <div class="duas">
     <div>
       <p>Para pedir o seu lugar, marque o ônibus na <a href="#confirmar">confirmação de presença</a>. É um passo só. Dúvidas pelo WhatsApp: <a id="zap-1" href="#">(19) 98117-4550</a> ou <a id="zap-2" href="#">(19) 99654-4550</a>.</p>
+      <div class="pais" id="pais" hidden><b>Para os pais</b><span id="pais-txt"></span></div>
       <details class="dobra" id="dobra-onibus">
         <summary>Já confirmei e esqueci de pedir o ônibus</summary>
         <p>Sem problema. Preencha aqui que a gente anota o seu lugar.</p>
       </details>
     </div>
-    <div class="so-dobra" id="bloco-onibus" hidden>
-      <div class="aviso" id="aviso-onibus" hidden></div>
-      <form class="f" id="form-onibus" novalidate>
+    <div id="bloco-onibus" hidden>
+      <div class="aviso" id="aviso-onibus" aria-live="polite" hidden></div>
+      <form class="f" id="form-onibus" data-titulo="Lugar no ônibus" novalidate>
         <label>Nome<input type="text" name="nome" id="o-nome" required autocomplete="name"></label>
         <div class="linha">
           <label>Contato dos responsáveis<input type="tel" name="contatoResp" id="o-resp" required inputmode="tel" placeholder="(19) 9xxxx-xxxx"></label>
@@ -151,23 +161,22 @@
           </select>
         </label>
         <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
-        <div class="rodape"><span class="prazo">Só para quem vai sem os pais.</span><button class="btn solid" type="submit">Quero um lugar</button></div>
-        <p class="prazo" style="margin:0">Já pediu antes? Pode enviar de novo que a gente atualiza, sem duplicar.</p>
-        <div class="erro" id="erro-onibus"></div>
+        <div class="rodape"><span class="prazo">Para quem vem sem os pais.</span><button class="btn solid" type="submit">Quero um lugar</button></div>
+        <div class="erro" id="erro-onibus" role="alert"></div>
       </form>
       <div class="obrigada" id="ok-onibus">
-        <h3>Anotado</h3>
-        <p>Seu lugar no ônibus está pedido. Avisaremos o ponto de encontro pelo WhatsApp.</p>
-        <a class="btn solid" id="ok-onibus-zap" href="#" target="_blank" rel="noopener">Avisar no WhatsApp</a>
+        <h3>Combinado!</h3>
+        <p>Seu lugar no ônibus está pedido. O ponto de encontro vem pelo WhatsApp.</p>
+        <div class="acoes"><a class="btn solid" id="ok-onibus-zap" href="#" target="_blank" rel="noopener">Avisar no WhatsApp</a></div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="wrap bloco" id="presentes">
-  <div class="cab">
+  <div class="cab entra">
     <div class="eyebrow">Lista</div>
-    <h2>Presentes</h2>
+    <h2>Presen<span class="it">tes</span></h2>
     <p>Sua presença já é o presente. Se quiser dar algo, aqui vão ideias.</p>
   </div>
   <ul class="lista">
@@ -181,66 +190,107 @@
     <li>Sandália</li>
     <li>Tênis</li>
   </ul>
-  <div class="nota">Tamanho de roupa: P ou 38. Calçados: 37.</div>
+  <div class="nota">Tamanho de roupa: P ou 38. Calçados: 37.<span id="pix-nota" hidden> Se preferir presentear com Pix, peça a chave pelo WhatsApp da família.</span></div>
 </section>
 
 <section class="wrap bloco" id="confirmar">
-  <div class="cab">
+  <div class="cab entra">
     <div class="eyebrow">RSVP</div>
-    <h2>Confirme sua presença</h2>
-    <p>Confirme até <span class="js-prazo">31 de dezembro de 2026</span>. Pode confirmar só você ou a família inteira de uma vez, é só dizer quem vem.</p>
+    <h2 id="rsvp-titulo">Confirme sua <span class="it">presença</span></h2>
+    <p>Confirme até <span class="js-prazo">31 de dezembro de 2026</span>: nessa data a lista vai para o buffet e depois não conseguimos incluir mais ninguém. Pode confirmar só você ou a família inteira de uma vez.</p>
   </div>
   <div class="duas">
     <div>
-      <p>A festa é para convidados. Se for pela família, escreva o nome de cada pessoa que vem com você.</p>
-      <p class="aviso">Seus dados ficam só com a família da Lorena, para organizar a festa. Nada de e-mail: qualquer contato será pelo WhatsApp.</p>
+      <p class="contagem" id="contagem" hidden></p>
+      <p class="contagem" id="prazo-conta" hidden></p>
+      <p>Vamos adorar ter você com a gente. O convite é para as pessoas que o receberam; se vier mais alguém da sua família, escreva o nome de cada um, assim o buffet e a mesa ficam certinhos.</p>
+      <p class="aviso">Seus dados ficam só com a família da Lorena, para organizar a festa. Qualquer aviso chega pelo WhatsApp.</p>
     </div>
     <div>
-      <div class="aviso" id="aviso-rsvp" hidden></div>
-      <form class="f" id="form-rsvp" novalidate>
+      <div class="aviso" id="aviso-rsvp" aria-live="polite" hidden></div>
+      <form class="f" id="form-rsvp" data-titulo="Cartão de resposta" novalidate>
         <label>Seu nome completo<input type="text" name="nome" id="r-nome" required autocomplete="name"></label>
-        <label>Seu WhatsApp<input type="tel" name="whatsapp" id="r-zap" required inputmode="tel" autocomplete="tel" placeholder="(11) 9xxxx-xxxx"></label>
+        <label>Seu WhatsApp<small>Só para a família combinar a festa com você.</small><input type="tel" name="whatsapp" id="r-zap" required inputmode="tel" autocomplete="tel-national" placeholder="(11) 99999-0000"></label>
         <div class="linha">
           <label>Quantas pessoas vêm, contando você
             <select name="pessoas" id="r-pessoas" required>
-              <option value="1">Só eu</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>
+              <option value="1">Só eu</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas</option><option value="5">5 pessoas</option><option value="6">6 pessoas</option>
             </select>
           </label>
-          <label>Vai de ônibus?
+          <label>Vai no ônibus dos jovens?<small>Só para quem vem sem os pais.</small>
             <select name="onibus" id="r-onibus">
-              <option value="Não">Não</option>
+              <option value="Não">Não, vou por conta própria</option>
               <option>Igreja Jundiaí</option>
               <option>Igreja Bonfim (Campinas)</option>
               <option>Escola</option>
             </select>
           </label>
         </div>
-        <label id="r-acomp-label" hidden>Nomes de quem vem com você<textarea name="acompanhantes" id="r-acomp" placeholder="Um nome por linha"></textarea></label>
-        <div id="r-bus-extra" hidden>
-          <p class="aviso">Ônibus só para jovens que vão sem os pais. Com isto você já garante o lugar, não precisa preencher o formulário do ônibus.</p>
+        <div class="desdobra" id="r-acomp-wrap"><div>
+          <label id="r-acomp-label">Quem vem com você? <span id="r-acomp-n"></span><small>Um nome por linha.</small><textarea name="acompanhantes" id="r-acomp"></textarea></label>
+        </div></div>
+        <div class="desdobra" id="r-bus-extra"><div>
+          <p class="aviso" style="margin:0">Ônibus só para jovens que vão sem os pais. Com isto o lugar já fica pedido.</p>
           <label>Contato dos responsáveis (WhatsApp)<input type="tel" name="contatoResp" id="r-resp" inputmode="tel" placeholder="(19) 9xxxx-xxxx"></label>
-        </div>
+          <label id="r-quem-label" hidden>Quem vai no ônibus?<small>Um nome por linha.</small><textarea name="quemOnibus" id="r-quem"></textarea></label>
+        </div></div>
+        <label id="r-musica-label" hidden>Uma música que não pode faltar<small>Opcional. O DJ vai saber.</small><input type="text" name="musica" id="r-musica" placeholder="Nome da música e artista"></label>
+        <label id="r-recado-label" hidden>Deixa um recado pra Lorena<small>Opcional. Pode ser uma lembrança, um desejo ou uma piada interna.</small><textarea name="recado" id="r-recado"></textarea></label>
         <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
-        <div class="rodape"><span class="prazo">Até <span class="js-prazo">31 de dezembro de 2026</span></span><button class="btn solid" type="submit">Confirmar presença</button></div>
-        <p class="prazo" style="margin:0">Confirmou e mudou algo? Envie de novo com o mesmo WhatsApp que a gente atualiza, sem duplicar.</p>
-        <div class="erro" id="erro-rsvp"></div>
+        <div class="rodape"><span class="prazo">Até <span class="js-prazo">31 de dezembro de 2026</span></span><button class="btn solid" type="submit" id="r-botao">Confirmar presença</button></div>
+        <p class="prazo" style="margin:0;font-size:14px;color:var(--muted)">Confirmou e mudou algo? Envie de novo com o mesmo WhatsApp que a gente atualiza, sem duplicar. <a href="#" id="r-outra" hidden>Confirmar outra pessoa neste celular</a></p>
+        <div class="erro" id="erro-rsvp" role="alert"></div>
       </form>
       <div class="obrigada" id="ok-rsvp">
-        <h3>Obrigada!</h3>
-        <p id="ok-rsvp-txt">Presença confirmada. Agora manda um "confirmei!" no WhatsApp da Lorena.</p>
-        <a class="btn solid" id="ok-rsvp-zap" href="#" target="_blank" rel="noopener">Confirmei! no WhatsApp</a>
+        <h3 id="ok-rsvp-h">Obrigada!</h3>
+        <p id="ok-rsvp-txt">Sua presença está confirmada.</p>
+        <div class="acoes">
+          <a class="btn solid" id="ok-rsvp-zap" href="#" target="_blank" rel="noopener">Mandar um oi no WhatsApp</a>
+          <a class="btn" id="ok-rsvp-story" href="assets/eu-vou.png" download="eu-vou-lorena15.png" hidden>Baixar o "Eu vou"</a>
+          <a class="btn leve" href="assets/lorena15.ics" download="os-15-da-lorena.ics">Salvar na agenda</a>
+          <button class="btn leve" id="ok-rsvp-share" type="button" hidden>Compartilhar convite</button>
+        </div>
+        <a class="volta" href="#topo">Voltar ao convite</a>
       </div>
     </div>
   </div>
+</section>
+
+<section class="wrap bloco" id="quiz-sec" hidden>
+  <div class="cab entra">
+    <div class="eyebrow">Jogo</div>
+    <h2>Quanto você <span class="it">conhece</span> a Lorena?</h2>
+    <p id="quiz-intro">Oito perguntas. Sem cola.</p>
+  </div>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<section class="wrap bloco" id="festa" hidden>
+  <div class="cab entra">
+    <div class="eyebrow">13 · 02 · 2027</div>
+    <h2>A <span class="it">festa</span></h2>
+    <p>As fotos que vocês mandaram e as do fotógrafo. Manda as suas pelo WhatsApp.</p>
+  </div>
+  <div class="acoes" style="margin:0 0 28px"><a class="btn solid" id="btn-fotos-festa" href="#" target="_blank" rel="noopener">Manda suas fotos</a></div>
+  <div class="galeria" id="galeria-festa"></div>
 </section>
 
 </main>
 
 <footer>
   <b>Lorena</b>
-  13 de fevereiro de 2027 · Casa Quintal · São Paulo
+  <div class="conta" id="rodape-conta"></div>
+  13 de fevereiro de 2027 <span class="estrela">✦</span> Casa Quintal <span class="estrela">✦</span> São Paulo
+  <div class="hash" id="rodape-hash" hidden></div>
+  <div class="acoes"><button class="btn leve" id="rodape-share" type="button" hidden>Compartilhar convite</button><a class="btn leve" id="rodape-zap" href="#" target="_blank" rel="noopener">Falar com a família</a></div>
+  <div class="carinho">Com carinho, a família da Lorena</div>
 </footer>
 
-<script src="assets/site.js"></script>
+<div class="pill" id="pill" aria-label="Atalhos">
+  <a class="btn solid" href="#confirmar">Confirmar presença</a>
+  <a class="btn leve" href="#local">Como chegar</a>
+</div>
+
+<script src="assets/site.js?v=20261106e"></script>
 </body>
 </html>

@@ -44,9 +44,19 @@ Texto copiado da página de escolhas, mais as notas dela.
 Registro.br: quatro A para os IPs do GitHub Pages e CNAME www. No ar com HTTPS
 em 2026-11-06.
 
+## Questionário (2026-11-06)
+
+`perguntas.html` pergunta à Lorena e aos pais: traje, horários da noite,
+momentos (valsa, velas, corte), estacionamento/metrô/hotel, horários e adulto
+do ônibus, Pix e mesa de presentes, WhatsApp do "oi", hashtag, mensagem dela,
+frase do selo, recursos a ligar, ideias, quiz (até 8 perguntas), ano e legenda
+de cada foto, foto de capa. As respostas chegam na aba "Perguntas" da planilha
+e viram edições em `index-config.js`.
+
 ## Pendente
 
-- Número de WhatsApp que recebe o "confirmei!" (está (19) 98117-4550 por
-  enquanto, o primeiro contato do ônibus).
+- Número de WhatsApp que recebe o "oi" (está (19) 98117-4550 por enquanto, o
+  primeiro contato do ônibus). Perguntado no questionário.
+- Tudo o que depende das respostas do questionário (ver acima).
 - Fotos: já vêm da pasta "15 anos" do Drive da Lorena (2026-11-06); quando ela mudar a pasta, refazer a galeria.
 - (feito 2026-11-06) Apps Script instalado na conta do Filipe; planilha "15 anos da Lorena".

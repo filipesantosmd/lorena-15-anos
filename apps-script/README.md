@@ -30,6 +30,14 @@ Abra o site, confirme presença com um nome de teste. A linha aparece na aba
 "Confirmações" da planilha. Abra `lista.html`, digite a senha, a linha aparece.
 Apague a linha de teste na planilha.
 
+## Abas e colunas
+
+- Confirmações: Data, Nome, WhatsApp, Pessoas, Acompanhantes, Ônibus, Música, Recado.
+- Ônibus: Data, Nome, Contato responsáveis, Contato convidado, Ônibus, Confirmado por
+  (uma linha por pessoa que vai no ônibus).
+- Perguntas: Data, Quem, Respostas (JSON), vindas de perguntas.html.
+O script completa cabeçalhos que faltem em abas antigas.
+
 ## Sem duplicados
 
 O script compara cada envio com as linhas que já existem: mesmo WhatsApp (ou

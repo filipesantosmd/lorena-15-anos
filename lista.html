@@ -5,75 +5,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Confirmações · Os 15 da Lorena</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=20261106e">
 <style>
   main.wrap{padding-block:48px}
-  .senha{max-width:420px}
+  .senha{max-width:440px}
+  .senha .olho{display:flex;gap:10px;align-items:center}
+  .senha .olho input{flex:1}
+  .senha .olho button{font:inherit;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border:0;background:none;color:var(--rose-deep);cursor:pointer}
   .painel{display:none}
   .tot{display:flex;flex-wrap:wrap;gap:14px;margin:24px 0}
-  .tot div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px;min-width:140px}
+  .tot div{background:#fff;border:1px solid var(--line);padding:14px 18px;min-width:140px}
   .tot b{display:block;font-family:var(--display);font-size:40px;line-height:1;margin-bottom:4px}
   .tot span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-  h3{font-size:34px;letter-spacing:.08em;text-transform:uppercase;margin:36px 0 12px}
-  .tabela{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
-  table{border-collapse:collapse;width:100%;font-size:15px;min-width:640px}
+  .meta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;font-size:14px;color:var(--muted);margin-bottom:8px}
+  h3{font-size:34px;letter-spacing:.06em;margin:36px 0 12px}
+  .tabela{overflow-x:auto;background:#fff;border:1px solid var(--line)}
+  table{border-collapse:collapse;width:100%;font-size:15px;min-width:720px}
   th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
   th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
   td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
   .vazio{color:var(--muted);padding:14px}
+  pre{white-space:pre-wrap;font:14px/1.5 var(--body);margin:0}
 </style>
-<script src="index-config.js?v=20261106d"></script>
+<script src="index-config.js?v=20261106e"></script>
 </head>
 <body class="aberta">
-<header class="wrap topo"><a class="marca" href="index.html">Os 15 da Lorena</a><nav><a href="index.html">Voltar ao site</a></nav></header>
+<header class="topo"><div class="wrap"><a class="marca" href="index.html">Os 15 da Lorena</a><nav><a href="index.html">Voltar ao site</a></nav></div></header>
 <main class="wrap">
-  <div class="cab"><div class="eyebrow">Só para a família</div><h2>Confirmações</h2><p>Quem confirmou presença e quem pediu lugar no ônibus. Os dados ficam na planilha da família, nunca por e-mail.</p></div>
+  <div class="cab"><div class="eyebrow">Só para a família</div><h2>Confirma<span class="it">ções</span></h2><p>Quem confirmou presença, quem pediu lugar no ônibus, as músicas, os recados e as respostas do questionário. Os dados ficam na planilha da família, nunca por e-mail.</p></div>
 
-  <form class="f senha" id="f-senha">
-    <label>Senha<input type="password" id="senha" autocomplete="current-password" required></label>
-    <div class="rodape"><span class="prazo"></span><button class="btn solid" type="submit">Entrar</button></div>
-    <div class="erro" id="erro"></div>
+  <form class="f senha" id="f-senha" data-titulo="Entrar">
+    <label>Senha<div class="olho"><input type="password" id="senha" autocomplete="current-password" required><button type="button" id="ver">Mostrar</button></div></label>
+    <div class="rodape"><span class="prazo"></span><button class="btn solid" type="submit" id="entrar">Entrar</button></div>
+    <div class="erro" id="erro" role="alert"></div>
   </form>
 
   <div class="painel" id="painel">
     <div class="tot">
       <div><b id="t-conf">0</b><span>confirmações</span></div>
       <div><b id="t-pessoas">0</b><span>pessoas</span></div>
-      <div><b id="t-onibus">0</b><span>no ônibus</span></div>
+      <div><b id="t-onibus">0</b><span>lugares no ônibus</span></div>
+      <div><b id="t-musicas">0</b><span>músicas</span></div>
+      <div><b id="t-recados">0</b><span>recados</span></div>
     </div>
+    <div class="meta"><span id="atualizado"></span><button class="btn leve" type="button" id="recarregar">Atualizar</button><a class="btn leve" id="csv" href="#" download="confirmacoes-lorena15.csv">Baixar CSV</a></div>
     <h3>Presença</h3>
-    <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>WhatsApp</th><th>Pessoas</th><th>Acompanhantes</th><th>Ônibus</th></tr></thead><tbody id="tb-rsvp"></tbody></table><div class="vazio" id="v-rsvp" hidden>Ninguém confirmou ainda.</div></div>
+    <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>WhatsApp</th><th>Pessoas</th><th>Acompanhantes</th><th>Ônibus</th><th>Música</th><th>Recado</th></tr></thead><tbody id="tb-rsvp"></tbody></table><div class="vazio" id="v-rsvp" hidden>Ninguém confirmou ainda.</div></div>
     <h3>Ônibus</h3>
-    <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>Responsáveis</th><th>Convidado</th><th>Ônibus</th></tr></thead><tbody id="tb-bus"></tbody></table><div class="vazio" id="v-bus" hidden>Nenhum pedido ainda.</div></div>
+    <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>Responsáveis</th><th>Convidado</th><th>Ônibus</th><th>Confirmado por</th></tr></thead><tbody id="tb-bus"></tbody></table><div class="vazio" id="v-bus" hidden>Nenhum pedido ainda.</div></div>
+    <h3>Questionário</h3>
+    <div class="tabela"><table><thead><tr><th>Quando</th><th>Quem</th><th>Respostas</th></tr></thead><tbody id="tb-perg"></tbody></table><div class="vazio" id="v-perg" hidden>Nenhuma resposta ainda.</div></div>
   </div>
 </main>
 <script>
 (function(){
-  var C=window.CONFIG||{}; var $=function(s){return document.querySelector(s)};
-  var f=$("#f-senha"), erro=$("#erro");
+  var C=window.CONFIG||{}; var $=function(s){return document.querySelector(s)}; var dadosAtuais=null;
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
   function quando(s){var d=new Date(s);return isNaN(d)?esc(s):d.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}
-  f.addEventListener("submit",function(e){
-    e.preventDefault(); erro.style.display="none";
+  function rend(j){
+    var rs=j.rsvp||[], bs=j.onibus||[], ps=j.perguntas||[];
+    $("#t-conf").textContent=rs.length;
+    $("#t-pessoas").textContent=rs.reduce(function(a,r){return a+(parseInt(r.pessoas,10)||1)},0);
+    $("#t-onibus").textContent=bs.length;
+    $("#t-musicas").textContent=rs.filter(function(r){return r.musica}).length;
+    $("#t-recados").textContent=rs.filter(function(r){return r.recado}).length;
+    $("#tb-rsvp").innerHTML=rs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.nome)+"</td><td class='n'>"+esc(r.whatsapp)+"</td><td class='n'>"+esc(r.pessoas)+"</td><td>"+esc(r.acompanhantes).replace(/\n/g,"<br>")+"</td><td>"+esc(r.onibus)+"</td><td>"+esc(r.musica)+"</td><td>"+esc(r.recado)+"</td></tr>"}).join("");
+    $("#v-rsvp").hidden=rs.length>0;
+    $("#tb-bus").innerHTML=bs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.nome)+"</td><td class='n'>"+esc(r.contatoResp)+"</td><td class='n'>"+esc(r.contatoConv)+"</td><td>"+esc(r.onibus)+"</td><td>"+esc(r.confirmadoPor)+"</td></tr>"}).join("");
+    $("#v-bus").hidden=bs.length>0;
+    $("#tb-perg").innerHTML=ps.map(function(r){var o={};try{o=JSON.parse(r.json||"{}")}catch(e){} var txt=Object.keys(o).map(function(k){var v=o[k];return k+": "+(Array.isArray(v)?v.join("; "):typeof v==="object"?JSON.stringify(v):v)}).join("\n");return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.quem)+"</td><td><pre>"+esc(txt)+"</pre></td></tr>"}).join("");
+    $("#v-perg").hidden=ps.length>0;
+    $("#atualizado").textContent="Atualizado às "+new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+    var linhas=[["Quando","Nome","WhatsApp","Pessoas","Acompanhantes","Ônibus","Música","Recado"]].concat(rs.map(function(r){return [quando(r.data),r.nome,r.whatsapp,r.pessoas,r.acompanhantes,r.onibus,r.musica,r.recado]}));
+    var csv="﻿"+linhas.map(function(l){return l.map(function(c){return '"'+String(c==null?"":c).replace(/"/g,'""')+'"'}).join(";")}).join("\r\n");
+    $("#csv").href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv);
+  }
+  function carregar(senha,botao){
+    var erro=$("#erro"); erro.style.display="none";
     if(!C.formEndpoint){erro.textContent="O endereço do Apps Script ainda não foi configurado (index-config.js).";erro.style.display="block";return}
-    var b=f.querySelector("button"); b.disabled=true; b.textContent="Abrindo…";
-    fetch(C.formEndpoint+"?lista=1&token="+encodeURIComponent($("#senha").value))
+    var rot=botao.textContent; botao.disabled=true; botao.textContent="Abrindo…";
+    var ctrl=new AbortController(), t=setTimeout(function(){ctrl.abort()},15000);
+    fetch(C.formEndpoint+"?lista=1&token="+encodeURIComponent(senha),{signal:ctrl.signal})
       .then(function(r){return r.json()})
-      .then(function(j){
-        if(!j||!j.ok) throw new Error(j&&j.error||"erro");
-        f.hidden=true; $("#painel").style.display="block";
-        var rs=j.rsvp||[], bs=j.onibus||[];
-        $("#t-conf").textContent=rs.length;
-        $("#t-pessoas").textContent=rs.reduce(function(a,r){return a+(parseInt(r.pessoas,10)||1)},0);
-        $("#t-onibus").textContent=rs.filter(function(r){return r.onibus&&r.onibus!=="Não"}).length+bs.length;
-        $("#tb-rsvp").innerHTML=rs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.nome)+"</td><td class='n'>"+esc(r.whatsapp)+"</td><td class='n'>"+esc(r.pessoas)+"</td><td>"+esc(r.acompanhantes).replace(/\n/g,"<br>")+"</td><td>"+esc(r.onibus)+"</td></tr>"}).join("");
-        $("#v-rsvp").hidden=rs.length>0;
-        $("#tb-bus").innerHTML=bs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.nome)+"</td><td class='n'>"+esc(r.contatoResp)+"</td><td class='n'>"+esc(r.contatoConv)+"</td><td>"+esc(r.onibus)+"</td></tr>"}).join("");
-        $("#v-bus").hidden=bs.length>0;
-      })
-      .catch(function(err){b.disabled=false;b.textContent="Entrar";erro.textContent=err.message==="senha"?"Senha errada.":"Não foi possível abrir a lista agora.";erro.style.display="block"});
-  });
+      .then(function(j){ if(!j||!j.ok) throw new Error(j&&j.error||"erro"); $("#f-senha").hidden=true; $("#painel").style.display="block"; rend(j); })
+      .catch(function(err){ erro.textContent=err.name==="AbortError"?"A planilha demorou para responder. Tente de novo em alguns segundos.":err.message==="senha"?"Senha errada.":"Não foi possível abrir a lista agora."; erro.style.display="block"; })
+      .then(function(){clearTimeout(t);botao.disabled=false;botao.textContent=rot});
+  }
+  $("#f-senha").addEventListener("submit",function(e){e.preventDefault();carregar($("#senha").value,$("#entrar"))});
+  $("#recarregar").addEventListener("click",function(){carregar($("#senha").value,$("#recarregar"))});
+  $("#ver").addEventListener("click",function(){var i=$("#senha");i.type=i.type==="password"?"text":"password";$("#ver").textContent=i.type==="password"?"Mostrar":"Esconder"});
 })();
 </script>
 </body>
