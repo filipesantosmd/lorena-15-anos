@@ -219,7 +219,9 @@
     lembrarChave("lorena15-rsvp", { nome: d.nome, whatsapp: d.whatsapp, pessoas: d.pessoas, acompanhantes: nomes.join("\n"), onibus: d.onibus, contatoResp: d.contatoResp, quemOnibus: quemBus.join("\n"), musica: d.musica, recado: d.recado });
     $("#ok-rsvp-h").textContent = "Obrigada, " + primeiroNome(d.nome) + "!";
     $("#ok-rsvp-txt").textContent = (temBus ? "Presença confirmada e lugar no ônibus pedido" + (quemBus.length > 1 ? " para " + quemBus.length + " pessoas" : "") + ". O ponto de encontro vem pelo WhatsApp. " : "Presença confirmada, está tudo anotado. ") + (d.recado ? "Seu recado chegou. " : "") + (d.musica ? "A música está na lista do DJ. " : "") + "Se quiser, mande um oi " + (C.whatsappPara || "pra família da Lorena") + " no WhatsApp.";
-    $("#ok-rsvp-zap").href = zap("Oi! Confirmei presença na festa de 15 anos da Lorena: " + d.nome + (n > 1 ? " (" + n + " pessoas)" : "") + ". Até o dia 13! 🎉");
+    var oi = "Oi! Confirmei presença na festa de 15 anos da Lorena: " + d.nome + (n > 1 ? " (" + n + " pessoas)" : "") + ". Até o dia 13! 🎉";
+    $("#ok-rsvp-zap").href = zap(oi);
+    if (C.whatsapp2) { $("#ok-rsvp-zap2").hidden = false; $("#ok-rsvp-zap2").href = zap(oi, C.whatsapp2); }
     enviar(lista, fr, okr, br, er, fallback);
   });
 

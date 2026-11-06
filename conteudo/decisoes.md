@@ -55,8 +55,8 @@ e viram edições em `index-config.js`.
 
 ## Pendente
 
-- Número de WhatsApp que recebe o "oi" (está (19) 98117-4550 por enquanto, o
-  primeiro contato do ônibus). Perguntado no questionário.
+- (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e
+  também (19) 98117-4550 (Filipe).
 - Tudo o que depende das respostas do questionário (ver acima).
 - Fotos: já vêm da pasta "15 anos" do Drive da Lorena (2026-11-06); quando ela mudar a pasta, refazer a galeria.
 - (feito 2026-11-06) Apps Script instalado na conta do Filipe; planilha "15 anos da Lorena".

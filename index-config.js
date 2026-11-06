@@ -8,7 +8,8 @@ window.CONFIG = {
 
   // WhatsApp que recebe o "oi" depois da confirmação e as dúvidas.
   // Só dígitos: DDI + DDD + número. E como chamar esse número no site.
-  whatsapp: "5519981174550",
+  whatsapp: "5519999264551",            // Filipe, 2026-11-06: confirmações e dúvidas
+  whatsapp2: "5519981174550",           // segundo número que também recebe
   whatsappPara: "pra família da Lorena",   // ou "pra Lorena", se for o dela
 
   // A festa.
