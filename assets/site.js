@@ -91,13 +91,7 @@
   var faixa = itens.map(function (t) { return "<span>" + esc(t) + "</span><span class=\"estrela\">✦</span>"; }).join("");
   $("#trilho").innerHTML = faixa + faixa;
 
-  /* Compartilhar. */
-  function compartilhar() {
-    var dados = { title: "Os 15 da Lorena", text: "Convite da festa de 15 anos da Lorena, 13 de fevereiro de 2027", url: "https://15anosdalorena.com.br/" };
-    if (navigator.share) navigator.share(dados).catch(function () {});
-    else window.open("https://wa.me/?text=" + encodeURIComponent(dados.text + " " + dados.url), "_blank", "noopener");
-  }
-  ["#btn-share", "#ok-rsvp-share", "#rodape-share"].forEach(function (s) { var b = $(s); if (b) { b.hidden = false; b.addEventListener("click", compartilhar); } });
+  /* Sem botão de "compartilhar convite": o convite é de quem recebeu (Filipe, 2026-11-06). */
   $("#btn-copiar").addEventListener("click", function () {
     var b = $("#btn-copiar"), t = C.lugar + ", " + C.endereco;
     var ok = function () { b.textContent = "Copiado!"; setTimeout(function () { b.textContent = "Copiar endereço"; }, 2000); };
@@ -286,7 +280,7 @@
     }
     function fim() {
       var n = C.quiz.length, r = acertos / n, tier = r < .45 ? "Precisa de mais tempo com ela." : r < .85 ? "Conhece bem." : "Amiga de verdade (ou mãe).";
-      q.innerHTML = "<div class=\"fim\"><h3>" + acertos + " de " + n + "</h3><p class=\"q\">" + tier + "</p><div class=\"acoes\"><a class=\"btn solid\" target=\"_blank\" rel=\"noopener\" href=\"https://wa.me/?text=" + encodeURIComponent("Fiz " + acertos + "/" + n + " no quiz da Lorena. Tenta aí: https://15anosdalorena.com.br/#quiz-sec") + "\">Desafiar no WhatsApp</a><button class=\"btn leve\" type=\"button\" id=\"quiz-denovo\">Jogar de novo</button></div></div>";
+      q.innerHTML = "<div class=\"fim\"><h3>" + acertos + " de " + n + "</h3><p class=\"q\">" + tier + "</p><div class=\"acoes\"><a class=\"btn solid\" target=\"_blank\" rel=\"noopener\" href=\"https://wa.me/?text=" + encodeURIComponent("Fiz " + acertos + "/" + n + " no quiz da Lorena. Quero ver você fazer melhor.") + "\">Desafiar no WhatsApp</a><button class=\"btn leve\" type=\"button\" id=\"quiz-denovo\">Jogar de novo</button></div></div>";
       $("#quiz-denovo").addEventListener("click", function () { i = 0; acertos = 0; pergunta(); });
     }
     pergunta();

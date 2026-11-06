@@ -40,13 +40,16 @@ scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
   `?contagem=1` is public and returns only counts (used for "Já confirmaram N
   pessoas", shown from minimoContagem). Any change to apps-script/Code.gs
   needs Filipe to paste it and deploy a new version (URL stays the same).
+- No "Compartilhar convite" button anywhere and no site link in share texts:
+  the invitation is for whoever received it (Filipe, 2026-11-06). Music: a
+  CC BY instrumental only; her favourite song is a Spotify link, never hosted.
 - Reviews of 2026-11-06 (conteudo/revisoes-2026-11-06/) were implemented
   where no family content was needed: OG tags and share image, sticky phone
   pill, facts card with calendar links, countdowns, softened thank-you, gold
   and italic accents, opening sequence, layered cover, image fade-in,
   lead type size, reply-card forms, static map (no Google iframe), Uber and
   copy-address buttons, required companion names with count, WhatsApp mask,
-  share buttons, story template, quiz engine, after-party mode, lista.html
+  story template, quiz engine, after-party mode, lista.html
   timeout/CSV/show-password. Facts never invented: end time, dress code,
   programme, parking, bus times, hashtag wait for the questionnaire.
 
