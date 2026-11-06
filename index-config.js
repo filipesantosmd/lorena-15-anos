@@ -41,7 +41,7 @@ window.CONFIG = {
   perguntarRecado: true,     // campo "deixa um recado pra Lorena"
   storyTemplate: true,       // botão "Baixar o 'Eu vou'" depois de confirmar
   receberFotos: true,        // seção "Suas fotos": envio direto para o Drive da família
-  pastaFotosUrl: "",         // link da pasta no Drive, para a família abrir em lista.html
+  pastaFotosUrl: "https://drive.google.com/drive/folders/1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt", // pasta das fotos dos convidados
 
   // Galeria: ordem cronológica. ano e legenda vazios = sem capítulos e sem legenda.
   fotos: [
