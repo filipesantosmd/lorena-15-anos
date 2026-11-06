@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
-<script src="index-config.js?v=20261106b"></script>
+<script src="index-config.js?v=20261106c"></script>
 </head>
 <body>
 
@@ -128,7 +128,7 @@
   </div>
   <div class="duas">
     <div>
-      <p>Para garantir o seu lugar, preencha o formulário ao lado. Dúvidas pelo WhatsApp: <a id="zap-1" href="#">(19) 98117-4550</a> ou <a id="zap-2" href="#">(19) 99654-4550</a>.</p>
+      <p>Se você ainda vai confirmar presença, marque o ônibus lá na confirmação e pronto. Este formulário é para quem já confirmou (ou cuja família já confirmou) e quer o lugar no ônibus. Dúvidas pelo WhatsApp: <a id="zap-1" href="#">(19) 98117-4550</a> ou <a id="zap-2" href="#">(19) 99654-4550</a>.</p>
     </div>
     <div>
       <form class="f" id="form-onibus" novalidate>
@@ -209,13 +209,17 @@
           </label>
         </div>
         <label id="r-acomp-label" hidden>Nomes de quem vem com você<textarea name="acompanhantes" id="r-acomp" placeholder="Um nome por linha"></textarea></label>
+        <div id="r-bus-extra" hidden>
+          <p class="aviso">Ônibus só para jovens que vão sem os pais. Com isto você já garante o lugar, não precisa preencher o formulário do ônibus.</p>
+          <label>Contato dos responsáveis (WhatsApp)<input type="tel" name="contatoResp" id="r-resp" inputmode="tel" placeholder="(19) 9xxxx-xxxx"></label>
+        </div>
         <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
         <div class="rodape"><span class="prazo">Até <span class="js-prazo">31 de dezembro de 2026</span></span><button class="btn solid" type="submit">Confirmar presença</button></div>
         <div class="erro" id="erro-rsvp"></div>
       </form>
       <div class="obrigada" id="ok-rsvp">
         <h3>Obrigada!</h3>
-        <p>Presença confirmada. Agora manda um "confirmei!" no WhatsApp da Lorena.</p>
+        <p id="ok-rsvp-txt">Presença confirmada. Agora manda um "confirmei!" no WhatsApp da Lorena.</p>
         <a class="btn solid" id="ok-rsvp-zap" href="#" target="_blank" rel="noopener">Confirmei! no WhatsApp</a>
       </div>
     </div>

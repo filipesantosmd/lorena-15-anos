@@ -31,6 +31,11 @@
   function mostraAcomp() { acompLabel.hidden = pessoas.value === "1"; }
   pessoas.addEventListener("change", mostraAcomp); mostraAcomp();
 
+  /* Campo do ônibus aparece quando a pessoa marca um ônibus na confirmação. */
+  var rOnibus = $("#r-onibus"), busExtra = $("#r-bus-extra"), rResp = $("#r-resp");
+  function mostraBus() { var on = rOnibus.value !== "Não"; busExtra.hidden = !on; rResp.required = on; }
+  rOnibus.addEventListener("change", mostraBus); mostraBus();
+
   /* Envio. Com endpoint: POST para o Apps Script. Sem endpoint: abre o WhatsApp com o texto pronto. */
   function dados(form) {
     var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); }); return d;
@@ -43,7 +48,12 @@
     }
     erro.style.display = "none"; return true;
   }
-  function enviar(tipo, d, form, ok, botao, erro, resumo) {
+  function post(d) {
+    return fetch(C.formEndpoint, { method: "POST", body: JSON.stringify(d) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (!j || !j.ok) throw new Error("resposta"); return j; });
+  }
+  function enviar(tipo, d, form, ok, botao, erro, resumo, extra) {
     if (d.site_url) { form.hidden = true; ok.style.display = "block"; return; } /* robô: finge que deu certo */
     d.tipo = tipo; d.site = "lorena15"; delete d.site_url;
     if (!C.formEndpoint) {
@@ -52,10 +62,9 @@
       form.hidden = true; ok.style.display = "block"; return;
     }
     botao.disabled = true; botao.textContent = "Enviando…";
-    fetch(C.formEndpoint, { method: "POST", body: JSON.stringify(d) })
-      .then(function (r) { return r.json(); })
-      .then(function (j) {
-        if (!j || !j.ok) throw new Error("resposta");
+    post(d)
+      .then(function () { return extra ? post(extra) : null; })
+      .then(function () {
         form.hidden = true; ok.style.display = "block";
         ok.scrollIntoView({ behavior: "smooth", block: "center" });
       })
@@ -71,9 +80,15 @@
   fr.addEventListener("submit", function (e) {
     e.preventDefault(); if (!valida(fr, er)) return;
     var d = dados(fr);
-    var resumo = "Confirmei! " + d.nome + (d.pessoas !== "1" ? " (" + d.pessoas + " pessoas: " + (d.acompanhantes || "") + ")" : "") + (d.onibus !== "Não" ? ". Ônibus: " + d.onibus : "");
+    var temBus = d.onibus !== "Não";
+    var resumo = "Confirmei! " + d.nome + (d.pessoas !== "1" ? " (" + d.pessoas + " pessoas: " + (d.acompanhantes || "") + ")" : "") + (temBus ? ". Ônibus: " + d.onibus + " (responsáveis: " + d.contatoResp + ")" : "");
     $("#ok-rsvp-zap").href = zap(resumo);
-    enviar("rsvp", d, fr, okr, br, er, resumo);
+    $("#ok-rsvp-txt").textContent = temBus
+      ? "Presença confirmada e lugar no ônibus pedido. Avisaremos o ponto de encontro pelo WhatsApp. Agora manda um \"confirmei!\" no WhatsApp da Lorena."
+      : "Presença confirmada. Agora manda um \"confirmei!\" no WhatsApp da Lorena.";
+    var bus = temBus ? { tipo: "onibus", site: "lorena15", nome: d.nome, contatoResp: d.contatoResp, contatoConv: d.whatsapp, onibus: d.onibus } : null;
+    delete d.contatoResp;
+    enviar("rsvp", d, fr, okr, br, er, resumo, bus);
   });
 
   var fo = $("#form-onibus"), oko = $("#ok-onibus"), eo = $("#erro-onibus");
