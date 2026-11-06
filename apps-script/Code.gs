@@ -8,11 +8,16 @@
  * Confirmação: mesmo WhatsApp (ou mesmo nome, quando falta telefone).
  * Ônibus: mesmo nome, desde que o telefone não contradiga.
  *
+ * Fotos dos convidados: o site manda cada foto (já reduzida) e o script grava
+ * na pasta do Drive cuja ID está em PASTA_FOTOS (Script Properties), numa
+ * subpasta com o nome de quem mandou.
+ *
  * Instalação e atualização: ver README.md nesta pasta.
  */
 var ABA_RSVP = "Confirmações";
 var ABA_ONIBUS = "Ônibus";
 var ABA_PERGUNTAS = "Perguntas";
+var ABA_FOTOS = "Fotos";
 var CAB_RSVP = ["Data", "Nome", "WhatsApp", "Pessoas", "Acompanhantes", "Ônibus", "Música", "Recado"];
 var CAB_ONIBUS = ["Data", "Nome", "Contato responsáveis", "Contato convidado", "Ônibus", "Confirmado por"];
 
@@ -26,6 +31,15 @@ function doPost(e) {
     if (d.tipo === "onibus") {
       var s = aba(ss, ABA_ONIBUS, CAB_ONIBUS);
       atualizado = gravar(s, [new Date(), d.nome || "", d.contatoResp || "", d.contatoConv || "", d.onibus || "", d.confirmadoPor || ""], "nome", 1, 3);
+    } else if (d.tipo === "foto") {
+      var idPasta = PropertiesService.getScriptProperties().getProperty("PASTA_FOTOS");
+      if (!idPasta) return resposta({ ok: false, error: "pasta" });
+      var nome = String(d.nome || "convidado").replace(/[\\/:*?"<>|]/g, " ").trim();
+      var pasta = DriveApp.getFolderById(idPasta);
+      var sub = pasta.getFoldersByName(nome); sub = sub.hasNext() ? sub.next() : pasta.createFolder(nome);
+      var blob = Utilities.newBlob(Utilities.base64Decode(d.dados || ""), d.mime || "image/jpeg", Utilities.formatDate(new Date(), "America/Sao_Paulo", "yyyyMMdd-HHmmss") + " " + String(d.arquivo || "foto.jpg").replace(/\.[^.]+$/, "") + ".jpg");
+      var f = sub.createFile(blob);
+      aba(ss, ABA_FOTOS, ["Data", "Quem", "Arquivo", "Link"]).appendRow([new Date(), nome, f.getName(), f.getUrl()]);
     } else if (d.tipo === "perguntas") {
       aba(ss, ABA_PERGUNTAS, ["Data", "Quem", "Respostas (JSON)"]).appendRow([new Date(), d.quem || "", JSON.stringify(d.respostas || {})]);
     } else {
@@ -53,7 +67,8 @@ function doGet(e) {
     ok: true,
     rsvp: objetos(ss, ABA_RSVP, ["data", "nome", "whatsapp", "pessoas", "acompanhantes", "onibus", "musica", "recado"]),
     onibus: objetos(ss, ABA_ONIBUS, ["data", "nome", "contatoResp", "contatoConv", "onibus", "confirmadoPor"]),
-    perguntas: objetos(ss, ABA_PERGUNTAS, ["data", "quem", "json"])
+    perguntas: objetos(ss, ABA_PERGUNTAS, ["data", "quem", "json"]),
+    fotos: objetos(ss, ABA_FOTOS, ["data", "quem", "arquivo", "link"])
   });
 }
 

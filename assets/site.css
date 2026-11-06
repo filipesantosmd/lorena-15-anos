@@ -59,6 +59,12 @@ body.sem-fontes #abertura h1,body.sem-fontes .capa h1{visibility:hidden}
 .topo nav a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
 .topo nav a:hover{color:var(--rose-deep);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px}
 
+/* música */
+.topo .musica{font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:var(--paper);color:var(--rose-deep);border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap}
+.topo .musica[aria-pressed="true"]{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
+footer .credito{margin-top:18px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+footer .credito a{color:var(--muted)}
+
 /* capa */
 .capa{position:relative;isolation:isolate;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding-block:56px 32px}
 .capa::before{content:"15";position:absolute;right:-.04em;top:-.12em;z-index:-1;font-family:var(--display);font-size:clamp(220px,34vw,520px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);pointer-events:none}
@@ -187,6 +193,14 @@ form.f .desdobra.aberto>div{overflow:visible}
 .contagem{font-family:var(--italic);font-style:italic;font-size:22px;color:var(--rose-deep);margin:0 0 18px}
 .contagem b{font-family:var(--display);font-style:normal;font-weight:400;font-size:1.3em;color:var(--ink)}
 
+/* suas fotos */
+.f-lista{display:grid;gap:6px;font-size:14px;color:var(--muted);max-height:220px;overflow:auto;border:1px solid var(--line);padding:10px 12px}
+.f-lista div{display:flex;justify-content:space-between;gap:10px}
+.f-lista .ok{color:var(--rose-deep)}
+.f-lista .falhou{color:#a33}
+form.f input[type=file]{border:1.5px dashed var(--line);padding:18px 12px;font-size:15px;cursor:pointer;background:var(--blush)}
+.hash-nota{font-family:var(--italic);font-style:italic;font-size:20px;color:var(--rose-deep)}
+
 /* quiz */
 .quiz{background:var(--paper);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:6px;padding:30px 28px;max-width:40em}
 .quiz .q{font-family:var(--italic);font-style:italic;font-size:24px;margin:0 0 18px}
@@ -229,5 +243,6 @@ footer .estrela{color:var(--gold)}
   form.f .linha{grid-template-columns:1fr}
   form.f{padding:22px 18px}
   .topo nav{display:none}
+  .topo .musica{margin-left:auto}
   .noite li{grid-template-columns:70px 1fr}
 }

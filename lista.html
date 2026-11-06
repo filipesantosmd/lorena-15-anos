@@ -7,7 +7,7 @@
 <title>Confirmações · Os 15 da Lorena</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261106e">
+<link rel="stylesheet" href="assets/site.css?v=20261106g">
 <style>
   main.wrap{padding-block:48px}
   .senha{max-width:440px}
@@ -29,7 +29,7 @@
   .vazio{color:var(--muted);padding:14px}
   pre{white-space:pre-wrap;font:14px/1.5 var(--body);margin:0}
 </style>
-<script src="index-config.js?v=20261106e"></script>
+<script src="index-config.js?v=20261106g"></script>
 </head>
 <body class="aberta">
 <header class="topo"><div class="wrap"><a class="marca" href="index.html">Os 15 da Lorena</a><nav><a href="index.html">Voltar ao site</a></nav></div></header>
@@ -49,12 +49,16 @@
       <div><b id="t-onibus">0</b><span>lugares no ônibus</span></div>
       <div><b id="t-musicas">0</b><span>músicas</span></div>
       <div><b id="t-recados">0</b><span>recados</span></div>
+      <div><b id="t-fotos">0</b><span>fotos recebidas</span></div>
     </div>
     <div class="meta"><span id="atualizado"></span><button class="btn leve" type="button" id="recarregar">Atualizar</button><a class="btn leve" id="csv" href="#" download="confirmacoes-lorena15.csv">Baixar CSV</a></div>
     <h3>Presença</h3>
     <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>WhatsApp</th><th>Pessoas</th><th>Acompanhantes</th><th>Ônibus</th><th>Música</th><th>Recado</th></tr></thead><tbody id="tb-rsvp"></tbody></table><div class="vazio" id="v-rsvp" hidden>Ninguém confirmou ainda.</div></div>
     <h3>Ônibus</h3>
     <div class="tabela"><table><thead><tr><th>Quando</th><th>Nome</th><th>Responsáveis</th><th>Convidado</th><th>Ônibus</th><th>Confirmado por</th></tr></thead><tbody id="tb-bus"></tbody></table><div class="vazio" id="v-bus" hidden>Nenhum pedido ainda.</div></div>
+    <h3>Fotos dos convidados</h3>
+    <p id="pasta-link" style="margin:0 0 10px"></p>
+    <div class="tabela"><table><thead><tr><th>Quando</th><th>Quem</th><th>Arquivo</th></tr></thead><tbody id="tb-fotos"></tbody></table><div class="vazio" id="v-fotos" hidden>Nenhuma foto ainda.</div></div>
     <h3>Questionário</h3>
     <div class="tabela"><table><thead><tr><th>Quando</th><th>Quem</th><th>Respostas</th></tr></thead><tbody id="tb-perg"></tbody></table><div class="vazio" id="v-perg" hidden>Nenhuma resposta ainda.</div></div>
   </div>
@@ -65,7 +69,11 @@
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
   function quando(s){var d=new Date(s);return isNaN(d)?esc(s):d.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}
   function rend(j){
-    var rs=j.rsvp||[], bs=j.onibus||[], ps=j.perguntas||[];
+    var rs=j.rsvp||[], bs=j.onibus||[], ps=j.perguntas||[], fs=j.fotos||[];
+    $("#t-fotos").textContent=fs.length;
+    $("#pasta-link").innerHTML=C.pastaFotosUrl?'<a class="btn leve" target="_blank" rel="noopener" href="'+esc(C.pastaFotosUrl)+'">Abrir a pasta no Drive</a>':"";
+    $("#tb-fotos").innerHTML=fs.map(function(r){return "<tr><td class='n'>"+quando(r.data)+"</td><td>"+esc(r.quem)+"</td><td><a href='"+esc(r.link)+"' target='_blank' rel='noopener'>"+esc(r.arquivo)+"</a></td></tr>"}).join("");
+    $("#v-fotos").hidden=fs.length>0;
     $("#t-conf").textContent=rs.length;
     $("#t-pessoas").textContent=rs.reduce(function(a,r){return a+(parseInt(r.pessoas,10)||1)},0);
     $("#t-onibus").textContent=bs.length;

@@ -35,6 +35,22 @@
   $("#ab-conta").textContent = fraseDias();
   if (passou) { $("#ab-eyebrow").textContent = "Foi incrível"; $("#ab-nome").textContent = "Obrigada"; $("#ab-data").textContent = "13 de fevereiro de 2027 · Casa Quintal"; $("#abrir").firstChild.textContent = "Ver as fotos "; }
   $("#abrir").addEventListener("click", abrir);
+
+  /* Música: começa ao abrir o convite; ♪ pausa; a escolha fica na visita. */
+  var M = C.musica, audio = $("#musica"), mbtn = $("#musica-btn");
+  if (M && M.src) {
+    var pref = ""; try { pref = sessionStorage.getItem("lorena15-musica") || ""; } catch (e) {}
+    var economiza = navigator.connection && navigator.connection.saveData;
+    audio.src = M.src; audio.volume = 0; mbtn.hidden = false;
+    $("#musica-credito").hidden = false; $("#musica-credito").innerHTML = "Música: " + esc(M.titulo) + (M.credito ? " · " + esc(M.credito) : "") + (M.spotify ? " · <a href=\"" + esc(M.spotify) + "\" target=\"_blank\" rel=\"noopener\">a música da Lorena no Spotify</a>" : "");
+    function estado(tocando) { mbtn.setAttribute("aria-pressed", tocando ? "true" : "false"); mbtn.textContent = tocando ? "♪ Pausar" : "♪ Tocar"; }
+    function sobe() { var v = 0, alvo = M.volume || .45, t = setInterval(function () { v = Math.min(alvo, v + .05); audio.volume = v; if (v >= alvo) clearInterval(t); }, 120); }
+    function tocar() { var p = audio.play(); if (p && p.then) p.then(function () { estado(true); sobe(); try { sessionStorage.setItem("lorena15-musica", "on"); } catch (e) {} }).catch(function () { estado(false); }); }
+    function pausar() { audio.pause(); estado(false); try { sessionStorage.setItem("lorena15-musica", "off"); } catch (e) {} }
+    mbtn.addEventListener("click", function () { audio.paused ? tocar() : pausar(); });
+    $("#abrir").addEventListener("click", function () { if (pref !== "off" && !economiza) tocar(); });
+    if (jaAbriu && pref === "on") { var p0 = audio.play(); if (p0 && p0.then) p0.then(function () { estado(true); sobe(); }).catch(function () { estado(false); }); }
+  }
   var toques = 0;
   $("#selo").addEventListener("click", function () {
     toques++; if (toques < 3) return; toques = 0;
@@ -110,7 +126,7 @@
     });
   }
   if (C.fotos && C.fotos.length) montaGaleria($("#galeria"), C.fotos, "");
-  if (passou && C.fotosFesta && C.fotosFesta.length) { $("#festa").hidden = false; montaGaleria($("#galeria-festa"), C.fotosFesta, "festa/"); $("#btn-fotos-festa").href = zap("Fotos da festa da Lorena"); }
+  if (passou && C.fotosFesta && C.fotosFesta.length) { $("#festa").hidden = false; montaGaleria($("#galeria-festa"), C.fotosFesta, "festa/"); }
   if (C.capaAtras) { var ca = $("#capa-atras"); ca.hidden = false; ca.querySelector("img").src = "assets/fotos/sm/" + C.capaAtras + ".jpg"; ca.querySelector("img").alt = "Lorena pequena"; $("#capa-atras-leg").textContent = "de lá"; }
   $$(".polaroid img").forEach(function (img) { var ok = function () { img.classList.add("ok"); }; if (img.complete && img.naturalWidth) ok(); else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ok, { once: true }); } });
 
@@ -274,5 +290,60 @@
       $("#quiz-denovo").addEventListener("click", function () { i = 0; acertos = 0; pergunta(); });
     }
     pergunta();
+  }
+
+  /* Suas fotos: redimensiona no celular e manda para o Drive da família via Apps Script. */
+  if (C.receberFotos) {
+    $("#suasfotos").hidden = false; $("#nav-fotos").hidden = false;
+    if (passou) $("#fotos-intro").textContent = "Manda as fotos da festa. Vão direto para o álbum da família, e as melhores entram aqui no site.";
+    if (C.hashtag) { $("#hash-nota").hidden = false; $("#hash-nota").textContent = "Nas redes, usa " + C.hashtag + " e posta nos Close Friends."; }
+    $("#fotos-zap").href = zap("Fotos para o álbum da Lorena");
+    var ff = $("#form-fotos"), okf = $("#ok-fotos"), ef = $("#erro-fotos"), bf = $("#f-botao"), arq = $("#f-arquivos"), fl = $("#f-lista"), fs = $("#f-status");
+    if (jr && jr.d && jr.d.nome) $("#f-nome").value = jr.d.nome;
+    var MAX = 30, LADO = 2400;
+    function listar() {
+      var fs2 = Array.prototype.slice.call(arq.files || []);
+      fl.hidden = !fs2.length; fs.textContent = fs2.length ? fs2.length + (fs2.length === 1 ? " foto escolhida." : " fotos escolhidas.") : "Nenhuma foto escolhida.";
+      fl.innerHTML = fs2.map(function (f, i) { return "<div data-i=\"" + i + "\"><span>" + esc(f.name) + "</span><span class=\"st\">" + Math.round(f.size / 1024) + " KB</span></div>"; }).join("");
+    }
+    arq.addEventListener("change", listar);
+    function reduzir(file) {
+      return new Promise(function (res, rej) {
+        var url = URL.createObjectURL(file), img = new Image();
+        img.onload = function () {
+          var w = img.naturalWidth, h = img.naturalHeight, k = Math.min(1, LADO / Math.max(w, h));
+          var cv = document.createElement("canvas"); cv.width = Math.round(w * k); cv.height = Math.round(h * k);
+          cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height); URL.revokeObjectURL(url);
+          cv.toBlob(function (b) { b ? res(b) : rej(new Error("canvas")); }, "image/jpeg", 0.86);
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); rej(new Error("formato")); };
+        img.src = url;
+      });
+    }
+    function base64(blob) { return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(",")[1]); }; r.onerror = rej; r.readAsDataURL(blob); }); }
+    ff.addEventListener("submit", function (e) {
+      e.preventDefault(); if (!valida(ff, ef)) return;
+      var d = dados(ff); if (d.site_url) { mostraOk(ff, okf); return; }
+      var files = Array.prototype.slice.call(arq.files || []).slice(0, MAX);
+      if (!files.length) { mostraErro(ef, "Escolha pelo menos uma foto.", arq); return; }
+      if (!C.formEndpoint) { mostraErro(ef, "O envio ainda não está ligado. Manda pelo WhatsApp."); return; }
+      bf.disabled = true; var ok = 0, falhas = 0;
+      files.reduce(function (p, f, i) {
+        return p.then(function () {
+          bf.textContent = "Enviando " + (i + 1) + " de " + files.length + "…";
+          var linha = fl.querySelector("[data-i=\"" + i + "\"] .st");
+          return reduzir(f).catch(function () { return f.size < 8e6 ? f : Promise.reject(new Error("grande")); })
+            .then(base64)
+            .then(function (b64) { return post({ tipo: "foto", site: "lorena15", nome: d.nome, arquivo: f.name, mime: "image/jpeg", dados: b64 }); })
+            .then(function () { ok++; if (linha) { linha.textContent = "enviada"; linha.className = "st ok"; } })
+            .catch(function () { falhas++; if (linha) { linha.textContent = "falhou"; linha.className = "st falhou"; } });
+        });
+      }, Promise.resolve()).then(function () {
+        bf.disabled = false; bf.textContent = "Enviar fotos";
+        if (ok) { $("#ok-fotos-txt").textContent = (ok === 1 ? "1 foto está" : ok + " fotos estão") + " no álbum da família." + (falhas ? " " + falhas + " não deu certo; tente de novo ou mande pelo WhatsApp." : "") + " Obrigada, " + primeiroNome(d.nome) + "!"; mostraOk(ff, okf); }
+        else mostraErro(ef, "Não conseguimos enviar. Tente de novo ou <a href=\"" + zap("Fotos para o álbum da Lorena") + "\" target=\"_blank\" rel=\"noopener\">manda pelo WhatsApp</a>.");
+      });
+    });
+    $("#f-mais").addEventListener("click", function () { okf.style.display = "none"; ff.hidden = false; arq.value = ""; listar(); arq.focus(); });
   }
 })();

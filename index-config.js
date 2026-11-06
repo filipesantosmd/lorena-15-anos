@@ -27,15 +27,21 @@ window.CONFIG = {
   paraOsPais: "",            // texto do quadro "Para os pais" na seção do ônibus
   vindoDeFora: "",           // estacionamento, metrô, hotel (seção do local)
   pixPorWhatsapp: false,     // true = mostra "peça a chave Pix pelo WhatsApp"
-  hashtag: "",               // ex.: "#Os15daLorena"
+  hashtag: "#LorenaSiqueira15", // única: "#15daLorena" já é de outra Lorena famosa (Irmãs Pina)
   mensagem: "",              // recado da Lorena acima da galeria
   fraseSelo: "",             // surpresa ao tocar 3 vezes no selo "15"
+
+  // Música do site: começa ao abrir o convite, com botão ♪ para pausar.
+  // Só músicas livres podem ser tocadas; a favorita dela vai como link.
+  musica: { src: "assets/musica.mp3", titulo: "Gymnopédie No. 1, Erik Satie", credito: "Kevin MacLeod (incompetech.com), CC BY 4.0", volume: 0.45, spotify: "" },
 
   // Recursos ligáveis.
   mostrarContagem: true, minimoContagem: 10,   // "Já confirmaram N pessoas" a partir de N
   perguntarMusica: true,     // campo "uma música que não pode faltar"
   perguntarRecado: true,     // campo "deixa um recado pra Lorena"
   storyTemplate: true,       // botão "Baixar o 'Eu vou'" depois de confirmar
+  receberFotos: true,        // seção "Suas fotos": envio direto para o Drive da família
+  pastaFotosUrl: "",         // link da pasta no Drive, para a família abrir em lista.html
 
   // Galeria: ordem cronológica. ano e legenda vazios = sem capítulos e sem legenda.
   fotos: [

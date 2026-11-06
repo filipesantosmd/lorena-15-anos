@@ -22,8 +22,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261106e">
-<script src="index-config.js?v=20261106e"></script>
+<link rel="stylesheet" href="assets/site.css?v=20261106g">
+<script src="index-config.js?v=20261106g"></script>
 </head>
 <body class="sem-fontes">
 
@@ -41,12 +41,14 @@
 
 <header class="topo"><div class="wrap">
   <a class="marca" href="#topo">Os 15 da Lorena</a>
+  <button class="musica" id="musica-btn" type="button" aria-pressed="false" hidden title="Música do site">♪ Tocar</button>
   <nav aria-label="Seções">
     <a href="#fotos">Fotos</a>
     <a href="#local">Local</a>
     <a href="#onibus">Ônibus</a>
     <a href="#presentes">Presentes</a>
     <a href="#confirmar">Confirmar</a>
+    <a href="#suasfotos" id="nav-fotos" hidden>Suas fotos</a>
   </nav>
 </div></header>
 
@@ -256,6 +258,36 @@
   </div>
 </section>
 
+<section class="wrap bloco" id="suasfotos" hidden>
+  <div class="cab entra">
+    <div class="eyebrow">Álbum</div>
+    <h2>Suas <span class="it">fotos</span></h2>
+    <p id="fotos-intro">Tem foto com a Lorena, de qualquer época? Manda aqui. Vai direto para o álbum da família, e algumas podem entrar neste site.</p>
+  </div>
+  <div class="duas">
+    <div>
+      <p>As fotos não ficam públicas: só a família vê. Pode mandar quantas quiser, uma vez ou várias.</p>
+      <p class="hash-nota" id="hash-nota" hidden></p>
+      <p class="aviso">Prefere pelo WhatsApp? <a id="fotos-zap" href="#" target="_blank" rel="noopener">Manda por lá</a>.</p>
+    </div>
+    <div>
+      <form class="f" id="form-fotos" data-titulo="Mandar fotos" novalidate>
+        <label>Seu nome<input type="text" name="nome" id="f-nome" required autocomplete="name"></label>
+        <label>Fotos<small>Toque para escolher. Até 30 de cada vez.</small><input type="file" name="fotos" id="f-arquivos" accept="image/*" multiple required></label>
+        <div id="f-lista" class="f-lista" hidden></div>
+        <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
+        <div class="rodape"><span class="prazo" id="f-status">Nenhuma foto escolhida.</span><button class="btn solid" type="submit" id="f-botao">Enviar fotos</button></div>
+        <div class="erro" id="erro-fotos" role="alert"></div>
+      </form>
+      <div class="obrigada" id="ok-fotos">
+        <h3>Chegaram!</h3>
+        <p id="ok-fotos-txt">Suas fotos estão no álbum da família.</p>
+        <div class="acoes"><button class="btn" type="button" id="f-mais">Mandar mais</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="wrap bloco" id="quiz-sec" hidden>
   <div class="cab entra">
     <div class="eyebrow">Jogo</div>
@@ -269,9 +301,9 @@
   <div class="cab entra">
     <div class="eyebrow">13 · 02 · 2027</div>
     <h2>A <span class="it">festa</span></h2>
-    <p>As fotos que vocês mandaram e as do fotógrafo. Manda as suas pelo WhatsApp.</p>
+    <p>As fotos que vocês mandaram e as do fotógrafo.</p>
   </div>
-  <div class="acoes" style="margin:0 0 28px"><a class="btn solid" id="btn-fotos-festa" href="#" target="_blank" rel="noopener">Manda suas fotos</a></div>
+  <div class="acoes" style="margin:0 0 28px"><a class="btn solid" href="#suasfotos">Manda suas fotos</a></div>
   <div class="galeria" id="galeria-festa"></div>
 </section>
 
@@ -284,13 +316,15 @@
   <div class="hash" id="rodape-hash" hidden></div>
   <div class="acoes"><button class="btn leve" id="rodape-share" type="button" hidden>Compartilhar convite</button><a class="btn leve" id="rodape-zap" href="#" target="_blank" rel="noopener">Falar com a família</a></div>
   <div class="carinho">Com carinho, a família da Lorena</div>
+  <div class="credito" id="musica-credito" hidden></div>
 </footer>
 
+<audio id="musica" loop preload="none"></audio>
 <div class="pill" id="pill" aria-label="Atalhos">
   <a class="btn solid" href="#confirmar">Confirmar presença</a>
   <a class="btn leve" href="#local">Como chegar</a>
 </div>
 
-<script src="assets/site.js?v=20261106e"></script>
+<script src="assets/site.js?v=20261106g"></script>
 </body>
 </html>
