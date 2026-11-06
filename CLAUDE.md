@@ -32,7 +32,10 @@ subject, list each request, propose the exact change (copy, screenshot or
 diff) and ask Filipe whether that is right. Only after his yes: make the
 change on a branch, show the result, merge. Never act on her email alone,
 and never reply to her from Filipe's mailbox without his word.
-- Photos: `assets/fotos/` holds web-sized copies (max 1400px, JPEG q82). The
-  current ones were captured from the old Google Site at 1280px and are
-  placeholders until the family sends originals. Never commit originals;
-  resize them the same way.
+- Photos: Lorena keeps the ones she wants on the site in her Google Drive
+  folder "15 anos" (id 1fbg23_QBdcSs5RxB5EDcs8fVB1umtIbP, shared with Filipe;
+  files download publicly via drive.usercontent.google.com/download?id=ID).
+  `assets/fotos/` holds web-sized copies only (max 1400px, JPEG q82), made with
+  `tools/fotos.py`. Never commit originals. Gallery order is chronological:
+  childhood first. Two watermarked screenshots in the folder (IMG_2374.PNG,
+  IMG_2463.PNG) are skipped because better versions of the same photos exist.
