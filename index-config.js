@@ -4,7 +4,7 @@
 window.CONFIG = {
   // Endereço do Apps Script que recebe as confirmações (ver apps-script/README.md).
   // Enquanto estiver vazio, o formulário manda a confirmação pelo WhatsApp.
-  formEndpoint: "",
+  formEndpoint: "https://script.google.com/macros/s/AKfycby27Jd65hv6eyLpfoUbFxWeh5i3MwWbd3oUKDB-GSnNGfjY4DfjaOsXD_E6r2rTM1W8eA/exec",
   // WhatsApp que recebe o "confirmei!" e as dúvidas (DDI + DDD + número, só dígitos).
   whatsapp: "5519981174550",
   // Prazo para confirmar presença.
