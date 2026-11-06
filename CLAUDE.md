@@ -6,8 +6,10 @@ scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
 
 - Static site, no build step. `index.html`, `lista.html`, `index-config.js`,
   `assets/`, published by GitHub Pages from `main` (workflow in .github/).
-  Live at https://filipesantosmd.github.io/lorena-15-anos/ until the domain
-  is set up. Lorena's choices are recorded in `conteudo/decisoes.md`.
+  Live at https://15anosdalorena.com.br (Registro.br, DNS A records to GitHub
+  Pages, www CNAME; set as custom domain in the repo's Pages settings on
+  2026-11-06). https://filipesantosmd.github.io/lorena-15-anos/ redirects
+  there. Lorena's choices are recorded in `conteudo/decisoes.md`.
 - Language: Brazilian Portuguese throughout (pt-BR), informal "você".
 - Lorena is a minor. Keep `<meta name="robots" content="noindex">` on every
   page, no analytics, no third-party trackers. The site is public to anyone

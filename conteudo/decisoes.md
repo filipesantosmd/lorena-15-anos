@@ -37,10 +37,16 @@ Texto copiado da página de escolhas, mais as notas dela.
 - Enquanto o Apps Script não estiver configurado, o botão de confirmar abre o
   WhatsApp com o texto pronto.
 
+## Domínio
+
+15anosdalorena.com.br registrado no Registro.br em 2026-11-05 (vence em
+2027-11-05, renovar antes se o site continuar no ar). DNS no próprio
+Registro.br: quatro A para os IPs do GitHub Pages e CNAME www. No ar com HTTPS
+em 2026-11-06.
+
 ## Pendente
 
 - Número de WhatsApp que recebe o "confirmei!" (está (19) 98117-4550 por
   enquanto, o primeiro contato do ônibus).
 - Fotos em alta resolução (as atuais vieram do site antigo, em 1280px).
-- Registro do domínio e DNS.
 - Instalar o Apps Script (apps-script/README.md).
