@@ -60,6 +60,24 @@ Confirmações, Ônibus, Fotos, Perguntas. Script publicado com acesso ao Drive;
 fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
 (subpasta por remetente). Tudo testado de ponta a ponta em 2026-11-07.
 
+## Respostas do pai da Lorena (questionário, 2026-11-07)
+
+- Traje: esporte fino.
+- Momentos da noite: entrada da debutante, valsa com a família, troca de
+  vestido, open bar de drinks sem álcool, lembrancinha. Sem horários ainda, e a
+  seção "Programação" não foi marcada: não aparece.
+- Estacionamento: não há; rua ou app. Vira o quadro "Vindo de fora".
+- Ônibus: saída 18h de Jundiaí, 17h15 de Campinas (Bonfim), 17h15 da escola.
+  Volta e adulto responsável: pelo WhatsApp. Vira o quadro "Para os pais".
+- Pix: sim, chave só pelo WhatsApp. Mesa de presentes na festa.
+- WhatsApp principal: o da mãe, (19) 98117-4550; o segundo é (19) 99926-4551.
+- Música no site: não. Player, arquivo e página de escolha removidos.
+- Recursos ligados: música na confirmação, recado, contador de confirmados,
+  story "Eu vou", álbum depois da festa. Não marcados: quiz, legendas,
+  capítulos, "A turma".
+- Não respondidos: hashtag (fica #LorenaSiqueira15), mensagem dela, frase do
+  selo, legendas das fotos, foto de capa.
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e

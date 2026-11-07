@@ -36,35 +36,6 @@
   if (passou) { $("#ab-eyebrow").textContent = "Foi incrível"; $("#ab-nome").textContent = "Obrigada"; $("#ab-data").textContent = "13 de fevereiro de 2027 · Casa Quintal"; $("#abrir").firstChild.textContent = "Ver as fotos "; }
   $("#abrir").addEventListener("click", abrir);
 
-  /* Música: começa ao abrir o convite; ♪ pausa; a escolha fica na visita. */
-  var M = C.musica, audio = $("#musica"), mbtn = $("#musica-btn");
-  if (M && M.src) {
-    var pref = ""; try { pref = sessionStorage.getItem("lorena15-musica") || ""; } catch (e) {}
-    var economiza = navigator.connection && navigator.connection.saveData;
-    audio.src = M.src; audio.volume = 0; mbtn.hidden = false;
-    $("#musica-credito").hidden = false; $("#musica-credito").innerHTML = "Música: " + esc(M.titulo) + (M.credito ? " · " + esc(M.credito) : "") + (M.spotify ? " · <a href=\"" + esc(M.spotify) + "\" target=\"_blank\" rel=\"noopener\">a música da Lorena no Spotify</a>" : "");
-    function estado(tocando) { mbtn.setAttribute("aria-pressed", tocando ? "true" : "false"); mbtn.textContent = tocando ? "♪ Pausar" : "♪ Tocar"; }
-    function sobe() { var v = 0, alvo = M.volume || .45, t = setInterval(function () { v = Math.min(alvo, v + .05); audio.volume = v; if (v >= alvo) clearInterval(t); }, 120); }
-    function tocar() { var p = audio.play(); if (p && p.then) p.then(function () { estado(true); sobe(); try { sessionStorage.setItem("lorena15-musica", "on"); } catch (e) {} }).catch(function () { estado(false); }); }
-    function pausar() { audio.pause(); estado(false); try { sessionStorage.setItem("lorena15-musica", "off"); } catch (e) {} }
-    mbtn.addEventListener("click", function () { audio.paused ? tocar() : pausar(); });
-    /* Pausa quando a aba some (ou quando outra página do site pede), volta quando a aba reaparece. */
-    var tocavaAntes = false;
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) { tocavaAntes = !audio.paused; if (tocavaAntes) audio.pause(); }
-      else if (tocavaAntes) { tocavaAntes = false; var p2 = audio.play(); if (p2 && p2.catch) p2.catch(function () { estado(false); }); }
-    });
-    window.addEventListener("storage", function (ev) { if (ev.key === "lorena15-pausar") { tocavaAntes = false; pausar(); } });
-    $("#abrir").addEventListener("click", function () { if (pref !== "off" && !economiza) tocar(); });
-    if (jaAbriu && pref === "on") { var p0 = audio.play(); if (p0 && p0.then) p0.then(function () { estado(true); sobe(); }).catch(function () { estado(false); }); }
-  }
-  var toques = 0;
-  $("#selo").addEventListener("click", function () {
-    toques++; if (toques < 3) return; toques = 0;
-    var s = $("#selo"); s.classList.remove("gira"); void s.offsetWidth; s.classList.add("gira");
-    if (C.fraseSelo) $("#ab-eyebrow").textContent = C.fraseSelo;
-  });
-
   /* Links e textos de configuração. */
   var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(C.lugar + ", " + C.endereco);
   $("#btn-maps").href = mapsUrl; $("#mapa-link").href = mapsUrl;

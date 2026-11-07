@@ -8,8 +8,8 @@ window.CONFIG = {
 
   // WhatsApp que recebe o "oi" depois da confirmação e as dúvidas.
   // Só dígitos: DDI + DDD + número. E como chamar esse número no site.
-  whatsapp: "5519999264551",            // Filipe, 2026-11-06: confirmações e dúvidas
-  whatsapp2: "5519981174550",           // segundo número que também recebe
+  whatsapp: "5519981174550",            // mãe da Lorena (questionário, 2026-11-07)
+  whatsapp2: "5519999264551",           // segundo número que também recebe (Filipe)
   whatsappPara: "pra família da Lorena",   // ou "pra Lorena", se for o dela
 
   // A festa.
@@ -22,19 +22,15 @@ window.CONFIG = {
   lat: -23.5521113, lon: -46.6610456,
 
   // Decididos pela família (vazio = não aparece).
-  traje: "",                 // ex.: "Esporte fino"
+  traje: "Esporte fino",     // pai da Lorena, questionário de 2026-11-07
   trajeNota: "",             // ex.: "Vestido midi ou longo; camisa social, com ou sem blazer."
   programacao: [],           // ex.: [{ hora: "19h30", o: "Recepção" }, { hora: "21h", o: "Entrada da Lorena" }]
-  paraOsPais: "",            // texto do quadro "Para os pais" na seção do ônibus
-  vindoDeFora: "",           // estacionamento, metrô, hotel (seção do local)
-  pixPorWhatsapp: false,     // true = mostra "peça a chave Pix pelo WhatsApp"
+  paraOsPais: "Saída prevista: 17h15 da escola, 17h15 de Campinas (Bonfim) e 18h de Jundiaí. O horário da volta, o ponto de encontro e o contato do adulto responsável por cada ônibus são enviados aos pais pelo WhatsApp. Se o seu filho ou filha tiver alguma necessidade (remédio, restrição alimentar), avise pelo WhatsApp.",
+  vindoDeFora: "A Casa Quintal não tem estacionamento: venha de Uber ou 99, que deixam na porta, ou estacione na rua.",
+  pixPorWhatsapp: true,      // chave só pelo WhatsApp, nunca no site; haverá mesa de presentes na festa
   hashtag: "#LorenaSiqueira15", // única: "#15daLorena" já é de outra Lorena famosa (Irmãs Pina)
   mensagem: "",              // recado da Lorena acima da galeria
   fraseSelo: "",             // surpresa ao tocar 3 vezes no selo "15"
-
-  // Música do site: começa ao abrir o convite, com botão ♪ para pausar.
-  // Só músicas livres podem ser tocadas; a favorita dela vai como link.
-  musica: { src: "assets/musica.mp3?v=3", titulo: "Disco Ain't Old School, Michael Ramir C.", credito: "Mixkit, licença livre", volume: 0.4, spotify: "" },
 
   // Recursos ligáveis.
   mostrarContagem: true, minimoContagem: 10,   // "Já confirmaram N pessoas" a partir de N

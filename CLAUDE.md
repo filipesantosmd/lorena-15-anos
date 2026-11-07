@@ -41,8 +41,8 @@ scenarios, Stripe, or any copy. Nothing in this repo may mention the business.
   pessoas", shown from minimoContagem). Any change to apps-script/Code.gs
   needs Filipe to paste it and deploy a new version (URL stays the same).
 - No "Compartilhar convite" button anywhere and no site link in share texts:
-  the invitation is for whoever received it (Filipe, 2026-11-06). Music: a
-  CC BY instrumental only; her favourite song is a Spotify link, never hosted.
+  the invitation is for whoever received it (Filipe, 2026-11-06). No music on
+  the site (the family's answer, 2026-11-07); never re-add a player.
 - Reviews of 2026-11-06 (conteudo/revisoes-2026-11-06/) were implemented
   where no family content was needed: OG tags and share image, sticky phone
   pill, facts card with calendar links, countdowns, softened thank-you, gold
