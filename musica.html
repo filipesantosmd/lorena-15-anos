@@ -7,7 +7,7 @@
 <title>Música · Os 15 da Lorena</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261107b">
+<link rel="stylesheet" href="assets/site.css?v=20261107c">
 <style>
   main.wrap{padding-block:40px 120px;max-width:860px}
   .intro{font-size:var(--lead);color:var(--muted);max-width:36em}
@@ -19,7 +19,7 @@
   .quem{display:grid;gap:6px;margin:20px 0}
   .quem input{font:inherit;font-size:16px;border:0;border-bottom:1.5px solid var(--line);background:transparent;padding:8px 0;width:100%;max-width:24em}
 </style>
-<script src="index-config.js?v=20261107b"></script>
+<script src="index-config.js?v=20261107c"></script>
 </head>
 <body class="aberta">
 <header class="topo"><div class="wrap"><a class="marca" href="index.html">Os 15 da Lorena</a><nav><a href="index.html">Ver o site</a></nav></div></header>
@@ -70,7 +70,8 @@
 <script>
 (function(){
   var C=window.CONFIG||{}; var $=function(s){return document.querySelector(s)};
-  document.querySelectorAll("audio").forEach(function(a){a.addEventListener("play",function(){document.querySelectorAll("audio").forEach(function(b){if(b!==a)b.pause()})})});
+  try{localStorage.setItem("lorena15-pausar",String(Date.now()))}catch(e){}
+  document.querySelectorAll("audio").forEach(function(a){a.addEventListener("play",function(){try{localStorage.setItem("lorena15-pausar",String(Date.now()))}catch(e){} document.querySelectorAll("audio").forEach(function(b){if(b!==a)b.pause()})})});
   document.querySelectorAll("[data-escolhe]").forEach(function(b){
     b.addEventListener("click",function(){
       var quem=$("#quem").value.trim(); var erro=$("#erro"); erro.style.display="none";

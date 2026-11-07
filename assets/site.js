@@ -48,6 +48,13 @@
     function tocar() { var p = audio.play(); if (p && p.then) p.then(function () { estado(true); sobe(); try { sessionStorage.setItem("lorena15-musica", "on"); } catch (e) {} }).catch(function () { estado(false); }); }
     function pausar() { audio.pause(); estado(false); try { sessionStorage.setItem("lorena15-musica", "off"); } catch (e) {} }
     mbtn.addEventListener("click", function () { audio.paused ? tocar() : pausar(); });
+    /* Pausa quando a aba some (ou quando outra página do site pede), volta quando a aba reaparece. */
+    var tocavaAntes = false;
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { tocavaAntes = !audio.paused; if (tocavaAntes) audio.pause(); }
+      else if (tocavaAntes) { tocavaAntes = false; var p2 = audio.play(); if (p2 && p2.catch) p2.catch(function () { estado(false); }); }
+    });
+    window.addEventListener("storage", function (ev) { if (ev.key === "lorena15-pausar") { tocavaAntes = false; pausar(); } });
     $("#abrir").addEventListener("click", function () { if (pref !== "off" && !economiza) tocar(); });
     if (jaAbriu && pref === "on") { var p0 = audio.play(); if (p0 && p0.then) p0.then(function () { estado(true); sobe(); }).catch(function () { estado(false); }); }
   }
