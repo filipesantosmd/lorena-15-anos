@@ -53,6 +53,13 @@ frase do selo, recursos a ligar, ideias, quiz (até 8 perguntas), ano e legenda
 de cada foto, foto de capa. As respostas chegam na aba "Perguntas" da planilha
 e viram edições em `index-config.js`.
 
+## Backend ligado (2026-11-07)
+
+Planilha "15 anos da Lorena" na conta filipenadir@gmail.com, com as abas
+Confirmações, Ônibus, Fotos, Perguntas. Script publicado com acesso ao Drive;
+fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
+(subpasta por remetente). Tudo testado de ponta a ponta em 2026-11-07.
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e
