@@ -78,7 +78,7 @@
   if (C.hashtag) { $("#rodape-hash").hidden = false; $("#rodape-hash").textContent = "No dia, posta nos stories com " + C.hashtag + ". Melhor ainda: só pros Close Friends."; }
   $("#rodape-conta").innerHTML = passou ? "Foi inesquecível" : ehHoje ? "É hoje" : "<span>" + dias + "</span> " + (dias === 1 ? "dia" : "dias");
   if (C.programacao && C.programacao.length) {
-    $("#noite").hidden = false;
+    $("#noite").hidden = false; $("#nav-noite").hidden = false;
     $("#programacao").innerHTML = C.programacao.map(function (p) { return "<li><b>" + esc(p.hora) + "</b><span>" + esc(p.o) + "</span></li>"; }).join("");
   }
 
@@ -119,7 +119,13 @@
       img.addEventListener("error", function () { img.classList.add("ok"); });
     });
   }
-  if (C.fotos && C.fotos.length) montaGaleria($("#galeria"), C.fotos, "");
+  if (C.fotos && C.fotos.length) {
+    montaGaleria($("#galeria"), C.fotos, "");
+    if (C.fotos.length > 9) {
+      var g = $("#galeria"), vt = $("#ver-todas"); g.classList.add("resumida"); vt.hidden = false; vt.textContent = "Ver todas as " + C.fotos.length + " fotos";
+      vt.addEventListener("click", function () { g.classList.remove("resumida"); vt.hidden = true; });
+    }
+  }
   if (passou && C.fotosFesta && C.fotosFesta.length) { $("#festa").hidden = false; montaGaleria($("#galeria-festa"), C.fotosFesta, "festa/"); }
   if (C.capaAtras) { var ca = $("#capa-atras"); ca.hidden = false; ca.querySelector("img").src = "assets/fotos/sm/" + C.capaAtras + ".jpg"; ca.querySelector("img").alt = "Lorena pequena"; $("#capa-atras-leg").textContent = "de lá"; }
   $$(".polaroid img").forEach(function (img) { var ok = function () { img.classList.add("ok"); }; if (img.complete && img.naturalWidth) ok(); else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ok, { once: true }); } });
@@ -267,7 +273,7 @@
 
   /* Quiz (da configuração). */
   if (C.quiz && C.quiz.length) {
-    $("#quiz-sec").hidden = false; $("#quiz-intro").textContent = C.quiz.length + " perguntas. Sem cola.";
+    $("#quiz-sec").hidden = false; $("#nav-quiz").hidden = false; $("#quiz-intro").textContent = C.quiz.length + " perguntas. Sem cola.";
     var q = $("#quiz"), i = 0, acertos = 0;
     function pergunta() {
       var it = C.quiz[i], ops = [it.certa].concat(it.erradas || []).sort(function () { return Math.random() - .5; });

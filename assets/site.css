@@ -133,6 +133,8 @@ section.bloco+section.bloco{border-top:1px solid var(--line)}
   .galeria img.ok,.polaroid img.ok{opacity:1}
 }
 
+.galeria.resumida > *:nth-child(n+10){display:none}
+
 /* programação */
 .noite{list-style:none;padding:0;margin:0;max-width:40em}
 .noite li{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);font-size:var(--lead)}
@@ -242,7 +244,11 @@ footer .estrela{color:var(--gold)}
   .lista{columns:1}
   form.f .linha{grid-template-columns:1fr}
   form.f{padding:22px 18px}
-  .topo nav{display:none}
+  .topo .wrap{flex-wrap:wrap;padding-block:12px 0;row-gap:8px}
   .topo .musica{margin-left:auto}
+  .topo nav{flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:8px;padding:2px 0 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .topo nav::-webkit-scrollbar{display:none}
+  .topo nav a{flex:none;font-size:12px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+  .topo nav a:hover{text-decoration:none}
   .noite li{grid-template-columns:70px 1fr}
 }

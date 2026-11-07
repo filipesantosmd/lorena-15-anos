@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Perguntas · Os 15 da Lorena</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=20261107b">
+<style>
+  main.wrap{padding-block:40px 120px;max-width:860px}
+  .intro{font-size:var(--lead);color:var(--muted);max-width:36em}
+  .passo{margin-top:56px}
+  .passo h3{font-size:clamp(30px,4.5vw,42px);letter-spacing:.04em;margin-bottom:6px}
+  .passo h3::after{content:"";display:block;width:40px;height:1px;background:var(--gold);margin-top:12px}
+  .passo .dica{color:var(--muted);margin:10px 0 20px;font-size:16px}
+  .cartao{background:var(--paper);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:5px;padding:22px 22px;margin-bottom:22px}
+  .cartao .per{font-weight:500;margin:0 0 10px;font-size:17px}
+  .cartao .per small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+  .ops{display:grid;gap:4px}
+  .ops label{display:flex;gap:10px;align-items:flex-start;padding:8px 6px;border-radius:6px;cursor:pointer;font-size:16px;text-transform:none;letter-spacing:0;color:var(--ink)}
+  .ops label:hover{background:var(--blush)}
+  .ops input[type=radio],.ops input[type=checkbox]{accent-color:var(--rose-deep);width:18px;height:18px;margin-top:3px;flex:none}
+  .ops .outro{flex:1;border:0;border-bottom:1.5px solid var(--line);font:inherit;padding:4px 0;background:transparent;color:var(--ink)}
+  .campo{display:grid;gap:6px;margin-top:10px}
+  .campo span{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .campo input,.campo textarea,.campo select{font:inherit;font-size:16px;border:0;border-bottom:1.5px solid var(--line);background:transparent;padding:8px 0;width:100%;color:var(--ink)}
+  .campo input:focus,.campo textarea:focus{border-bottom-color:var(--gold);outline:none}
+  .campo textarea{min-height:64px;resize:vertical}
+  .horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px 20px}
+  .fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .fotos figure{margin:0;background:#fff;padding:8px 8px 10px;box-shadow:0 8px 20px rgba(58,42,48,.1)}
+  .fotos img{aspect-ratio:4/5;object-fit:cover;width:100%}
+  .fotos input{font:inherit;font-size:13px;border:0;border-bottom:1px solid var(--line);width:100%;padding:5px 0;background:transparent}
+  .fotos .num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:6px 0 2px}
+  .fotos label.capa{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:6px;cursor:pointer}
+  .quizq{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+  .bar{position:sticky;bottom:0;background:var(--paper);border:1px solid var(--line);padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;box-shadow:0 -6px 30px rgba(184,76,102,.08);margin-top:40px}
+  .bar .st{font-size:14px;color:var(--muted)}
+  .obrigada{margin-top:30px}
+</style>
+<script src="index-config.js?v=20261107b"></script>
+</head>
+<body class="aberta">
+<header class="topo"><div class="wrap"><a class="marca" href="index.html">Os 15 da Lorena</a><nav><a href="index.html">Ver o site</a></nav></div></header>
+<main class="wrap">
+  <div class="cab"><div class="eyebrow">Para a Lorena</div><h2>Suas <span class="it">respostas</span></h2></div>
+  <p class="intro">Lorena, o site está no ar e agora faltam as coisas que só você e seus pais sabem. Responde o que souber, pula o que não souber, e aperta "Enviar respostas" no final. Tudo fica salvo no seu celular enquanto você responde, então pode fazer em várias vezes. Algumas perguntas são para os seus pais: mostra pra eles.</p>
+
+  <div class="cartao" style="margin-top:28px">
+    <p class="per">Quem está respondendo agora?</p>
+    <div class="ops" id="quem"></div>
+  </div>
+
+  <div id="passos"></div>
+
+  <div class="bar">
+    <div class="st" id="st">Nada salvo ainda.</div>
+    <div class="acoes" style="margin:0"><button class="btn leve" type="button" id="copiar">Copiar como texto</button><button class="btn solid" type="button" id="enviar">Enviar respostas</button></div>
+  </div>
+  <div class="erro" id="erro" role="alert" style="margin-top:14px"></div>
+  <div class="obrigada" id="ok"><h3>Chegou!</h3><p>Suas respostas foram para o tio. Pode mudar de ideia depois: é só responder de novo que a versão nova vale.</p><div class="acoes"><a class="btn solid" href="index.html">Ver o site</a></div></div>
+</main>
+
+<script>
+(function(){
+  var C=window.CONFIG||{}; var $=function(s){return document.querySelector(s)}; var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+  var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+  var R={}; try{R=JSON.parse(localStorage.getItem("lorena15-perguntas")||"{}")}catch(e){}
+  function salvar(){try{localStorage.setItem("lorena15-perguntas",JSON.stringify(R))}catch(e){} var n=Object.keys(R).filter(function(k){var v=R[k];return v&&(typeof v!=="object"||Object.keys(v).length)}).length; $("#st").textContent=n?"Salvo no celular: "+n+" respostas até agora.":"Nada salvo ainda."}
+  function radio(id,ops,outro){return '<div class="ops">'+ops.map(function(o,i){return '<label><input type="radio" name="'+id+'" value="'+esc(o)+'"><span>'+esc(o)+'</span></label>'}).join("")+(outro?'<label><input type="radio" name="'+id+'" value="__outro"><span>Outro:</span><input class="outro" type="text" data-outro="'+id+'" placeholder="escreva aqui"></label>':"")+'</div>'}
+  function checks(id,ops){return '<div class="ops">'+ops.map(function(o){var v=Array.isArray(o)?o[0]:o,l=Array.isArray(o)?o[1]:"";return '<label><input type="checkbox" name="'+id+'" value="'+esc(v)+'"><span>'+esc(v)+(l?'<small style="display:block;color:var(--muted);font-size:13px">'+esc(l)+'</small>':"")+'</span></label>'}).join("")+'</div>'}
+  function campo(id,rot,ph,area){return '<label class="campo"><span>'+esc(rot)+'</span>'+(area?'<textarea name="'+id+'" placeholder="'+esc(ph||"")+'"></textarea>':'<input type="text" name="'+id+'" placeholder="'+esc(ph||"")+'">')+'</label>'}
+  function cartao(per,dica,html){return '<div class="cartao"><p class="per">'+per+(dica?'<small>'+dica+'</small>':"")+'</p>'+html+'</div>'}
+  function passo(t,dica,html){return '<section class="passo"><h3>'+t+'</h3>'+(dica?'<p class="dica">'+dica+'</p>':"")+html+'</section>'}
+
+  $("#quem").innerHTML=['Lorena','Mãe','Pai','Outra pessoa da família'].map(function(o){return '<label><input type="radio" name="quem" value="'+o+'"><span>'+o+'</span></label>'}).join("");
+
+  var fotos=[{src:"capa",n:"Capa"}].concat((C.fotos||[]).map(function(f,i){return {src:f.src,n:"Foto "+(i+1)}}));
+  var html="";
+  html+=passo("1. A festa","Pode pedir ajuda aos seus pais e ao buffet. O que não souber, deixa em branco.",
+    cartao("Qual é o traje?","Vai na capa do site e na faixa, para ninguém precisar perguntar.",radio("traje",["Esporte fino","Social (passeio completo)","Casual chique","Vem como se sentir bem"],true)+campo("trajeNota","Alguma orientação extra?","ex.: vestido midi ou longo; meninos de camisa social. Evitar rosa, que é só da aniversariante."))
+   +cartao("Horários da noite","Deixe em branco o que ainda não existe. Vai virar a seção \"A noite\".",'<div class="horas">'+[["hEntrada","Entrada da Lorena"],["hValsa","Valsa"],["hVelas","15 velas"],["hJantar","Jantar"],["hBalada","Balada / pista"],["hFim","Fim da festa"]].map(function(p){return campo(p[0],p[1],"ex.: 21h")}).join("")+'</div>')
+   +cartao("Vai ter...","Marque o que vai acontecer.",checks("momentos",["Entrada da debutante","Valsa com o pai","Valsa com a família","Valsa com amigos","15 velas","Corte (damas e cavalheiros)","Troca de vestido","Show ou DJ","Open bar de drinks sem álcool","Lembrancinha"]))
+   +cartao("Chegando e dormindo (pergunta para os pais)","Para as famílias de Jundiaí e Campinas que vêm de carro.",radio("estacionamento",["Tem estacionamento na Casa Quintal","Tem valet na porta","Não tem, é na rua ou de app","Não sei"],false)+campo("metro","Metrô mais próximo, se souber","ex.: Higienópolis-Mackenzie, 10 min a pé")+campo("hotel","Dica de hotel para quem dorme em SP, se quiser indicar","ex.: perguntar à família pelo WhatsApp"))
+   +cartao("O ônibus (pergunta para os pais)","Vira o quadro \"Para os pais\" na seção do ônibus.",'<div class="horas">'+[["busJundiai","Saída de Jundiaí"],["busCampinas","Saída de Campinas (Bonfim)"],["busEscola","Saída da escola"],["busVolta","Hora da volta"]].map(function(p){return campo(p[0],p[1],"ex.: 17h")}).join("")+'</div>'+campo("busAdulto","Quem vai de adulto em cada ônibus (só para a família saber, não vai para o site)","")+campo("busAvisos","Algum aviso para os pais?","ex.: levar documento com foto; avisar restrição alimentar",true))
+   +cartao("Presentes","",radio("pix",["Pode oferecer Pix (a chave vai só pelo WhatsApp, nunca no site)","Não quero Pix"],false)+radio("mesaPresentes",["Vai ter mesa de presentes na festa","Não vai ter mesa, é melhor entregar antes","Não sei ainda"],false)));
+  html+=passo("2. Mensagens e WhatsApp","",
+    cartao("Qual WhatsApp recebe o \"oi\" de quem confirmou e as dúvidas?","Hoje está o número (19) 98117-4550.",radio("zapQuem",["O meu","O da minha mãe","O do meu pai"],true)+campo("zapNumero","O número, com DDD","(19) 9xxxx-xxxx"))
+   +cartao("Hashtag da festa","Vai na faixa, no rodapé e na seção de fotos. Precisa ser única: #15daLorena e parecidas já são de outra Lorena famosa (Irmãs Pina), por isso o sobrenome.",radio("hashtag",["#LorenaSiqueira15 (já está no site)","#Os15daLorenaSS","#LorenaSS2027","#Lorena15anos (aviso: toda Lorena que faz 15 usa esta, as fotos vão se misturar)","Não quero hashtag"],true))
+   +cartao("Uma mensagem sua para o site","Fica acima das fotos, em itálico, assinada por você. Duas ou três linhas bastam.",campo("mensagem","Sua mensagem","ex.: Escolhi cada foto deste site. Algumas são do tempo da Minnie, outras de agora. Queria muito que você estivesse lá para a próxima.",true))
+   +cartao("Música do site","Toca quando a pessoa abre o convite, com botão para pausar. Só podemos tocar músicas livres; a sua favorita entra como link para o Spotify. <a href=\"musica.html\" target=\"_blank\">Ouça as 12 opções e escolha lá</a>.",radio("musicaSite",["Escolhi uma na página de músicas","Sem música no site"],false)+campo("musicaEstilo","Estilo, se quiser outra","ex.: violino, lo-fi, bossa nova")+campo("musicaFavorita","Sua música favorita, para o link do Spotify","nome e artista"))
+   +cartao("Segredo do selo \"15\"","Quem tocar três vezes no selo da abertura vê uma frase sua. Qual?",campo("fraseSelo","A frase secreta","ex.: você achou! me conta na festa")));
+  html+=passo("3. O que você quer ligar no site","Marque tudo que quiser. O que já está ligado vem marcado.",
+    cartao("Recursos","",checks("recursos",[["Música na confirmação","o convidado sugere uma música para o DJ"],["Recado na confirmação","mensagens para você, lidas na festa"],["Contador de confirmados","\"Já confirmaram 48 pessoas. Falta você.\""],["Story \"Eu vou\"","imagem para os amigos postarem depois de confirmar"],["Quiz sobre você","oito perguntas, resultado compartilhável"],["Legendas nas fotos","aparecem na borda da polaroid"],["Capítulos por ano na galeria","um número grande cada vez que o ano muda"],["Seção \"A turma\"","nomes das damas e cavalheiros, com autorização de cada família"],["Álbum depois da festa","o site vira o álbum no dia seguinte"],["Programação da noite","com os horários que você deu acima"]]))
+   +cartao("Ideias suas","O que você gostaria que o site tivesse e ninguém pensou?",campo("ideias","Pode escrever à vontade","",true)));
+  html+=passo("4. Quiz \"Quanto você conhece a Lorena?\"","Só se marcou o quiz. Perguntas sobre gostos, nunca sobre onde você estuda ou mora. Pelo menos 5, no máximo 8.",
+    '<div class="cartao">'+[1,2,3,4,5,6,7,8].map(function(i){return '<div class="quizq">'+campo("q"+i+"p","Pergunta "+i,"ex.: Qual é a série favorita dela?")+'<div class="horas">'+campo("q"+i+"c","Resposta certa","")+campo("q"+i+"e1","Resposta errada 1","")+campo("q"+i+"e2","Resposta errada 2","")+'</div></div>'}).join("")+'</div>');
+  html+=passo("5. As fotos","Para cada foto, o ano (ou a idade) e uma legenda curta, se quiser. Marque a que você quer na capa.",
+    '<div class="cartao"><div class="fotos">'+fotos.map(function(f){return '<figure><img src="assets/fotos/sm/'+f.src+'.jpg" alt="'+f.n+'" loading="lazy"><div class="num">'+f.n+'</div><input type="text" name="ano_'+f.src+'" placeholder="ano ou idade" maxlength="12"><input type="text" name="leg_'+f.src+'" placeholder="legenda" maxlength="60"><label class="capa"><input type="radio" name="capaEscolha" value="'+f.src+'">na capa</label></figure>'}).join("")+'</div></div>');
+  $("#passos").innerHTML=html;
+
+  /* liga, salva e restaura */
+  function ler(){
+    var r={};
+    $$("main input, main textarea").forEach(function(i){
+      var k=i.name; if(!k) return;
+      if(i.type==="radio"){ if(i.checked){ r[k]=i.value==="__outro"?( $('input[data-outro="'+k+'"]').value||"" ):i.value } }
+      else if(i.type==="checkbox"){ if(i.checked){ (r[k]=r[k]||[]).push(i.value) } }
+      else if(i.dataset.outro){ /* tratado no rádio */ }
+      else if(i.value.trim()){ r[k]=i.value.trim() }
+    });
+    return r;
+  }
+  function restaurar(){
+    $$("main input, main textarea").forEach(function(i){
+      var k=i.name; if(!k||!(k in R)) return; var v=R[k];
+      if(i.type==="radio"){ var ops=$$('input[name="'+k+'"]').map(function(x){return x.value}); if(ops.indexOf(v)>=0){ i.checked=i.value===v } else if(i.value==="__outro"){ i.checked=true; var o=$('input[data-outro="'+k+'"]'); if(o) o.value=v } }
+      else if(i.type==="checkbox"){ i.checked=Array.isArray(v)&&v.indexOf(i.value)>=0 }
+      else if(!i.dataset.outro){ i.value=v }
+    });
+    ["Música na confirmação","Recado na confirmação","Contador de confirmados","Story \"Eu vou\""].forEach(function(v){ if(!("recursos" in R)) { var c=$('input[name="recursos"][value="'+v.replace(/"/g,'\\"')+'"]'); if(c) c.checked=true } });
+  }
+  restaurar(); salvar();
+  $("main").addEventListener("input",function(){R=ler();salvar()});
+  $("main").addEventListener("change",function(){R=ler();salvar()});
+
+  function texto(){ R=ler(); return "Respostas da Lorena para o site\n"+Object.keys(R).map(function(k){var v=R[k];return k+": "+(Array.isArray(v)?v.join("; "):v)}).join("\n") }
+  $("#copiar").addEventListener("click",function(){var t=texto();var b=$("#copiar");var ok=function(){b.textContent="Copiado!";setTimeout(function(){b.textContent="Copiar como texto"},2000)};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){window.prompt("Copie:",t)})}else window.prompt("Copie:",t)});
+  $("#enviar").addEventListener("click",function(){
+    R=ler(); var erro=$("#erro"); erro.style.display="none";
+    if(!R.quem){erro.textContent="Marque quem está respondendo, lá no começo.";erro.style.display="block";window.scrollTo({top:0,behavior:"smooth"});return}
+    var b=$("#enviar"); b.disabled=true; b.textContent="Enviando…";
+    var d={site:"lorena15",tipo:"perguntas",quem:R.quem,respostas:R};
+    var fim=function(){b.disabled=false;b.textContent="Enviar respostas"};
+    if(!C.formEndpoint){fim();erro.textContent="O site ainda não está ligado à planilha. Use \"Copiar como texto\" e mande pelo WhatsApp.";erro.style.display="block";return}
+    fetch(C.formEndpoint,{method:"POST",body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(j){ if(!j||!j.ok) throw new Error("x"); fim(); $("#ok").style.display="block"; $("#ok").classList.add("aparece"); $("#ok").scrollIntoView({behavior:"smooth",block:"center"}); })
+      .catch(function(){fim();erro.textContent="Não conseguimos enviar agora. Use \"Copiar como texto\" e mande pelo WhatsApp, ou tente de novo daqui a pouco.";erro.style.display="block"});
+  });
+})();
+</script>
+</body>
+</html>
