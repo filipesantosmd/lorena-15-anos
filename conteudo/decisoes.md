@@ -78,6 +78,16 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
 - Não respondidos: hashtag (fica #LorenaSiqueira15), mensagem dela, frase do
   selo, legendas das fotos, foto de capa.
 
+## Respostas da Lorena (WhatsApp ao Filipe, 2026-11-09)
+
+- Lista de presentes: fica como está (lista de ideias).
+- Hashtag: não quer. Removida do site.
+- Mensagem dela: não. Frase secreta: não; prefere sem o selo "15". Selo
+  removido da abertura, da prévia, dos ícones e do story.
+- Capa: vai pensar em outra foto; por enquanto fica a atual.
+- Legendas nas fotos: não. Programação: não (decisão do pai). Quiz: não.
+- Código de convite: acha desnecessário; vai ver com os pais.
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e

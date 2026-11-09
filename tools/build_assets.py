@@ -36,8 +36,8 @@ def texto_centrado(d, xy, s, f, cor, esp=0):
         larg = d.textlength(s, font=f); d.text((x - larg / 2, y), s, font=f, fill=cor)
 
 def selo(d, cx, cy, r, f):
-    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=GOLD, width=max(2, r // 24))
-    texto_centrado(d, (cx, cy - r * 0.62), '15', f, GOLD)
+    # Sem selo "15" (Lorena, 2026-11-09): só uma estrela dourada fina.
+    texto_centrado(d, (cx, cy - r * 0.55), '✦', f, GOLD)
 
 def og():
     im = Image.new('RGB', (1200, 630), BG); d = ImageDraw.Draw(im)
@@ -53,7 +53,7 @@ def og():
 def icones():
     for tam, nome in ((512, 'icon-512.png'), (180, 'apple-touch-icon.png'), (32, 'favicon-32.png')):
         im = Image.new('RGB', (tam, tam), BLUSH); d = ImageDraw.Draw(im)
-        r = int(tam * 0.36); selo(d, tam / 2, tam / 2, r, fonte('italiana', int(tam * 0.42)))
+        texto_centrado(d, (tam / 2, tam * 0.1), 'L', fonte('italiana', int(tam * 0.78)), ROSE_DEEP)
         im.save(os.path.join(A, nome)); print(nome)
 
 def story():
