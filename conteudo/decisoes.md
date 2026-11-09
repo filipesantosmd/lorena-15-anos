@@ -86,7 +86,7 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
   removido da abertura, da prévia, dos ícones e do story.
 - Capa: vai pensar em outra foto; por enquanto fica a atual.
 - Legendas nas fotos: não. Programação: não (decisão do pai). Quiz: não.
-- Código de convite: acha desnecessário; vai ver com os pais.
+- Código de convite: não (Filipe, 2026-11-09). Capa: fica a atual.
 
 ## Pendente
 
