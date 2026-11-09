@@ -28,9 +28,9 @@ window.CONFIG = {
   paraOsPais: "Saída prevista: 17h15 da escola, 17h15 de Campinas (Bonfim) e 18h de Jundiaí. O horário da volta, o ponto de encontro e o contato do adulto responsável por cada ônibus são enviados aos pais pelo WhatsApp. Se o seu filho ou filha tiver alguma necessidade (remédio, restrição alimentar), avise pelo WhatsApp.",
   vindoDeFora: "A Casa Quintal não tem estacionamento: venha de Uber ou 99, que deixam na porta, ou estacione na rua.",
   pixPorWhatsapp: true,      // chave só pelo WhatsApp, nunca no site; haverá mesa de presentes na festa
-  hashtag: "#LorenaSiqueira15", // única: "#15daLorena" já é de outra Lorena famosa (Irmãs Pina)
+  hashtag: "",               // Lorena não quer hashtag (2026-11-09)
   mensagem: "",              // recado da Lorena acima da galeria
-  fraseSelo: "",             // surpresa ao tocar 3 vezes no selo "15"
+  fraseSelo: "",             // sem selo "15" na abertura (Lorena, 2026-11-09); campo sem efeito
 
   // Recursos ligáveis.
   mostrarContagem: true, minimoContagem: 10,   // "Já confirmaram N pessoas" a partir de N
