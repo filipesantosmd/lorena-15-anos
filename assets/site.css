@@ -119,9 +119,9 @@ section.bloco+section.bloco{border-top:1px solid var(--line)}
 .recado-lorena small{display:block;font-family:var(--body);font-style:normal;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:10px}
 
 /* galeria */
-.galeria{columns:3;column-gap:24px}
-.galeria .ano{column-span:all;font-size:clamp(56px,9vw,120px);color:transparent;-webkit-text-stroke:1px var(--rose);letter-spacing:.08em;margin:24px 0 -8px;text-align:right}
-.galeria figure{margin:0 0 28px;display:block;break-inside:avoid;background:#fff;padding:10px 10px 34px;box-shadow:0 12px 30px rgba(58,42,48,.12);transition:transform .2s;position:relative;cursor:default}
+.galeria{display:flex;flex-wrap:wrap;gap:28px 24px;align-items:flex-start}
+.galeria .ano{flex:1 0 100%;font-size:clamp(56px,9vw,120px);color:transparent;-webkit-text-stroke:1px var(--rose);letter-spacing:.08em;margin:24px 0 -8px;text-align:right}
+.galeria figure{margin:0;flex:none;box-sizing:border-box;background:#fff;padding:10px 10px 34px;box-shadow:0 12px 30px rgba(58,42,48,.12);transition:transform .2s;position:relative;cursor:default}
 .galeria figure.r1{transform:rotate(-2deg)}.galeria figure.r2{transform:rotate(1.5deg)}.galeria figure.r3{transform:rotate(-1deg)}
 .galeria figure:hover{transform:rotate(0) scale(1.02)}
 .galeria img{width:100%;height:auto;background:var(--blush);filter:saturate(.94) contrast(1.02)}
@@ -131,7 +131,7 @@ section.bloco+section.bloco{border-top:1px solid var(--line)}
   .galeria img.ok,.polaroid img.ok{opacity:1}
 }
 
-.galeria.resumida > *:nth-child(n+10){display:none}
+.galeria figure.oculta{display:none}
 
 /* programação */
 .noite{list-style:none;padding:0;margin:0;max-width:40em}
@@ -236,8 +236,8 @@ footer .estrela{color:var(--gold)}
   .capa .txt .eyebrow{white-space:normal}
   .capa::before{font-size:200px;right:0;top:auto;bottom:40%}
   .duas{grid-template-columns:1fr;gap:28px}
-  .galeria{columns:2;column-gap:16px}
-  .galeria figure{padding:8px 8px 26px;margin-bottom:22px}
+  .galeria{gap:22px 16px}
+  .galeria figure{padding:8px 8px 26px}
   .galeria figcaption{bottom:5px;font-size:12px;left:8px;right:8px}
   .lista{columns:1}
   form.f .linha{grid-template-columns:1fr}

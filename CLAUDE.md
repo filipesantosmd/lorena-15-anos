@@ -66,6 +66,9 @@ and never reply to her from Filipe's mailbox without his word.
   folder "15 anos" (id 1fbg23_QBdcSs5RxB5EDcs8fVB1umtIbP, shared with Filipe;
   files download publicly via drive.usercontent.google.com/download?id=ID).
   `assets/fotos/` holds web-sized copies only (max 1400px, JPEG q82), made with
-  `tools/fotos.py`. Never commit originals. Gallery order is chronological:
-  childhood first. Two watermarked screenshots in the folder (IMG_2374.PNG,
-  IMG_2463.PNG) are skipped because better versions of the same photos exist.
+  `tools/fotos.py`. Never commit originals. Each `fotos[]` entry in
+  `index-config.js` carries the file's `w` and `h`: the gallery lays out rows
+  of three (two on phones) scaled to the full width, in order, no cropping. Gallery order is chronological:
+  childhood first. IMG_2374.PNG (watermarked screenshot) is skipped;
+  IMG_2463.PNG became photo 03 after cropping its black bars and app button
+  (Lorena, 2026-11-12). Cover is ca2321fd; the old cover is photo 10.

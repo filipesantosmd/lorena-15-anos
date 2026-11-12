@@ -40,17 +40,18 @@ window.CONFIG = {
   receberFotos: true,        // seção "Suas fotos": envio direto para o Drive da família
   pastaFotosUrl: "https://drive.google.com/drive/folders/1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt", // pasta das fotos dos convidados
 
-  // Galeria: ordem cronológica. ano e legenda vazios = sem capítulos e sem legenda.
+  // Galeria: ordem cronológica. w e h = tamanho do arquivo (tools/fotos.py imprime);
+  // ano e legenda vazios = sem capítulos e sem legenda.
   fotos: [
-    { src: "01", ano: "", legenda: "" }, { src: "02", ano: "", legenda: "" }, { src: "03", ano: "", legenda: "" },
-    { src: "04", ano: "", legenda: "" }, { src: "05", ano: "", legenda: "" }, { src: "06", ano: "", legenda: "" },
-    { src: "07", ano: "", legenda: "" }, { src: "08", ano: "", legenda: "" }, { src: "09", ano: "", legenda: "" },
-    { src: "10", ano: "", legenda: "" }, { src: "11", ano: "", legenda: "" }, { src: "12", ano: "", legenda: "" },
-    { src: "13", ano: "", legenda: "" }, { src: "14", ano: "", legenda: "" }, { src: "15", ano: "", legenda: "" },
-    { src: "16", ano: "", legenda: "" }, { src: "17", ano: "", legenda: "" }, { src: "18", ano: "", legenda: "" },
-    { src: "19", ano: "", legenda: "" }, { src: "20", ano: "", legenda: "" }, { src: "21", ano: "", legenda: "" },
-    { src: "22", ano: "", legenda: "" }, { src: "23", ano: "", legenda: "" }, { src: "24", ano: "", legenda: "" },
-    { src: "25", ano: "", legenda: "" }, { src: "26", ano: "", legenda: "" }, { src: "27", ano: "", legenda: "" }
+    { src: "01", w: 783, h: 1313, ano: "", legenda: "" }, { src: "02", w: 787, h: 1400, ano: "", legenda: "" }, { src: "03", w: 993, h: 1400, ano: "", legenda: "" },
+    { src: "04", w: 1081, h: 899, ano: "", legenda: "" }, { src: "05", w: 787, h: 1400, ano: "", legenda: "" }, { src: "06", w: 787, h: 1400, ano: "", legenda: "" },
+    { src: "07", w: 1400, h: 1051, ano: "", legenda: "" }, { src: "08", w: 1154, h: 956, ano: "", legenda: "" }, { src: "09", w: 939, h: 1302, ano: "", legenda: "" },
+    { src: "10", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "11", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "12", w: 1050, h: 1400, ano: "", legenda: "" },
+    { src: "13", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "14", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "15", w: 1050, h: 1400, ano: "", legenda: "" },
+    { src: "16", w: 1280, h: 960, ano: "", legenda: "" }, { src: "17", w: 1400, h: 933, ano: "", legenda: "" }, { src: "18", w: 1050, h: 1400, ano: "", legenda: "" },
+    { src: "19", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "20", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "21", w: 828, h: 1202, ano: "", legenda: "" },
+    { src: "22", w: 1400, h: 933, ano: "", legenda: "" }, { src: "23", w: 1400, h: 933, ano: "", legenda: "" }, { src: "24", w: 1400, h: 1050, ano: "", legenda: "" },
+    { src: "25", w: 1400, h: 933, ano: "", legenda: "" }, { src: "26", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "27", w: 1400, h: 933, ano: "", legenda: "" }
   ],
   capaAtras: "01",           // a foto pequena atrás da capa ("" = só a capa)
   fotosFesta: [],            // depois da festa: [{ src: "f01", legenda: "" }]

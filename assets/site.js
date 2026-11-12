@@ -77,12 +77,25 @@
     else window.prompt("Copie o endereço:", t);
   });
 
-  /* Galeria com capítulos e legendas (da configuração). */
+  /* Galeria: linhas de 3 (2 no celular), cada linha ocupa a largura toda, fotos no formato original, ordem preservada. */
   function figura(f, pasta, i) {
     var src = "assets/fotos/" + (pasta || "") + f.src + ".jpg", sm = "assets/fotos/" + (pasta || "") + "sm/" + f.src + ".jpg";
     var leg = f.legenda ? "<figcaption>" + esc(f.legenda) + "</figcaption>" : "";
     var alt = f.legenda ? "Lorena: " + f.legenda : "Lorena, foto " + (i + 1);
-    return "<figure class=\"r" + (i % 3 + 1) + "\" data-w=\"\"><img src=\"" + src + "\" srcset=\"" + sm + " 480w, " + src + " 1400w\" sizes=\"(max-width:820px) 45vw, 30vw\" alt=\"" + esc(alt) + "\" loading=\"lazy\" decoding=\"async\">" + leg + "</figure>";
+    var dims = f.w && f.h ? " width=\"" + f.w + "\" height=\"" + f.h + "\"" : "";
+    return "<figure class=\"r" + (i % 3 + 1) + "\" data-a=\"" + ((f.w && f.h) ? (f.w / f.h) : 0.8) + "\"><img src=\"" + src + "\" srcset=\"" + sm + " 480w, " + src + " 1400w\" sizes=\"(max-width:820px) 45vw, 30vw\" alt=\"" + esc(alt) + "\" loading=\"lazy\" decoding=\"async\"" + dims + ">" + leg + "</figure>";
+  }
+  function arrumaGaleria(el) {
+    var cols = window.innerWidth <= 820 ? 2 : 3, gap = cols === 3 ? 24 : 16, pad = cols === 3 ? 20 : 16;
+    var W = el.clientWidth, figs = $$("#" + el.id + " figure").filter(function (f) { return !f.classList.contains("oculta"); });
+    var hAnt = 0;
+    for (var i = 0; i < figs.length; i += cols) {
+      var linha = figs.slice(i, i + cols), soma = 0;
+      linha.forEach(function (f) { soma += parseFloat(f.dataset.a) || 0.8; });
+      var h = (W - gap * (linha.length - 1) - pad * linha.length) / soma;
+      if (linha.length < cols && hAnt && h > hAnt * 1.6) h = hAnt; else hAnt = h; /* linha incompleta: estica se não ficar gigante */
+      linha.forEach(function (f) { f.style.width = Math.floor((parseFloat(f.dataset.a) || 0.8) * h + pad) + "px"; });
+    }
   }
   function montaGaleria(el, lista, pasta) {
     var html = "", ano = "";
@@ -92,19 +105,25 @@
     });
     el.innerHTML = html;
     el.querySelectorAll("img").forEach(function (img) {
-      var ok = function () { img.classList.add("ok"); if (img.naturalWidth > img.naturalHeight) img.parentNode.classList.add("wide"); };
+      var ok = function () { img.classList.add("ok"); };
       if (img.complete && img.naturalWidth) ok(); else img.addEventListener("load", ok, { once: true });
       img.addEventListener("error", function () { img.classList.add("ok"); });
     });
+    arrumaGaleria(el);
   }
+  var galerias = [];
   if (C.fotos && C.fotos.length) {
-    montaGaleria($("#galeria"), C.fotos, "");
-    if (C.fotos.length > 9) {
-      var g = $("#galeria"), vt = $("#ver-todas"); g.classList.add("resumida"); vt.hidden = false; vt.textContent = "Ver todas as " + C.fotos.length + " fotos";
-      vt.addEventListener("click", function () { g.classList.remove("resumida"); vt.hidden = true; });
+    var g = $("#galeria"); montaGaleria(g, C.fotos, ""); galerias.push(g);
+    var limite = window.innerWidth <= 820 ? 8 : 9;
+    if (C.fotos.length > limite) {
+      var vt = $("#ver-todas"); $$("#galeria figure").slice(limite).forEach(function (f) { f.classList.add("oculta"); });
+      vt.hidden = false; vt.textContent = "Ver todas as " + C.fotos.length + " fotos";
+      vt.addEventListener("click", function () { $$("#galeria figure.oculta").forEach(function (f) { f.classList.remove("oculta"); }); vt.hidden = true; arrumaGaleria(g); });
     }
   }
-  if (passou && C.fotosFesta && C.fotosFesta.length) { $("#festa").hidden = false; montaGaleria($("#galeria-festa"), C.fotosFesta, "festa/"); }
+  if (passou && C.fotosFesta && C.fotosFesta.length) { $("#festa").hidden = false; var gf = $("#galeria-festa"); montaGaleria(gf, C.fotosFesta, "festa/"); galerias.push(gf); }
+  var tResize; window.addEventListener("resize", function () { clearTimeout(tResize); tResize = setTimeout(function () { galerias.forEach(arrumaGaleria); }, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { galerias.forEach(arrumaGaleria); });
   if (C.capaAtras) { var ca = $("#capa-atras"); ca.hidden = false; ca.querySelector("img").src = "assets/fotos/sm/" + C.capaAtras + ".jpg"; ca.querySelector("img").alt = "Lorena pequena"; $("#capa-atras-leg").textContent = "de lá"; }
   $$(".polaroid img").forEach(function (img) { var ok = function () { img.classList.add("ok"); }; if (img.complete && img.naturalWidth) ok(); else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ok, { once: true }); } });
 
