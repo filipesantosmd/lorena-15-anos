@@ -40,14 +40,23 @@ def selo(d, cx, cy, r, f):
     texto_centrado(d, (cx, cy - r * 0.55), '✦', f, GOLD)
 
 def og():
+    # Prévia do WhatsApp com a foto de capa (pedido da família, 2026-11-12).
     im = Image.new('RGB', (1200, 630), BG); d = ImageDraw.Draw(im)
     d.rectangle((0, 0, 1200, 14), fill=ROSE_DEEP)
-    selo(d, 600, 118, 48, fonte('italiana', 56))
-    texto_centrado(d, (600, 190), 'OS QUINZE ANOS DE', fonte('jost', 20), ROSE_DEEP, esp=5)
-    texto_centrado(d, (600, 222), 'LORENA', fonte('italiana', 210), INK, esp=12)
-    texto_centrado(d, (600, 452), 'Sábado, 13 de fevereiro de 2027 · 19h30', fonte('jost', 30), INK)
-    texto_centrado(d, (600, 496), 'Casa Quintal · São Paulo', fonte('bodoni', 34), ROSE_DEEP)
-    texto_centrado(d, (600, 570), 'TOQUE PARA ABRIR O CONVITE', fonte('jost', 18), MUTED, esp=4)
+    foto = ImageOps.exif_transpose(Image.open(os.path.join(A, 'fotos', 'capa.jpg'))).convert('RGB')
+    fw, fh = 380, 475
+    foto = ImageOps.fit(foto, (fw, fh), Image.LANCZOS, centering=(0.5, 0.3))
+    # polaroid: moldura branca, leve inclinação
+    pol = Image.new('RGB', (fw + 28, fh + 70), PAPER); pol.paste(foto, (14, 14))
+    pd = ImageDraw.Draw(pol); texto_centrado(pd, ((fw + 28) / 2, fh + 26), '13 · 02 · 2027', fonte('italiana', 22), GOLD, esp=3)
+    pol = pol.rotate(3, expand=True, fillcolor=BG, resample=Image.BICUBIC)
+    sombra = Image.new('RGB', pol.size, (236, 216, 219)); im.paste(sombra, (60, 62)); im.paste(pol, (52, 52))
+    cx = 790
+    texto_centrado(d, (cx, 150), 'OS QUINZE ANOS DE', fonte('jost', 20), ROSE_DEEP, esp=5)
+    texto_centrado(d, (cx, 182), 'LORENA', fonte('italiana', 150), INK, esp=10)
+    texto_centrado(d, (cx, 352), 'Sábado, 13 de fevereiro de 2027', fonte('jost', 28), INK)
+    texto_centrado(d, (cx, 392), '19h30 · Casa Quintal · São Paulo', fonte('bodoni', 30), ROSE_DEEP)
+    texto_centrado(d, (cx, 470), 'TOQUE PARA ABRIR O CONVITE', fonte('jost', 17), MUTED, esp=4)
     im.save(os.path.join(A, 'og.jpg'), 'JPEG', quality=86, optimize=True); print('og.jpg')
 
 def icones():
@@ -99,4 +108,5 @@ def fotos():
 if __name__ == '__main__':
     alvo = sys.argv[1] if len(sys.argv) > 1 else 'tudo'
     if alvo in ('tudo', 'fotos'): fotos()
+    if alvo == 'og': og()
     if alvo == 'tudo': og(); icones(); story(); ics()
