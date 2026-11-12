@@ -84,7 +84,7 @@ footer .credito a{color:var(--muted)}
 
 /* fatos */
 .fatos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding-block:8px 40px}
-.fatos div{background:var(--paper);border:1px solid var(--line);padding:18px 20px;font-size:var(--lead);line-height:1.45}
+.fatos>div:not(.acoes){background:var(--paper);border:1px solid var(--line);padding:18px 20px;font-size:var(--lead);line-height:1.45}
 .fatos div b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:6px}
 .fatos div small{display:block;color:var(--muted);font-size:15px;margin-top:4px}
 .fatos .acoes{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
@@ -119,14 +119,12 @@ section.bloco+section.bloco{border-top:1px solid var(--line)}
 .recado-lorena small{display:block;font-family:var(--body);font-style:normal;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:10px}
 
 /* galeria */
-.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px;grid-auto-flow:dense}
-.galeria .ano{grid-column:1/-1;font-size:clamp(56px,9vw,120px);color:transparent;-webkit-text-stroke:1px var(--rose);letter-spacing:.08em;margin:24px 0 -8px;text-align:right}
-.galeria figure{margin:0;background:#fff;padding:10px 10px 34px;box-shadow:0 12px 30px rgba(58,42,48,.12);transition:transform .2s;position:relative;cursor:default}
+.galeria{columns:3;column-gap:24px}
+.galeria .ano{column-span:all;font-size:clamp(56px,9vw,120px);color:transparent;-webkit-text-stroke:1px var(--rose);letter-spacing:.08em;margin:24px 0 -8px;text-align:right}
+.galeria figure{margin:0 0 28px;display:block;break-inside:avoid;background:#fff;padding:10px 10px 34px;box-shadow:0 12px 30px rgba(58,42,48,.12);transition:transform .2s;position:relative;cursor:default}
 .galeria figure.r1{transform:rotate(-2deg)}.galeria figure.r2{transform:rotate(1.5deg)}.galeria figure.r3{transform:rotate(-1deg)}
 .galeria figure:hover{transform:rotate(0) scale(1.02)}
-.galeria figure.wide{grid-column:span 2}
-.galeria figure.wide img{aspect-ratio:3/2}
-.galeria img{aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;width:100%;background:var(--blush);filter:saturate(.94) contrast(1.02)}
+.galeria img{width:100%;height:auto;background:var(--blush);filter:saturate(.94) contrast(1.02)}
 .galeria figcaption{position:absolute;left:10px;right:10px;bottom:9px;font-family:var(--italic);font-style:italic;font-size:14px;color:var(--muted);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (prefers-reduced-motion:no-preference){
   .galeria img,.polaroid img{opacity:0;transition:opacity .5s ease}
@@ -238,8 +236,8 @@ footer .estrela{color:var(--gold)}
   .capa .txt .eyebrow{white-space:normal}
   .capa::before{font-size:200px;right:0;top:auto;bottom:40%}
   .duas{grid-template-columns:1fr;gap:28px}
-  .galeria{grid-template-columns:repeat(2,1fr);gap:22px 16px}
-  .galeria figure{padding:8px 8px 26px}
+  .galeria{columns:2;column-gap:16px}
+  .galeria figure{padding:8px 8px 26px;margin-bottom:22px}
   .galeria figcaption{bottom:5px;font-size:12px;left:8px;right:8px}
   .lista{columns:1}
   form.f .linha{grid-template-columns:1fr}
