@@ -88,6 +88,15 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
 - Legendas nas fotos: não. Programação: não (decisão do pai). Quiz: não.
 - Código de convite: não (Filipe, 2026-11-09). Capa: fica a atual.
 
+## Fotos (Lorena via Filipe, 2026-11-12)
+
+- Capa: ca2321fd (vestido marrom na rua). A antiga capa (IMG_9776, piscina com
+  blusa rosa) foi para a posição 10 da galeria, onde estava a nova capa.
+- IMG_2463 (piscina, print do app) entrou no lugar da foto 03, que era a mesma
+  foto em baixa resolução vinda do site antigo; barras pretas e botão do app
+  recortados.
+- IMG_3882 (palmeiras) já estava na galeria como foto 15.
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e
