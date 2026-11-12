@@ -47,7 +47,7 @@ window.CONFIG = {
     { src: "04", w: 1081, h: 899, ano: "", legenda: "" }, { src: "05", w: 787, h: 1400, ano: "", legenda: "" }, { src: "06", w: 787, h: 1400, ano: "", legenda: "" },
     { src: "07", w: 1400, h: 1051, ano: "", legenda: "" }, { src: "08", w: 1154, h: 956, ano: "", legenda: "" }, { src: "09", w: 939, h: 1302, ano: "", legenda: "" },
     { src: "10", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "11", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "12", w: 1050, h: 1400, ano: "", legenda: "" },
-    { src: "13", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "14", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "15", w: 1050, h: 1400, ano: "", legenda: "" },
+    { src: "13", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "15", w: 1050, h: 1400, ano: "", legenda: "" },
     { src: "16", w: 1280, h: 960, ano: "", legenda: "" }, { src: "17", w: 1400, h: 933, ano: "", legenda: "" }, { src: "18", w: 1050, h: 1400, ano: "", legenda: "" },
     { src: "19", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "20", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "21", w: 828, h: 1202, ano: "", legenda: "" },
     { src: "22", w: 1400, h: 933, ano: "", legenda: "" }, { src: "23", w: 1400, h: 933, ano: "", legenda: "" }, { src: "24", w: 1400, h: 1050, ano: "", legenda: "" },

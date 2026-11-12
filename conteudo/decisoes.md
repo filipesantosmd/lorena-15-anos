@@ -96,6 +96,7 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
   foto em baixa resolução vinda do site antigo; barras pretas e botão do app
   recortados.
 - IMG_3882 (palmeiras) já estava na galeria como foto 15.
+- Foto 14 (IMG_5298, quase igual à 13) removida a pedido da Lorena; ficam 26.
 
 ## Pendente
 
