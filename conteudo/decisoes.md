@@ -108,6 +108,9 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
 - Presentes: acrescentar cosméticos; chave Pix direto no site (558.774.478-74),
   decisão da mãe; mochila e papelaria não.
 - Capa: voltar para "Você está convidado para a festa de 15 anos da Lorena".
+- Estacionamento: "Estacionamento disponível nos arredores." (mãe, 2026-11-13).
+- Pix como item da lista de presentes, não como caixa à parte (Lorena).
+- Capa no celular: data abaixo da foto, sem o "15" em contorno (Lorena achou confuso).
 
 ## Pendente
 
