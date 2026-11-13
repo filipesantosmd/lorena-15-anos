@@ -162,6 +162,10 @@ section.bloco+section.bloco{border-top:1px solid var(--line)}
 .lista li{break-inside:avoid;padding:10px 0;border-bottom:1px solid var(--line)}
 .nota{background:var(--blush);border-radius:6px;padding:16px 20px;margin-top:24px;font-size:16px}
 
+.pix{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;background:var(--paper);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:5px;padding:16px 20px;margin-top:22px;font-size:17px}
+.pix b{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:.1em;text-transform:uppercase}
+.pix code{font-family:var(--body);font-size:19px;letter-spacing:.04em;color:var(--rose-deep);font-variant-numeric:tabular-nums}
+
 /* formulários: cartão de resposta */
 form.f{background:var(--paper);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:6px;padding:30px 28px;display:grid;gap:18px;position:relative}
 form.f::before{content:attr(data-titulo);font-family:var(--display);font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}

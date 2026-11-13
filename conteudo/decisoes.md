@@ -98,6 +98,17 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
 - IMG_3882 (palmeiras) já estava na galeria como foto 15.
 - Foto 14 (IMG_5298, quase igual à 13) removida a pedido da Lorena; ficam 26.
 
+## Pedidos da mãe da Lorena (via Lorena e Filipe, 2026-11-13)
+
+- "Para os pais": só "17h15 de Campinas e 18h de Jundiaí", sem Bonfim; sem
+  horário da volta; sem pergunta sobre remédio ou restrição alimentar. Ponto de
+  encontro em Campinas: Colégio Poliedro, Rua Dona Maria Umbelina Couto, 58,
+  Taquaral. Jundiaí: a definir. Contato do responsável: o mesmo WhatsApp da
+  confirmação, (19) 98117-4550. A opção do formulário virou "Igreja Campinas".
+- Presentes: acrescentar cosméticos; chave Pix direto no site (558.774.478-74),
+  decisão da mãe; mochila e papelaria não.
+- Capa: voltar para "Você está convidado para a festa de 15 anos da Lorena".
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e

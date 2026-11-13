@@ -52,6 +52,14 @@
   if (C.vindoDeFora) { $("#vindo").hidden = false; $("#vindo-txt").textContent = C.vindoDeFora; }
   if (C.paraOsPais) { $("#pais").hidden = false; $("#pais-txt").textContent = C.paraOsPais; }
   if (C.pixPorWhatsapp) $("#pix-nota").hidden = false;
+  if (C.pixChave) {
+    $("#pix-chave").hidden = false; $("#pix-valor").textContent = C.pixChave;
+    $("#pix-copiar").addEventListener("click", function () {
+      var b = $("#pix-copiar"), ok = function () { b.textContent = "Copiada!"; setTimeout(function () { b.textContent = "Copiar chave"; }, 2000); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(C.pixChave).then(ok, function () { window.prompt("Copie a chave Pix:", C.pixChave); });
+      else window.prompt("Copie a chave Pix:", C.pixChave);
+    });
+  }
   if (C.mensagem) { $("#recado-lorena").hidden = false; $("#recado-lorena-txt").textContent = C.mensagem; }
   if (C.hashtag) { $("#rodape-hash").hidden = false; $("#rodape-hash").textContent = "No dia, posta nos stories com " + C.hashtag + ". Melhor ainda: só pros Close Friends."; }
   $("#rodape-conta").innerHTML = passou ? "Foi inesquecível" : ehHoje ? "É hoje" : "<span>" + dias + "</span> " + (dias === 1 ? "dia" : "dias");

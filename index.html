@@ -22,8 +22,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261112d">
-<script src="index-config.js?v=20261112d"></script>
+<link rel="stylesheet" href="assets/site.css?v=20261113a">
+<script src="index-config.js?v=20261113a"></script>
 </head>
 <body class="sem-fontes">
 
@@ -59,7 +59,7 @@
     <div class="eyebrow"><span>Sábado · 13 de fevereiro de 2027</span> <span>· 19h30</span></div>
     <h1 tabindex="-1">Lorena</h1>
     <div class="sub">Quinze <span class="it">anos</span></div>
-    <p class="quando"><b>A Lorena e a família convidam você</b> para a festa dos seus 15 anos, na Casa Quintal, em São Paulo.</p>
+    <p class="quando"><b>Você está convidado</b> para a festa de 15 anos da Lorena, na Casa Quintal, em São Paulo.</p>
     <div class="acoes">
       <a class="btn solid" href="#confirmar">Confirmar presença</a>
       <a class="btn" href="#local">Como chegar</a>
@@ -135,7 +135,7 @@
   <div class="cab entra">
     <div class="eyebrow">Transporte</div>
     <h2>Ôni<span class="it">bus</span></h2>
-    <p>O ônibus é para os jovens que vêm sem os pais, para ninguém ficar de fora. São dois: um para o pessoal da igreja (Jundiaí e Bonfim, em Campinas) e outro para o pessoal da escola. O ponto de encontro a gente avisa depois pelo WhatsApp.</p>
+    <p>O ônibus é para os jovens que vêm sem os pais, para ninguém ficar de fora. São dois: um para o pessoal da igreja (Jundiaí e Campinas) e outro para o pessoal da escola.</p>
   </div>
   <div class="duas">
     <div>
@@ -158,7 +158,7 @@
           <select name="onibus" id="o-onibus" required>
             <option value="">Escolha</option>
             <option>Igreja Jundiaí</option>
-            <option>Igreja Bonfim (Campinas)</option>
+            <option>Igreja Campinas</option>
             <option>Escola</option>
           </select>
         </label>
@@ -183,6 +183,7 @@
   </div>
   <ul class="lista">
     <li>Perfume</li>
+    <li>Cosméticos</li>
     <li>Roupa de exercício</li>
     <li>Câmera fotográfica</li>
     <li>Coisas de artes</li>
@@ -192,7 +193,8 @@
     <li>Sandália</li>
     <li>Tênis</li>
   </ul>
-  <div class="nota">Tamanho de roupa: P ou 38. Calçados: 37.<span id="pix-nota" hidden> Se preferir presentear com Pix, peça a chave pelo WhatsApp da família. Presentes físicos podem ser entregues na festa: haverá uma mesa de presentes na entrada.</span></div>
+  <div class="nota">Tamanho de roupa: P ou 38. Calçados: 37. Presentes físicos podem ser entregues na festa: haverá uma mesa de presentes na entrada.<span id="pix-nota" hidden> Se preferir presentear com Pix, peça a chave pelo WhatsApp da família.</span></div>
+  <div class="pix" id="pix-chave" hidden><b>Pix</b><span>Chave: <code id="pix-valor"></code></span><button class="btn leve" type="button" id="pix-copiar">Copiar chave</button></div>
 </section>
 
 <section class="wrap bloco" id="confirmar">
@@ -223,7 +225,7 @@
             <select name="onibus" id="r-onibus">
               <option value="Não">Não, vou por conta própria</option>
               <option>Igreja Jundiaí</option>
-              <option>Igreja Bonfim (Campinas)</option>
+              <option>Igreja Campinas</option>
               <option>Escola</option>
             </select>
           </label>
@@ -323,6 +325,6 @@
   <a class="btn leve" href="#local">Como chegar</a>
 </div>
 
-<script src="assets/site.js?v=20261112d"></script>
+<script src="assets/site.js?v=20261113a"></script>
 </body>
 </html>

@@ -25,9 +25,10 @@ window.CONFIG = {
   traje: "Esporte fino",     // pai da Lorena, questionário de 2026-11-07
   trajeNota: "",             // ex.: "Vestido midi ou longo; camisa social, com ou sem blazer."
   programacao: [],           // ex.: [{ hora: "19h30", o: "Recepção" }, { hora: "21h", o: "Entrada da Lorena" }]
-  paraOsPais: "Saída prevista: 17h15 da escola, 17h15 de Campinas (Bonfim) e 18h de Jundiaí. O horário da volta, o ponto de encontro e o contato do adulto responsável por cada ônibus são enviados aos pais pelo WhatsApp. Se o seu filho ou filha tiver alguma necessidade (remédio, restrição alimentar), avise pelo WhatsApp.",
+  paraOsPais: "Saída prevista: 17h15 de Campinas e 18h de Jundiaí. Ponto de encontro em Campinas: Colégio Poliedro, Rua Dona Maria Umbelina Couto, 58, Taquaral. Ponto de encontro em Jundiaí: a definir. Contato do responsável por cada ônibus: o mesmo WhatsApp da confirmação de presença, (19) 98117-4550.",
   vindoDeFora: "A Casa Quintal não tem estacionamento: venha de Uber ou 99, que deixam na porta, ou estacione na rua.",
-  pixPorWhatsapp: true,      // chave só pelo WhatsApp, nunca no site; haverá mesa de presentes na festa
+  pixPorWhatsapp: false,     // a mãe preferiu a chave direto no site (2026-11-13)
+  pixChave: "558.774.478-74", // chave Pix mostrada na seção de presentes; "" = não mostra
   hashtag: "",               // Lorena não quer hashtag (2026-11-09)
   mensagem: "",              // recado da Lorena acima da galeria
   fraseSelo: "",             // sem selo "15" na abertura (Lorena, 2026-11-09); campo sem efeito

@@ -6,8 +6,8 @@ Extraído em 2026-11-04.
 ## Fatos confirmados por Filipe (2026-11-04)
 
 - Data: sábado, 13 de fevereiro de 2027, 19:30
-- Igreja: Bonfim é um bairro de Campinas. O ônibus da igreja atende Jundiaí e
-  Campinas (Bonfim); texto do site e formulário dizem a mesma coisa.
+- Igreja: o ônibus da igreja atende Jundiaí e Campinas (a mãe pediu para não
+  citar Bonfim, 2026-11-13).
 - Fotos em alta resolução: a Lorena vai mandar ao Filipe.
 
 ## Página inicial
