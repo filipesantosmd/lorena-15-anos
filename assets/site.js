@@ -174,7 +174,9 @@
   }
   ["#r-zap", "#r-resp", "#o-resp", "#o-conv"].forEach(function (s) { mascara($(s)); });
   function telOk(v) { var d = v.replace(/\D/g, ""); return d.length === 10 || d.length === 11; }
-  function linhas(t) { return String(t || "").split(/\n|,|;/).map(function (s) { return s.trim(); }).filter(Boolean); }
+  /* Separa nomes por linha, vírgula, ponto e vírgula, "e" ou "&": "Isadora, Lorena e Lilian" vira três. */
+  function linhas(t) { return String(t || "").split(/\n|,|;|&|\s+e\s+/i).map(function (s) { return s.trim(); }).filter(Boolean); }
+  function mesmoNome(a, b) { var k = function (s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, ""); }; return k(a) && k(a) === k(b); }
   function dados(form) { var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); }); return d; }
   function mostraErro(erro, msg, campo) { erro.innerHTML = msg; erro.style.display = "block"; if (campo) campo.focus(); }
   function limpaErro(erro) { erro.style.display = "none"; }
@@ -221,7 +223,13 @@
   fr.addEventListener("submit", function (e) {
     e.preventDefault(); if (!valida(fr, er)) return;
     var d = dados(fr), n = parseInt(d.pessoas, 10) || 1, nomes = linhas(d.acompanhantes);
-    if (n > 1 && nomes.length < n - 1) { mostraErro(er, "Você marcou " + n + " pessoas, então " + (n - 1 - nomes.length === 1 ? "falta 1 nome" : "faltam " + (n - 1 - nomes.length) + " nomes") + " além do seu.", acomp); return; }
+    /* Se a pessoa escreveu o próprio nome entre os acompanhantes, não conta duas vezes. */
+    if (nomes.length === n) nomes = nomes.filter(function (x) { return !mesmoNome(x, d.nome) && !mesmoNome(x, primeiroNome(d.nome)); });
+    if (n > 1 && nomes.length < n - 1) {
+      var faltam = n - 1 - nomes.length;
+      mostraErro(er, "Você marcou " + n + " pessoas, contando você. Entendi " + (nomes.length === 1 ? "1 nome" : nomes.length + " nomes") + (nomes.length ? " (" + esc(nomes.join(", ")) + ")" : "") + ", então " + (faltam === 1 ? "falta 1 nome" : "faltam " + faltam + " nomes") + ". Escreva um nome por linha.", acomp); return;
+    }
+    if (n > 1) acomp.value = nomes.join("\n");
     var temBus = d.onibus !== "Não", quemBus = temBus ? (n > 1 ? linhas(d.quemOnibus) : [d.nome]) : [];
     if (temBus && !quemBus.length) quemBus = [d.nome];
     var rsvp = { tipo: "rsvp", nome: d.nome, whatsapp: d.whatsapp, pessoas: d.pessoas, acompanhantes: nomes.join("\n"), onibus: d.onibus, musica: d.musica || "", recado: d.recado || "", site_url: d.site_url };
