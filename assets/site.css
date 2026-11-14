@@ -180,6 +180,15 @@ form.f .linha{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 form.f .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 form.f .rodape{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:6px}
 form.f .prazo{font-size:15px;color:var(--ink)}
+form.f .rotulo{font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500;display:grid;gap:4px}
+form.f .rotulo small{text-transform:none;letter-spacing:0;font-size:14px;font-weight:400}
+form.f .pessoas-lista{display:grid;gap:14px}
+form.f .pessoas-lista label{position:relative;padding-right:40px}
+form.f .pessoas-lista .rm{position:absolute;right:0;bottom:4px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--rose-deep);font:inherit;font-size:18px;line-height:1;cursor:pointer}
+form.f .pessoas-lista .rm:hover{background:var(--blush)}
+form.f .quem-lista{display:grid;gap:6px}
+form.f .quem-lista label{display:flex;gap:10px;align-items:center;text-transform:none;letter-spacing:0;font-size:16px;color:var(--ink);font-weight:400}
+form.f .quem-lista input{width:18px;height:18px;accent-color:var(--rose-deep);border:0;padding:0}
 form.f .desdobra{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
 form.f .desdobra>div{overflow:hidden;display:grid;gap:18px}
 form.f .desdobra.aberto{grid-template-rows:1fr}

@@ -209,29 +209,42 @@
 
   /* RSVP. */
   var fr = $("#form-rsvp"), okr = $("#ok-rsvp"), er = $("#erro-rsvp"), br = $("#r-botao"); br.dataset.rotulo = br.textContent;
-  var pessoas = $("#r-pessoas"), acompWrap = $("#r-acomp-wrap"), acomp = $("#r-acomp"), acompN = $("#r-acomp-n");
+  var pessoas = $("#r-pessoas"), acompWrap = $("#r-acomp-wrap"), listaP = $("#r-pessoas-lista"), maisBtn = $("#r-mais");
   var rOnibus = $("#r-onibus"), busExtra = $("#r-bus-extra"), rResp = $("#r-resp"), quemLabel = $("#r-quem-label"), quem = $("#r-quem");
+  var MAXP = 10;
+  function nomesAtuais() { return $$("#r-pessoas-lista input").map(function (i) { return i.value.trim(); }); }
+  function quemMarcados() { return $$("#r-quem input:checked").map(function (i) { return i.value; }); }
+  /* Um campo por acompanhante; o número segue o seletor "quantas pessoas". */
+  function renderPessoas(valores) {
+    var n = parseInt(pessoas.value, 10) || 1, atuais = valores || nomesAtuais(), html = "";
+    for (var i = 0; i < n - 1; i++) {
+      html += "<label>Pessoa " + (i + 2) + "<input type=\"text\" name=\"acomp" + (i + 2) + "\" id=\"r-acomp-" + (i + 2) + "\" required autocomplete=\"off\" placeholder=\"Nome completo\" value=\"" + esc(atuais[i] || "") + "\"><button type=\"button\" class=\"rm\" data-i=\"" + i + "\" aria-label=\"Tirar esta pessoa\" title=\"Tirar\">×</button></label>";
+    }
+    listaP.innerHTML = html;
+    $$("#r-pessoas-lista .rm").forEach(function (b) { b.addEventListener("click", function () { var v = nomesAtuais(); v.splice(+b.dataset.i, 1); pessoas.value = String(Math.max(1, n - 1)); renderPessoas(v); mostraAcomp(); }); });
+    $$("#r-pessoas-lista input").forEach(function (i) { i.addEventListener("input", mostraQuem); });
+    maisBtn.hidden = n >= MAXP;
+  }
+  maisBtn.addEventListener("click", function () { var n = parseInt(pessoas.value, 10) || 1; if (n >= MAXP) return; var v = nomesAtuais(); pessoas.value = String(n + 1); renderPessoas(v); mostraAcomp(); var ult = $$("#r-pessoas-lista input").pop(); if (ult) ult.focus(); });
   if (C.perguntarMusica) $("#r-musica-label").hidden = false;
   if (C.perguntarRecado) $("#r-recado-label").hidden = false;
   if (C.storyTemplate) $("#ok-rsvp-story").hidden = false;
-  function mostraAcomp() { var n = parseInt(pessoas.value, 10) || 1; acompWrap.classList.toggle("aberto", n > 1); acomp.required = n > 1; acompN.textContent = n > 1 ? "(" + (n - 1) + (n - 1 === 1 ? " nome)" : " nomes)") : ""; mostraQuem(); }
+  function mostraAcomp() { var n = parseInt(pessoas.value, 10) || 1; acompWrap.classList.toggle("aberto", n > 1); if ($$("#r-pessoas-lista input").length !== n - 1) renderPessoas(); mostraQuem(); }
   function mostraBus() { var on = rOnibus.value !== "Não"; busExtra.classList.toggle("aberto", on); rResp.required = on; mostraQuem(); }
-  var quemEditado = false; quem.addEventListener("input", function () { quemEditado = true; });
-  function mostraQuem() { var n = parseInt(pessoas.value, 10) || 1, on = rOnibus.value !== "Não" && n > 1; quemLabel.hidden = !on; if (on && !quemEditado) quem.value = [$("#r-nome").value.trim()].concat(linhas(acomp.value)).filter(Boolean).join("\n"); }
-  pessoas.addEventListener("change", mostraAcomp); rOnibus.addEventListener("change", mostraBus); acomp.addEventListener("input", mostraQuem); $("#r-nome").addEventListener("input", mostraQuem);
-  mostraAcomp(); mostraBus();
+  var quemDesmarcados = {}; /* quem a pessoa desmarcou, para manter ao redesenhar */
+  function mostraQuem() {
+    var n = parseInt(pessoas.value, 10) || 1, on = rOnibus.value !== "Não" && n > 1; quemLabel.hidden = !on; if (!on) return;
+    var todos = [$("#r-nome").value.trim() || "Você"].concat(nomesAtuais().map(function (x, i) { return x || "Pessoa " + (i + 2); }));
+    quem.innerHTML = todos.map(function (x, i) { return "<label><input type=\"checkbox\" value=\"" + esc(x) + "\" data-i=\"" + i + "\"" + (quemDesmarcados[i] ? "" : " checked") + "><span>" + esc(x) + "</span></label>"; }).join("");
+    $$("#r-quem input").forEach(function (c) { c.addEventListener("change", function () { quemDesmarcados[c.dataset.i] = !c.checked; }); });
+  }
+  pessoas.addEventListener("change", mostraAcomp); rOnibus.addEventListener("change", mostraBus); $("#r-nome").addEventListener("input", mostraQuem);
+  renderPessoas([]); mostraAcomp(); mostraBus();
   fr.addEventListener("submit", function (e) {
     e.preventDefault(); if (!valida(fr, er)) return;
-    var d = dados(fr), n = parseInt(d.pessoas, 10) || 1, nomes = linhas(d.acompanhantes);
-    /* Se a pessoa escreveu o próprio nome entre os acompanhantes, não conta duas vezes. */
-    if (nomes.length === n) nomes = nomes.filter(function (x) { return !mesmoNome(x, d.nome) && !mesmoNome(x, primeiroNome(d.nome)); });
-    if (n > 1 && nomes.length < n - 1) {
-      var faltam = n - 1 - nomes.length;
-      mostraErro(er, "Você marcou " + n + " pessoas, contando você. Entendi " + (nomes.length === 1 ? "1 nome" : nomes.length + " nomes") + (nomes.length ? " (" + esc(nomes.join(", ")) + ")" : "") + ", então " + (faltam === 1 ? "falta 1 nome" : "faltam " + faltam + " nomes") + ". Escreva um nome por linha.", acomp); return;
-    }
-    if (n > 1) acomp.value = nomes.join("\n");
-    var temBus = d.onibus !== "Não", quemBus = temBus ? (n > 1 ? linhas(d.quemOnibus) : [d.nome]) : [];
-    if (temBus && !quemBus.length) quemBus = [d.nome];
+    var d = dados(fr), n = parseInt(d.pessoas, 10) || 1, nomes = n > 1 ? nomesAtuais().filter(Boolean) : [];
+    var temBus = d.onibus !== "Não", quemBus = temBus ? (n > 1 ? quemMarcados() : [d.nome]) : [];
+    if (temBus && !quemBus.length) { mostraErro(er, "Marque pelo menos uma pessoa para o ônibus, ou escolha \"Não, vou por conta própria\".", rOnibus); return; }
     var rsvp = { tipo: "rsvp", nome: d.nome, whatsapp: d.whatsapp, pessoas: d.pessoas, acompanhantes: nomes.join("\n"), onibus: d.onibus, musica: d.musica || "", recado: d.recado || "", site_url: d.site_url };
     var lista = [rsvp].concat(quemBus.map(function (q) { return { tipo: "onibus", nome: q, contatoResp: d.contatoResp, contatoConv: d.whatsapp, onibus: d.onibus, confirmadoPor: d.nome }; }));
     var fallback = ["Confirmei! Eu vou nos 15 da Lorena 💗", "Nome: " + d.nome, n > 1 ? "Vamos em " + n + ": " + [d.nome].concat(nomes).join(", ") : "", temBus ? "Ônibus: " + d.onibus + " (" + quemBus.join(", ") + "; responsáveis: " + d.contatoResp + ")" : "", d.musica ? "Música: " + d.musica : ""].filter(Boolean).join("\n");
@@ -261,8 +274,11 @@
   /* Memória deste aparelho. */
   var jr = lembrado("lorena15-rsvp");
   function preencheRsvp(d) {
-    $("#r-nome").value = d.nome || ""; $("#r-zap").value = d.whatsapp || ""; pessoas.value = d.pessoas || "1"; acomp.value = d.acompanhantes || "";
-    rOnibus.value = d.onibus || "Não"; rResp.value = d.contatoResp || ""; quem.value = d.quemOnibus || ""; $("#r-musica").value = d.musica || ""; $("#r-recado").value = d.recado || "";
+    $("#r-nome").value = d.nome || ""; $("#r-zap").value = d.whatsapp || ""; pessoas.value = d.pessoas || "1";
+    renderPessoas(String(d.acompanhantes || "").split("\n").filter(Boolean));
+    rOnibus.value = d.onibus || "Não"; rResp.value = d.contatoResp || ""; $("#r-musica").value = d.musica || ""; $("#r-recado").value = d.recado || "";
+    quemDesmarcados = {};
+    if (d.quemOnibus) { var marc = String(d.quemOnibus).split("\n"); [d.nome].concat(String(d.acompanhantes || "").split("\n")).forEach(function (x, i) { if (x && marc.indexOf(x) < 0) quemDesmarcados[i] = true; }); }
     mostraAcomp(); mostraBus();
   }
   if (jr && jr.d) {

@@ -22,8 +22,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261114a">
-<script src="index-config.js?v=20261114a"></script>
+<link rel="stylesheet" href="assets/site.css?v=20261114b">
+<script src="index-config.js?v=20261114b"></script>
 </head>
 <body class="sem-fontes">
 
@@ -219,7 +219,7 @@
         <div class="linha">
           <label>Quantas pessoas vêm, contando você
             <select name="pessoas" id="r-pessoas" required>
-              <option value="1">Só eu</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas</option><option value="5">5 pessoas</option><option value="6">6 pessoas</option>
+              <option value="1">Só eu</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas</option><option value="5">5 pessoas</option><option value="6">6 pessoas</option><option value="7">7 pessoas</option><option value="8">8 pessoas</option><option value="9">9 pessoas</option><option value="10">10 pessoas</option>
             </select>
           </label>
           <label>Vai no ônibus dos jovens?<small>Só para quem vem sem os pais.</small>
@@ -232,12 +232,14 @@
           </label>
         </div>
         <div class="desdobra" id="r-acomp-wrap"><div>
-          <label id="r-acomp-label">Quem vem com você? <span id="r-acomp-n"></span><small>Um nome por linha.</small><textarea name="acompanhantes" id="r-acomp"></textarea></label>
+          <div class="rotulo">Quem vem com você?<small>O nome de cada pessoa, para a lista do buffet.</small></div>
+          <div class="pessoas-lista" id="r-pessoas-lista"></div>
+          <div><button type="button" class="btn leve" id="r-mais">+ Adicionar pessoa</button></div>
         </div></div>
         <div class="desdobra" id="r-bus-extra"><div>
           <p class="aviso" style="margin:0">Ônibus só para jovens que vão sem os pais. Com isto o lugar já fica pedido.</p>
           <label>Contato dos responsáveis (WhatsApp)<input type="tel" name="contatoResp" id="r-resp" inputmode="tel" placeholder="(19) 9xxxx-xxxx"></label>
-          <label id="r-quem-label" hidden>Quem vai no ônibus?<small>Um nome por linha.</small><textarea name="quemOnibus" id="r-quem"></textarea></label>
+          <div id="r-quem-label" hidden><div class="rotulo">Quem vai no ônibus?<small>Desmarque quem vai por conta própria.</small></div><div class="quem-lista" id="r-quem"></div></div>
         </div></div>
         <label id="r-musica-label" hidden>Uma música que não pode faltar<small>Opcional. O DJ vai saber.</small><input type="text" name="musica" id="r-musica" placeholder="Nome da música e artista"></label>
         <label id="r-recado-label" hidden>Deixa um recado pra Lorena<small>Opcional. Pode ser uma lembrança, um desejo ou uma piada interna.</small><textarea name="recado" id="r-recado"></textarea></label>
@@ -326,6 +328,6 @@
   <a class="btn leve" href="#local">Como chegar</a>
 </div>
 
-<script src="assets/site.js?v=20261114a"></script>
+<script src="assets/site.js?v=20261114b"></script>
 </body>
 </html>
