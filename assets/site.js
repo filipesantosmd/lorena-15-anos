@@ -50,6 +50,13 @@
   if (C.fimFesta) { var f = new Date(C.fimFesta); $("#fato-hora").textContent = "Das 19h30 às " + f.getHours() + "h" + (f.getMinutes() ? String(f.getMinutes()).padStart(2, "0") : ""); }
   if (C.traje) { $("#fato-traje").hidden = false; $("#fato-traje-txt").textContent = C.traje; $("#fato-traje-nota").textContent = C.trajeNota || ""; }
   if (C.vindoDeFora) { $("#vindo").hidden = false; $("#vindo-txt").textContent = C.vindoDeFora; }
+  if (C.hospedagem && C.hospedagem.length) {
+    $("#hospedagem").hidden = false;
+    $("#hospedagem-lista").innerHTML = C.hospedagem.map(function (h) {
+      var q = encodeURIComponent(h.nome + ", " + h.endereco + ", São Paulo");
+      return "<li><div><span class=\"cat\">" + esc(h.categoria) + "</span><strong>" + esc(h.nome) + "</strong><small>" + esc(h.endereco) + " · uns " + esc(h.min) + " min a pé</small></div><a href=\"https://www.google.com/maps/search/?api=1&query=" + q + "\" target=\"_blank\" rel=\"noopener\">Mapa</a></li>";
+    }).join("");
+  }
   if (C.paraOsPais) { $("#pais").hidden = false; $("#pais-txt").textContent = C.paraOsPais; }
   if (C.pixPorWhatsapp) $("#pix-nota").hidden = false;
   if (C.pixChave) {

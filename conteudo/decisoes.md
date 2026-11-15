@@ -112,6 +112,14 @@ fotos dos convidados vão para a pasta 1P4C0AD3an4C7x4LhyApF6Y4UApuXAxbt
 - Pix como item da lista de presentes, não como caixa à parte (Lorena).
 - Capa no celular: data abaixo da foto, sem o "15" em contorno (Lorena achou confuso).
 
+## Hospedagem (pai da Lorena, 2026-11-15)
+
+Quatro hotéis a poucos minutos a pé da Casa Quintal, na seção do local, com
+categoria, endereço, minutos a pé e link do mapa: ibis Budget Paulista
+(R. da Consolação, 2303), Vila Galé Paulista (R. Bela Cintra, 952), ibis
+Paulista (Av. Paulista, 2355), Meliá Paulista (Av. Paulista, 2181). Endereços
+conferidos (existem e ficam a 300-700 m em linha reta).
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e

@@ -27,6 +27,13 @@ window.CONFIG = {
   programacao: [],           // ex.: [{ hora: "19h30", o: "Recepção" }, { hora: "21h", o: "Entrada da Lorena" }]
   paraOsPais: "Saída prevista: 17h15 de Campinas e 18h de Jundiaí. Ponto de encontro em Campinas: Colégio Poliedro, Rua Dona Maria Umbelina Couto, 58, Taquaral. Ponto de encontro em Jundiaí: a definir. Contato do responsável por cada ônibus: o mesmo WhatsApp da confirmação de presença, (19) 98117-4550.",
   vindoDeFora: "Estacionamento disponível nos arredores.",
+  // Dicas de hospedagem (pai da Lorena, 2026-11-15). min = minutos a pé até a Casa Quintal. Vazio = não aparece.
+  hospedagem: [
+    { nome: "ibis Budget São Paulo Paulista", endereco: "R. da Consolação, 2303", categoria: "Econômico", min: 6 },
+    { nome: "Vila Galé Paulista", endereco: "R. Bela Cintra, 952", categoria: "Superior", min: 8 },
+    { nome: "ibis São Paulo Paulista", endereco: "Av. Paulista, 2355", categoria: "Intermediário", min: 10 },
+    { nome: "Meliá Paulista", endereco: "Av. Paulista, 2181", categoria: "Luxo", min: 12 }
+  ],
   pixPorWhatsapp: false,     // a mãe preferiu a chave direto no site (2026-11-13)
   pixChave: "558.774.478-74", // chave Pix mostrada na seção de presentes; "" = não mostra
   hashtag: "",               // Lorena não quer hashtag (2026-11-09)
