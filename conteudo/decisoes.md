@@ -120,6 +120,13 @@ categoria, endereço, minutos a pé e link do mapa: ibis Budget Paulista
 Paulista (Av. Paulista, 2355), Meliá Paulista (Av. Paulista, 2181). Endereços
 conferidos (existem e ficam a 300-700 m em linha reta).
 
+## Foto nova (Lorena por WhatsApp, 2026-11-17)
+
+Foto com a mãe entre hortênsias (vestido rosa e saia azul) entrou como foto 28,
+no fim da galeria ("só junto com as outras", sem lugar especial). Veio pelo
+WhatsApp em 960x1280; se ela mandar o original pelo Drive, refazer com
+`tools/fotos.py`.
+
 ## Pendente
 
 - (feito 2026-11-06) WhatsApp do "oi" e das dúvidas: (19) 99926-4551, e

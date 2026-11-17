@@ -59,7 +59,8 @@ window.CONFIG = {
     { src: "16", w: 1280, h: 960, ano: "", legenda: "" }, { src: "17", w: 1400, h: 933, ano: "", legenda: "" }, { src: "18", w: 1050, h: 1400, ano: "", legenda: "" },
     { src: "19", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "20", w: 1050, h: 1400, ano: "", legenda: "" }, { src: "21", w: 828, h: 1202, ano: "", legenda: "" },
     { src: "22", w: 1400, h: 933, ano: "", legenda: "" }, { src: "23", w: 1400, h: 933, ano: "", legenda: "" }, { src: "24", w: 1400, h: 1050, ano: "", legenda: "" },
-    { src: "25", w: 1400, h: 933, ano: "", legenda: "" }, { src: "26", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "27", w: 1400, h: 933, ano: "", legenda: "" }
+    { src: "25", w: 1400, h: 933, ano: "", legenda: "" }, { src: "26", w: 1400, h: 1050, ano: "", legenda: "" }, { src: "27", w: 1400, h: 933, ano: "", legenda: "" },
+    { src: "28", w: 960, h: 1280, ano: "", legenda: "" }
   ],
   capaAtras: "01",           // a foto pequena atrás da capa ("" = só a capa)
   fotosFesta: [],            // depois da festa: [{ src: "f01", legenda: "" }]

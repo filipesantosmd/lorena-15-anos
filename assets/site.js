@@ -108,7 +108,7 @@
       var linha = figs.slice(i, i + cols), soma = 0;
       linha.forEach(function (f) { soma += parseFloat(f.dataset.a) || 0.8; });
       var h = (W - gap * (linha.length - 1) - pad * linha.length) / soma;
-      if (linha.length < cols && hAnt && h > hAnt * 1.6) h = hAnt; else hAnt = h; /* linha incompleta: estica se não ficar gigante */
+      if (linha.length < cols && hAnt && h > hAnt * 1.6) h = hAnt * 1.6; else hAnt = h; /* linha incompleta: estica até 1,6x a altura da anterior */
       linha.forEach(function (f) { f.style.width = Math.floor((parseFloat(f.dataset.a) || 0.8) * h + pad) + "px"; });
     }
   }
